@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>UUID 생성기 - Gadget Box</title>
+    <meta name="description" content="브라우저에서 UUID v4 값을 생성하고 복사하는 간단한 도구입니다.">
+    <link rel="stylesheet" href="../../../assets/css/styles.css">
+    <script defer src="./tool.js"></script>
+    <script defer src="../../../assets/js/i18n.js"></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="../../../">Gadget Box</a>
+      <nav class="nav" aria-label="주요 메뉴">
+        <a href="../../text/">텍스트</a>
+        <a href="../../developer/">개발자</a>
+        <a href="../">생성기</a>
+      </nav>
+    </header>
+    <main>
+      <nav class="breadcrumb" aria-label="경로"><a href="../../../">홈</a><span>/</span><a href="../">생성기</a><span>/</span><span>UUID 생성기</span></nav>
+      <section class="section">
+        <div class="section-heading">
+          <h1>UUID 생성기</h1>
+          <p>UUID는 브라우저의 crypto API로 생성됩니다.</p>
+        </div>
+        <div class="tool-shell">
+          <output id="uuid-output" class="result-panel"></output>
+          <div class="tool-actions">
+            <button class="button" id="generate" type="button">새 UUID</button>
+            <button class="button secondary" id="sample" type="button">테스트 예문</button>
+            <button class="button secondary" id="copy" type="button">복사</button>
+          </div>
+        </div>
+      </section>
+      <aside class="ad-slot" aria-label="광고 영역"><span>Advertisement</span></aside>
+    </main>
+    <footer class="site-footer"><a href="../../../privacy.html">개인정보처리방침</a><span>All tools run in your browser.</span></footer>
+  </body>
+</html>

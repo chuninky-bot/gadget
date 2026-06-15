@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>XML 포맷터 - Gadget Box</title>
+    <meta name="description" content="XML을 정리하고 누락된 닫는 태그와 속성 따옴표를 가능한 범위에서 자동 복구합니다.">
+    <link rel="stylesheet" href="../../../assets/css/styles.css">
+    <script defer src="../../../assets/js/format-utils.js"></script>
+    <script defer src="./tool.js"></script>
+    <script defer src="../../../assets/js/i18n.js"></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="../../../">Gadget Box</a>
+      <nav class="nav" aria-label="주요 메뉴">
+        <a href="../../text/">텍스트</a>
+        <a href="../">개발자</a>
+        <a href="../../generator/">생성기</a>
+      </nav>
+    </header>
+    <main>
+      <nav class="breadcrumb" aria-label="경로"><a href="../../../">홈</a><span>/</span><a href="../">개발자</a><span>/</span><span>XML 포맷터</span></nav>
+      <section class="section">
+        <div class="section-heading">
+          <h1>XML 포맷터</h1>
+          <p>XML을 정리하고 누락된 닫는 태그와 속성 따옴표를 가능한 범위에서 자동 복구합니다.</p>
+        </div>
+        <div class="tool-shell">
+          <textarea id="xml-input" class="tool-textarea" placeholder='&lt;note&gt;&lt;to&gt;User&lt;/to&gt;&lt;message&gt;Hello'></textarea>
+          <div class="tool-actions">
+            <button class="button" id="format" type="button">정리하기</button>
+            <button class="button secondary" id="sample" type="button">테스트 예문</button>
+            <button class="button secondary" id="repair" type="button">자동 복구</button>
+            <button class="button secondary" id="copy" type="button">복사</button>
+          </div>
+          <output id="xml-status" class="status-line">결과가 여기에 표시됩니다.</output>
+          <output id="xml-output" class="result-panel">결과가 여기에 표시됩니다.</output>
+        </div>
+      </section>
+      <aside class="ad-slot" aria-label="광고 영역"><span>Advertisement</span></aside>
+    </main>
+    <footer class="site-footer"><a href="../../../privacy.html">개인정보처리방침</a><span>All tools run in your browser.</span></footer>
+  </body>
+</html>

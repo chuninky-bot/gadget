@@ -1,0 +1,16 @@
+{
+    "scripts":  {
+                    "build:css":  "lessc assets/less/styles.less assets/css/styles.css",
+                    "check:links":  "node scripts/check-links.js",
+                    "smoke:format":  "node scripts/smoke-format-utils.js",
+                    "build":  "npm run build:css \u0026\u0026 npm run apply:env \u0026\u0026 npm run check:links \u0026\u0026 npm run smoke:format",
+                    "dev":  "browser-sync start --server . --files \"*.html,tools/**/*.html,tools/**/*.js,assets/css/*.css,assets/js/*.js\" --port 3000 --no-open",
+                    "watch:css":  "chokidar \"assets/less/**/*.less\" -c \"npm run build:css\"",
+                    "apply:env":  "node scripts/apply-env.js"
+                },
+    "devDependencies":  {
+                            "less":  "^4.2.2",
+                            "browser-sync":  "^3.0.3",
+                            "chokidar-cli":  "^3.0.0"
+                        }
+}

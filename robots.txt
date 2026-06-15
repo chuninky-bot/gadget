@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://chuninky-bot.github.io/gadget/sitemap.xml

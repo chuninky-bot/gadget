@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Gadget Box - 카테고리별 웹 유틸</title>
+    <meta name="description" content="설치 없이 브라우저에서 바로 쓰는 카테고리별 웹 유틸 모음입니다. 텍스트, 개발자, 생성기 도구를 빠르게 사용하세요.">
+    <link rel="canonical" href="https://chuninky-bot.github.io/gadget/">
+    <meta property="og:title" content="Gadget Box - 카테고리별 웹 유틸">
+    <meta property="og:description" content="브라우저에서 바로 쓰는 작고 빠른 유틸 모음.">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    <script defer src="./assets/js/main.js"></script>
+    <script defer src="./assets/js/i18n.js"></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="./" aria-label="Gadget Box 홈">Gadget Box</a>
+      <nav class="nav" aria-label="주요 메뉴">
+        <a href="./tools/text/">텍스트</a>
+        <a href="./tools/developer/">개발자</a>
+        <a href="./tools/generator/">생성기</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Browser-only utilities</p>
+          <h1>필요할 때 바로 여는 작은 웹 가젯 모음</h1>
+          <p>텍스트 정리, 개발자 작업, 랜덤 생성 같은 반복 작업을 설치 없이 빠르게 처리하세요.</p>
+        </div>
+        <form class="search-panel" role="search" aria-label="도구 검색">
+          <label for="tool-search">도구 검색</label>
+          <input id="tool-search" type="search" placeholder="예: 글자 수, JSON, UUID" autocomplete="off">
+        </form>
+      </section>
+
+      <aside class="ad-slot" aria-label="광고 영역">
+        <span>Advertisement</span>
+      </aside>
+
+      <section class="section">
+        <div class="section-heading">
+          <h2>카테고리</h2>
+          <p>URL은 `tools/카테고리/도구이름/` 구조로 관리합니다.</p>
+        </div>
+        <div class="category-grid">
+          <a class="category-card" href="./tools/text/">
+            <span class="category-icon">Aa</span>
+            <h3>텍스트 도구</h3>
+            <p>글자 수 세기, 공백 정리, 대소문자 변환 등 문서 작업용 도구.</p>
+          </a>
+          <a class="category-card" href="./tools/developer/">
+            <span class="category-icon">{ }</span>
+            <h3>개발자 도구</h3>
+            <p>JSON 포맷팅, 인코딩, 간단한 데이터 변환 작업.</p>
+          </a>
+          <a class="category-card" href="./tools/generator/">
+            <span class="category-icon">#</span>
+            <h3>생성기</h3>
+            <p>UUID, 비밀번호, QR 같은 값 생성 도구.</p>
+          </a>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-heading">
+          <h2>추천 도구</h2>
+          <p>초기 운영에 적합한 검색 수요형 유틸부터 배치했습니다.</p>
+        </div>
+        <div class="tool-grid" data-tool-list>
+          <a class="tool-card" data-tool="글자 수 세기 텍스트 word counter" href="./tools/text/word-counter/">
+            <strong>글자 수 세기</strong>
+            <span>문자, 단어, 줄 수를 즉시 계산합니다.</span>
+          </a>
+          <a class="tool-card" data-tool="JSON 포맷터 개발자 formatter" href="./tools/developer/json-formatter/">
+            <strong>JSON 포맷터</strong>
+            <span>JSON을 보기 좋게 정리하고 오류 위치를 확인합니다.</span>
+          </a>
+          <a class="tool-card" data-tool="UUID 생성기 generator" href="./tools/generator/uuid-generator/">
+            <strong>UUID 생성기</strong>
+            <span>브라우저에서 UUID v4 값을 빠르게 생성합니다.</span>
+          </a>
+          <a class="tool-card" data-tool="XML 포맷터 개발자 formatter repair" href="./tools/developer/xml-formatter/">
+            <strong>XML 포맷터</strong>
+            <span>XML을 정리하고 닫는 태그를 보정합니다.</span>
+          </a>
+          <a class="tool-card" data-tool="SQL 포맷터 개발자 formatter repair" href="./tools/developer/sql-formatter/">
+            <strong>SQL 포맷터</strong>
+            <span>SQL 쿼리를 읽기 좋게 정리합니다.</span>
+          </a>
+          <a class="tool-card" data-tool="Excel CSV TSV 정리 변환" href="./tools/developer/excel-cleaner/">
+            <strong>Excel CSV 정리 도구</strong>
+            <span>CSV/TSV 데이터를 표 형태로 정리합니다.</span>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <a href="./privacy.html">개인정보처리방침</a>
+      <span>All tools run in your browser.</span>
+    </footer>
+  </body>
+</html>
