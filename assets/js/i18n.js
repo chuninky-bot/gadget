@@ -1,4 +1,4 @@
-const supportedLanguages = ["ko", "en", "ja", "zh"];
+﻿const supportedLanguages = ["ko", "en", "ja", "zh"];
 const languageNames = {
   ko: "한국어",
   en: "English",
@@ -81,12 +81,12 @@ const attributeTranslations = {
 
 const pageTranslations = {
   "/": {
-    title: { ko: "Web-Tool.Shop - 카테고리별 웹 유틸", en: "Web-Tool.Shop - Web utilities by category", ja: "Web-Tool.Shop - カテゴリー別Webツール", zh: "Web-Tool.Shop - 按分类整理的网页工具" },
-    description: { ko: "설치 없이 브라우저에서 바로 쓰는 카테고리별 웹 유틸 모음입니다. 텍스트, 개발자, 생성기 도구를 빠르게 사용하세요.", en: "A categorized collection of browser-based web utilities. Use text, developer, and generator tools quickly without installing anything.", ja: "インストール不要でブラウザーからすぐ使えるカテゴリー別Webツール集です。テキスト、開発者、生成ツールを素早く使えます。", zh: "无需安装即可在浏览器中使用的分类网页工具集。快速使用文本、开发者和生成器工具。" },
+    title: { ko: "Web-Tool.Shop - 무료 웹 유틸리티 모음", en: "Web-Tool.Shop - Free web utility tools", ja: "Web-Tool.Shop - 無料Webユーティリティ集", zh: "Web-Tool.Shop - 免费网页工具集合" },
+    description: { ko: "설치 없이 브라우저에서 바로 쓰는 무료 웹 유틸리티 모음입니다. JSON, XML, SQL, CSV, UUID, 글자 수 도구를 빠르게 사용하세요.", en: "Free browser-based web utilities for JSON, XML, SQL, CSV, UUID, and word counting without installing anything.", ja: "インストール不要で使える無料Webユーティリティ集です。JSON、XML、SQL、CSV、UUID、文字数ツールをすばやく使えます。", zh: "无需安装即可使用的免费网页工具集合，包含 JSON、XML、SQL、CSV、UUID 和字数统计工具。" },
   },
   "/tools/text/": {
     title: { ko: "텍스트 도구 - Web-Tool.Shop", en: "Text tools - Web-Tool.Shop", ja: "テキストツール - Web-Tool.Shop", zh: "文本工具 - Web-Tool.Shop" },
-    description: { ko: "문서와 텍스트를 빠르게 다듬는 브라우저 기반 유틸 모음입니다.", en: "Browser-based utilities for quickly refining documents and text.", ja: "文書とテキストを素早く整えるブラウザーベースのツール集です。", zh: "用于快速整理文档和文本的浏览器工具集。" },
+    description: { ko: "글자 수 세기처럼 문서와 텍스트를 빠르게 확인하고 정리하는 무료 브라우저 도구 모음입니다.", en: "Free browser tools for checking and cleaning text, including word and character counting.", ja: "文字数カウントなど、文書とテキストをすばやく確認・整理できる無料ブラウザーツール集です。", zh: "免费浏览器文本工具集合，可快速检查和整理文本，包括字数统计。" },
   },
   "/tools/text/word-counter/": {
     title: { ko: "글자 수 세기 - Web-Tool.Shop", en: "Word counter - Web-Tool.Shop", ja: "文字数カウント - Web-Tool.Shop", zh: "字数统计 - Web-Tool.Shop" },
@@ -94,11 +94,11 @@ const pageTranslations = {
   },
   "/tools/developer/": {
     title: { ko: "개발자 도구 - Web-Tool.Shop", en: "Developer tools - Web-Tool.Shop", ja: "開発者ツール - Web-Tool.Shop", zh: "开发者工具 - Web-Tool.Shop" },
-    description: { ko: "JSON 포맷터 등 개발 작업에 필요한 브라우저 기반 유틸 모음입니다.", en: "Browser-based utilities for development tasks, including a JSON formatter.", ja: "JSONフォーマッターなど、開発作業に役立つブラウザーベースのツール集です。", zh: "用于开发任务的浏览器工具集，包括 JSON 格式化工具。" },
+    description: { ko: "JSON, XML, SQL, CSV 데이터를 브라우저에서 정리하고 가능한 오류를 자동 복구하는 무료 개발자 도구 모음입니다.", en: "Free developer tools for formatting JSON, XML, SQL, and CSV data in your browser with practical auto repair.", ja: "JSON、XML、SQL、CSVデータをブラウザーで整形し、可能なエラーを自動修復する無料開発者ツール集です。", zh: "免费的开发者工具集合，可在浏览器中格式化 JSON、XML、SQL、CSV 数据并自动修复常见错误。" },
   },
   "/tools/developer/json-formatter/": {
     title: { ko: "JSON 포맷터 - Web-Tool.Shop", en: "JSON formatter - Web-Tool.Shop", ja: "JSONフォーマッター - Web-Tool.Shop", zh: "JSON 格式化工具 - Web-Tool.Shop" },
-    description: { ko: "JSON 문자열을 보기 좋게 정리하고 파싱 오류를 브라우저에서 확인하세요.", en: "Format JSON strings for readability and check parsing errors in your browser.", ja: "JSON文字列を読みやすく整形し、ブラウザーで解析エラーを確認できます。", zh: "在浏览器中美化 JSON 字符串并检查解析错误。" },
+    description: { ko: "JSON 문자열을 보기 좋게 정리하고 누락된 따옴표, 중괄호, 대괄호, 후행 쉼표를 가능한 범위에서 자동 복구합니다.", en: "Format JSON and automatically repair missing quotes, braces, brackets, and trailing commas where possible.", ja: "JSONを整形し、不足した引用符、中括弧、角括弧、末尾のカンマを可能な範囲で自動修復します。", zh: "格式化 JSON，并尽可能自动修复缺失的引号、大括号、中括号和尾随逗号。" },
   },
   "/tools/generator/": {
     title: { ko: "생성기 - Web-Tool.Shop", en: "Generators - Web-Tool.Shop", ja: "ジェネレーター - Web-Tool.Shop", zh: "生成器 - Web-Tool.Shop" },

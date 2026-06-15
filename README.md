@@ -1,4 +1,4 @@
-# Web-Tool.Shop
+﻿# Web-Tool.Shop
 
 GitHub Pages에서 바로 배포할 수 있는 정적 웹 유틸 모음입니다.
 
@@ -42,6 +42,8 @@ GITHUB_REPOSITORY_NAME=gadget
 SITE_URL=https://web-tool.shop
 ADSENSE_CLIENT=
 ADSENSE_PUBLISHER_ID=
+GOOGLE_SITE_VERIFICATION=
+NAVER_SITE_VERIFICATION=
 ```
 
 `npm run build`를 실행하면 `.env` 값을 읽어 GitHub Pages URL을 `index.html`, `robots.txt`, `sitemap.xml`에 반영합니다.
@@ -81,6 +83,15 @@ https://web-tool.shop/sitemap.xml
 
 그 다음 Google Search Console과 네이버 서치어드바이저에 `https://web-tool.shop` 속성을 등록하고, `https://web-tool.shop/sitemap.xml`을 제출합니다.
 
+소유권 확인용 HTML 메타 태그를 발급받으면 `.env`에 아래 값만 넣고 다시 빌드합니다.
+
+```env
+GOOGLE_SITE_VERIFICATION=google에서_받은_content_값
+NAVER_SITE_VERIFICATION=naver에서_받은_content_값
+```
+
+`npm run build` 후 생성된 HTML의 `<head>`에 `google-site-verification`, `naver-site-verification` 메타 태그가 자동 삽입됩니다.
+
 ## Google AdSense
 
 AdSense 승인 전에는 콘텐츠와 개인정보처리방침을 먼저 정리합니다. AdSense에서 사이트를 추가한 뒤 발급받은 값이 있으면 `.env`에 입력합니다.
@@ -91,6 +102,7 @@ ADSENSE_PUBLISHER_ID=pub-0000000000000000
 ```
 
 `npm run build`를 실행하면 `ADSENSE_CLIENT`가 있을 때 모든 HTML에 Auto ads 스크립트를 삽입하고, `ADSENSE_PUBLISHER_ID`가 있을 때 루트에 `ads.txt`를 생성합니다.
+
 ## 광고 적용 위치
 
 각 페이지의 `.ad-slot` 영역이 광고 자리입니다. Google AdSense 승인 후 아래처럼 교체하면 됩니다.
@@ -145,3 +157,4 @@ npm run watch:css
 npm run build
 node --check tools/text/word-counter/tool.js
 ```
+
