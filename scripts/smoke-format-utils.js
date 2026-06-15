@@ -1,7 +1,7 @@
 global.window = global;
 require("../assets/js/format-utils.js");
 
-const json = formatUtils.parseJsonWithRepair('{name:"Gadget Box", items:[1,2,');
+const json = formatUtils.parseJsonWithRepair('{name:"Web-Tool.Shop", items:[1,2,');
 const sql = formatUtils.formatSql('select id,name from users where active=1');
 const rows = formatUtils.parseDelimited('name,price\n"keyboard,19900');
 

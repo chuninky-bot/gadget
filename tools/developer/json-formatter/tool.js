@@ -34,7 +34,7 @@ copyButton.addEventListener("click", () => {
 const sampleButton = document.querySelector("#sample");
 
 sampleButton.addEventListener("click", () => {
-  input.value = '{name:"Gadget Box", ready:true, items:["json","xml",';
+  input.value = '{name:"Web-Tool.Shop", ready:true, items:["json","xml",';
   renderJson(2, true);
   input.focus();
 });

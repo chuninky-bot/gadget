@@ -61,7 +61,7 @@ const textTranslations = {
   "UUID는 브라우저의 crypto API로 생성됩니다.": { en: "UUIDs are generated with the browser crypto API.", ja: "UUIDはブラウザーのcrypto APIで生成されます。", zh: "UUID 使用浏览器 crypto API 生成。" },
   "새 UUID": { en: "New UUID", ja: "新しいUUID", zh: "新 UUID" },
   "최종 업데이트: 2026-06-15": { en: "Last updated: 2026-06-15", ja: "最終更新: 2026-06-15", zh: "最后更新：2026-06-15" },
-  "Gadget Box의 기본 도구는 입력값을 서버로 전송하지 않고 사용자의 브라우저에서 처리합니다.": { en: "Gadget Box's basic tools process input in your browser without sending it to a server.", ja: "Gadget Boxの基本ツールは入力値をサーバーに送信せず、ユーザーのブラウザー内で処理します。", zh: "Gadget Box 的基础工具会在用户浏览器中处理输入，不会发送到服务器。" },
+  "Web-Tool.Shop의 기본 도구는 입력값을 서버로 전송하지 않고 사용자의 브라우저에서 처리합니다.": { en: "Web-Tool.Shop's basic tools process input in your browser without sending it to a server.", ja: "Web-Tool.Shopの基本ツールは入力値をサーバーに送信せず、ユーザーのブラウザー内で処理します。", zh: "Web-Tool.Shop 的基础工具会在用户浏览器中处理输入，不会发送到服务器。" },
   "향후 광고 또는 방문 통계 서비스를 붙이는 경우 해당 서비스 제공자가 쿠키, 기기 정보, 방문 기록 일부를 처리할 수 있습니다.": { en: "If advertising or analytics services are added later, those providers may process cookies, device information, and parts of visit history.", ja: "今後、広告またはアクセス解析サービスを追加する場合、提供事業者がCookie、端末情報、訪問履歴の一部を処理することがあります。", zh: "如果未来接入广告或访问统计服务，相关服务提供商可能会处理 Cookie、设备信息和部分访问记录。" },
   "문의 이메일과 실제 광고 서비스 정보는 사이트 공개 전에 운영자 정보에 맞게 업데이트해야 합니다.": { en: "Contact email and actual advertising service details should be updated before publishing the site.", ja: "問い合わせメールと実際の広告サービス情報は、公開前に運営者情報に合わせて更新してください。", zh: "联系邮箱和实际广告服务信息应在网站公开前根据运营者信息更新。" },
   "페이지를 찾을 수 없습니다": { en: "Page not found", ja: "ページが見つかりません", zh: "找不到页面" },
@@ -70,7 +70,7 @@ const textTranslations = {
 };
 
 const attributeTranslations = {
-  "Gadget Box 홈": { en: "Gadget Box home", ja: "Gadget Boxホーム", zh: "Gadget Box 首页" },
+  "Web-Tool.Shop 홈": { en: "Web-Tool.Shop home", ja: "Web-Tool.Shopホーム", zh: "Web-Tool.Shop 首页" },
   "주요 메뉴": textTranslations["주요 메뉴"],
   "도구 검색": textTranslations["도구 검색"],
   "광고 영역": { en: "Ad area", ja: "広告エリア", zh: "广告区域" },
@@ -81,39 +81,39 @@ const attributeTranslations = {
 
 const pageTranslations = {
   "/": {
-    title: { ko: "Gadget Box - 카테고리별 웹 유틸", en: "Gadget Box - Web utilities by category", ja: "Gadget Box - カテゴリー別Webツール", zh: "Gadget Box - 按分类整理的网页工具" },
+    title: { ko: "Web-Tool.Shop - 카테고리별 웹 유틸", en: "Web-Tool.Shop - Web utilities by category", ja: "Web-Tool.Shop - カテゴリー別Webツール", zh: "Web-Tool.Shop - 按分类整理的网页工具" },
     description: { ko: "설치 없이 브라우저에서 바로 쓰는 카테고리별 웹 유틸 모음입니다. 텍스트, 개발자, 생성기 도구를 빠르게 사용하세요.", en: "A categorized collection of browser-based web utilities. Use text, developer, and generator tools quickly without installing anything.", ja: "インストール不要でブラウザーからすぐ使えるカテゴリー別Webツール集です。テキスト、開発者、生成ツールを素早く使えます。", zh: "无需安装即可在浏览器中使用的分类网页工具集。快速使用文本、开发者和生成器工具。" },
   },
   "/tools/text/": {
-    title: { ko: "텍스트 도구 - Gadget Box", en: "Text tools - Gadget Box", ja: "テキストツール - Gadget Box", zh: "文本工具 - Gadget Box" },
+    title: { ko: "텍스트 도구 - Web-Tool.Shop", en: "Text tools - Web-Tool.Shop", ja: "テキストツール - Web-Tool.Shop", zh: "文本工具 - Web-Tool.Shop" },
     description: { ko: "문서와 텍스트를 빠르게 다듬는 브라우저 기반 유틸 모음입니다.", en: "Browser-based utilities for quickly refining documents and text.", ja: "文書とテキストを素早く整えるブラウザーベースのツール集です。", zh: "用于快速整理文档和文本的浏览器工具集。" },
   },
   "/tools/text/word-counter/": {
-    title: { ko: "글자 수 세기 - Gadget Box", en: "Word counter - Gadget Box", ja: "文字数カウント - Gadget Box", zh: "字数统计 - Gadget Box" },
+    title: { ko: "글자 수 세기 - Web-Tool.Shop", en: "Word counter - Web-Tool.Shop", ja: "文字数カウント - Web-Tool.Shop", zh: "字数统计 - Web-Tool.Shop" },
     description: { ko: "텍스트의 문자 수, 공백 제외 문자 수, 단어 수, 줄 수를 브라우저에서 즉시 계산합니다.", en: "Instantly count characters, characters without spaces, words, and lines in your browser.", ja: "テキストの文字数、空白を除いた文字数、単語数、行数をブラウザーですぐに計算します。", zh: "在浏览器中即时计算文本的字符数、不含空格字符数、单词数和行数。" },
   },
   "/tools/developer/": {
-    title: { ko: "개발자 도구 - Gadget Box", en: "Developer tools - Gadget Box", ja: "開発者ツール - Gadget Box", zh: "开发者工具 - Gadget Box" },
+    title: { ko: "개발자 도구 - Web-Tool.Shop", en: "Developer tools - Web-Tool.Shop", ja: "開発者ツール - Web-Tool.Shop", zh: "开发者工具 - Web-Tool.Shop" },
     description: { ko: "JSON 포맷터 등 개발 작업에 필요한 브라우저 기반 유틸 모음입니다.", en: "Browser-based utilities for development tasks, including a JSON formatter.", ja: "JSONフォーマッターなど、開発作業に役立つブラウザーベースのツール集です。", zh: "用于开发任务的浏览器工具集，包括 JSON 格式化工具。" },
   },
   "/tools/developer/json-formatter/": {
-    title: { ko: "JSON 포맷터 - Gadget Box", en: "JSON formatter - Gadget Box", ja: "JSONフォーマッター - Gadget Box", zh: "JSON 格式化工具 - Gadget Box" },
+    title: { ko: "JSON 포맷터 - Web-Tool.Shop", en: "JSON formatter - Web-Tool.Shop", ja: "JSONフォーマッター - Web-Tool.Shop", zh: "JSON 格式化工具 - Web-Tool.Shop" },
     description: { ko: "JSON 문자열을 보기 좋게 정리하고 파싱 오류를 브라우저에서 확인하세요.", en: "Format JSON strings for readability and check parsing errors in your browser.", ja: "JSON文字列を読みやすく整形し、ブラウザーで解析エラーを確認できます。", zh: "在浏览器中美化 JSON 字符串并检查解析错误。" },
   },
   "/tools/generator/": {
-    title: { ko: "생성기 - Gadget Box", en: "Generators - Gadget Box", ja: "ジェネレーター - Gadget Box", zh: "生成器 - Gadget Box" },
+    title: { ko: "생성기 - Web-Tool.Shop", en: "Generators - Web-Tool.Shop", ja: "ジェネレーター - Web-Tool.Shop", zh: "生成器 - Web-Tool.Shop" },
     description: { ko: "UUID 등 자주 필요한 값을 브라우저에서 바로 생성하는 도구 모음입니다.", en: "Generate frequently needed values such as UUIDs directly in your browser.", ja: "UUIDなどよく使う値をブラウザーで直接生成するツール集です。", zh: "直接在浏览器中生成 UUID 等常用值的工具集。" },
   },
   "/tools/generator/uuid-generator/": {
-    title: { ko: "UUID 생성기 - Gadget Box", en: "UUID generator - Gadget Box", ja: "UUIDジェネレーター - Gadget Box", zh: "UUID 生成器 - Gadget Box" },
+    title: { ko: "UUID 생성기 - Web-Tool.Shop", en: "UUID generator - Web-Tool.Shop", ja: "UUIDジェネレーター - Web-Tool.Shop", zh: "UUID 生成器 - Web-Tool.Shop" },
     description: { ko: "브라우저에서 UUID v4 값을 생성하고 복사하는 간단한 도구입니다.", en: "A simple tool for generating and copying UUID v4 values in your browser.", ja: "ブラウザーでUUID v4を生成してコピーするシンプルなツールです。", zh: "一个在浏览器中生成并复制 UUID v4 的简单工具。" },
   },
   "/privacy.html": {
-    title: { ko: "개인정보처리방침 - Gadget Box", en: "Privacy policy - Gadget Box", ja: "プライバシーポリシー - Gadget Box", zh: "隐私政策 - Gadget Box" },
-    description: { ko: "Gadget Box 개인정보처리방침입니다.", en: "Gadget Box privacy policy.", ja: "Gadget Boxのプライバシーポリシーです。", zh: "Gadget Box 隐私政策。" },
+    title: { ko: "개인정보처리방침 - Web-Tool.Shop", en: "Privacy policy - Web-Tool.Shop", ja: "プライバシーポリシー - Web-Tool.Shop", zh: "隐私政策 - Web-Tool.Shop" },
+    description: { ko: "Web-Tool.Shop 개인정보처리방침입니다.", en: "Web-Tool.Shop privacy policy.", ja: "Web-Tool.Shopのプライバシーポリシーです。", zh: "Web-Tool.Shop 隐私政策。" },
   },
   "/404.html": {
-    title: { ko: "페이지를 찾을 수 없습니다 - Gadget Box", en: "Page not found - Gadget Box", ja: "ページが見つかりません - Gadget Box", zh: "找不到页面 - Gadget Box" },
+    title: { ko: "페이지를 찾을 수 없습니다 - Web-Tool.Shop", en: "Page not found - Web-Tool.Shop", ja: "ページが見つかりません - Web-Tool.Shop", zh: "找不到页面 - Web-Tool.Shop" },
     description: { ko: "페이지를 찾을 수 없습니다.", en: "Page not found.", ja: "ページが見つかりません。", zh: "找不到页面。" },
   },
 };

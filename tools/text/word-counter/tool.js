@@ -25,7 +25,7 @@ clear.addEventListener("click", () => {
 const sample = document.querySelector("#sample");
 
 sample.addEventListener("click", () => {
-  source.value = "Gadget Box 테스트 예문입니다.\n브라우저에서 바로 글자 수, 단어 수, 줄 수를 확인합니다.";
+  source.value = "Web-Tool.Shop 테스트 예문입니다.\n브라우저에서 바로 글자 수, 단어 수, 줄 수를 확인합니다.";
   updateStats();
   source.focus();
 });
