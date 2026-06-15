@@ -1,0 +1,1 @@
+const p=document.querySelector('#gradient-preview'),out=document.querySelector('#css-output');function run(){const css='linear-gradient('+angle.value+'deg, '+c1.value+', '+c2.value+')';p.style.background=css;out.textContent='background: '+css+';';}document.querySelectorAll('input').forEach(i=>i.addEventListener('input',run));run();

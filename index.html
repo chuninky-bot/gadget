@@ -35,8 +35,10 @@
       <a class="brand" href="./" aria-label="Web-Tool.Shop 홈">Web-Tool.Shop</a>
       <nav class="nav" aria-label="주요 메뉴">
         <a href="./tools/text/">텍스트</a>
-        <a href="./tools/developer/">개발자</a>
-        <a href="./tools/generator/">생성기</a>
+        <a href="./tools/converter/">자료형 변환</a>
+        <a href="./tools/diff/">비교하기</a>
+        <a href="./tools/design/">Design</a>
+        <a href="./tools/css-art/">CSS-ART</a>
       </nav>
     </header>
 
@@ -45,7 +47,7 @@
         <div class="hero-copy">
           <p class="eyebrow">Browser-only utilities</p>
           <h1>필요할 때 바로 여는 작은 웹 가젯 모음</h1>
-          <p>텍스트 정리, 개발자 작업, 랜덤 생성 같은 반복 작업을 설치 없이 빠르게 처리하세요.</p>
+          <p>텍스트 정리, 자료형 변환 작업, 랜덤 생성 같은 반복 작업을 설치 없이 빠르게 처리하세요.</p>
         </div>
         <form class="search-panel" role="search" aria-label="도구 검색">
           <label for="tool-search">도구 검색</label>
@@ -68,15 +70,15 @@
             <h3>텍스트 도구</h3>
             <p>글자 수 세기, 공백 정리, 대소문자 변환 등 문서 작업용 도구.</p>
           </a>
-          <a class="category-card" href="./tools/developer/">
+          <a class="category-card" href="./tools/converter/">
             <span class="category-icon">{ }</span>
-            <h3>개발자 도구</h3>
-            <p>JSON 포맷팅, 인코딩, 간단한 데이터 변환 작업.</p>
+            <h3>자료형 변환</h3>
+            <p>JSON, XML, SQL, CSV, UUID 값을 정리하고 변환하는 도구.</p>
           </a>
-          <a class="category-card" href="./tools/generator/">
-            <span class="category-icon">#</span>
-            <h3>생성기</h3>
-            <p>UUID, 비밀번호, QR 같은 값 생성 도구.</p>
+          <a class="category-card" href="./tools/diff/">
+            <span class="category-icon">Δ</span>
+            <h3>비교하기</h3>
+            <p>Text, JSON, XML 변경점을 나란히 확인하는 도구.</p>
           </a>
         </div>
       </section>
@@ -91,25 +93,41 @@
             <strong>글자 수 세기</strong>
             <span>문자, 단어, 줄 수를 즉시 계산합니다.</span>
           </a>
-          <a class="tool-card" data-tool="JSON 포맷터 개발자 formatter" href="./tools/developer/json-formatter/">
+          <a class="tool-card" data-tool="JSON 포맷터 자료형 변환 formatter" href="./tools/converter/json-formatter/">
             <strong>JSON 포맷터</strong>
             <span>JSON을 보기 좋게 정리하고 오류 위치를 확인합니다.</span>
           </a>
-          <a class="tool-card" data-tool="UUID 생성기 generator" href="./tools/generator/uuid-generator/">
+          <a class="tool-card" data-tool="UUID 생성기 자료형 변환 generator" href="./tools/converter/uuid-generator/">
             <strong>UUID 생성기</strong>
             <span>브라우저에서 UUID v4 값을 빠르게 생성합니다.</span>
           </a>
-          <a class="tool-card" data-tool="XML 포맷터 개발자 formatter repair" href="./tools/developer/xml-formatter/">
+          <a class="tool-card" data-tool="XML 포맷터 자료형 변환 formatter repair" href="./tools/converter/xml-formatter/">
             <strong>XML 포맷터</strong>
             <span>XML을 정리하고 닫는 태그를 보정합니다.</span>
           </a>
-          <a class="tool-card" data-tool="SQL 포맷터 개발자 formatter repair" href="./tools/developer/sql-formatter/">
+          <a class="tool-card" data-tool="SQL 포맷터 자료형 변환 formatter repair" href="./tools/converter/sql-formatter/">
             <strong>SQL 포맷터</strong>
             <span>SQL 쿼리를 읽기 좋게 정리합니다.</span>
           </a>
-          <a class="tool-card" data-tool="Excel CSV TSV 정리 변환" href="./tools/developer/excel-cleaner/">
+          <a class="tool-card" data-tool="Excel CSV TSV 정리 변환" href="./tools/converter/excel-cleaner/">
             <strong>Excel CSV 정리 도구</strong>
             <span>CSV/TSV 데이터를 표 형태로 정리합니다.</span>
+          </a>
+          <a class="tool-card" data-tool="아스키 아트 텍스트 이미지 ascii art text2art image2art banner image" href="./tools/text/ascii-art/">
+            <strong>ASCII ART 변환기</strong>
+            <span>TEXT2ART와 IMAGE2ART를 한 페이지에서 생성합니다.</span>
+          </a>
+          <a class="tool-card" data-tool="인코딩 변환 텍스트 utf-8 euc-kr hex base64 url encoding" href="./tools/text/encoding-converter/">
+            <strong>인코딩 변환 도구</strong>
+            <span>UTF-8, HEX, Base64, URL 인코딩을 한 번에 확인합니다.</span>
+          </a>
+          <a class="tool-card" data-tool="URL 인코딩 디코딩 encode decode percent encoding query string" href="./tools/text/url-encoder/">
+            <strong>URL 인코딩 변환기</strong>
+            <span>일반문자와 URL 인코딩 문자열을 서로 변환합니다.</span>
+          </a>
+          <a class="tool-card" data-tool="diff compare 비교 text json xml" href="./tools/diff/compare/">
+            <strong>DIFF 비교 도구</strong>
+            <span>Text, JSON, XML을 줄 단위로 비교하고 변경점을 표시합니다.</span>
           </a>
         </div>
       </section>

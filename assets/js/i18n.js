@@ -10,11 +10,14 @@ const textTranslations = {
   "주요 메뉴": { en: "Main menu", ja: "メインメニュー", zh: "主菜单" },
   "텍스트": { en: "Text", ja: "テキスト", zh: "文本" },
   "개발자": { en: "Developer", ja: "開発者", zh: "开发者" },
+  "자료형 변환": { en: "Data conversion", ja: "データ変換", zh: "数据转换" },
+  "비교하기": { en: "Compare", ja: "比較", zh: "比较" },
   "생성기": { en: "Generators", ja: "ジェネレーター", zh: "生成器" },
   "홈": { en: "Home", ja: "ホーム", zh: "首页" },
   "Browser-only utilities": { en: "Browser-only utilities", ja: "ブラウザーだけで使えるツール", zh: "仅浏览器工具" },
   "필요할 때 바로 여는 작은 웹 가젯 모음": { en: "Small web gadgets ready whenever you need them", ja: "必要なときにすぐ開ける小さなWebガジェット集", zh: "需要时即可打开的小型网页工具集" },
   "텍스트 정리, 개발자 작업, 랜덤 생성 같은 반복 작업을 설치 없이 빠르게 처리하세요.": { en: "Handle repetitive text cleanup, developer tasks, and random generation quickly without installing anything.", ja: "テキスト整理、開発作業、ランダム生成などの反復作業をインストール不要で素早く処理できます。", zh: "无需安装，即可快速处理文本整理、开发任务、随机生成等重复工作。" },
+  "텍스트 정리, 자료형 변환 작업, 랜덤 생성 같은 반복 작업을 설치 없이 빠르게 처리하세요.": { en: "Handle repetitive text cleanup, data conversion, and value generation quickly without installing anything.", ja: "テキスト整理、データ変換、値の生成などの反復作業をインストール不要で素早く処理できます。", zh: "无需安装，即可快速处理文本整理、数据转换和值生成等重复工作。" },
   "도구 검색": { en: "Search tools", ja: "ツール検索", zh: "搜索工具" },
   "Advertisement": { en: "Advertisement", ja: "広告", zh: "广告" },
   "카테고리": { en: "Categories", ja: "カテゴリー", zh: "分类" },
@@ -22,14 +25,77 @@ const textTranslations = {
   "텍스트 도구": { en: "Text tools", ja: "テキストツール", zh: "文本工具" },
   "글자 수 세기, 공백 정리, 대소문자 변환 등 문서 작업용 도구.": { en: "Tools for document work, including character counts, whitespace cleanup, and case conversion.", ja: "文字数カウント、空白整理、大文字小文字変換など、文書作業向けのツール。", zh: "用于文档工作的工具，包括字数统计、空白清理、大小写转换等。" },
   "개발자 도구": { en: "Developer tools", ja: "開発者ツール", zh: "开发者工具" },
+  "JSON, XML, SQL, CSV, UUID 값을 정리하고 변환하는 도구.": { en: "Tools for cleaning and converting JSON, XML, SQL, CSV, and UUID values.", ja: "JSON、XML、SQL、CSV、UUIDの値を整理・変換するツール。", zh: "用于整理和转换 JSON、XML、SQL、CSV 和 UUID 值的工具。" },
+  "Text, JSON, XML 변경점을 나란히 확인하는 도구.": { en: "Compare Text, JSON, and XML changes side by side.", ja: "Text、JSON、XMLの変更点を並べて確認するツール。", zh: "并排查看 Text、JSON 和 XML 的差异。" },
   "JSON 포맷팅, 인코딩, 간단한 데이터 변환 작업.": { en: "JSON formatting, encoding, and simple data conversion tasks.", ja: "JSON整形、エンコード、簡単なデータ変換作業。", zh: "JSON 格式化、编码和简单数据转换。" },
   "UUID, 비밀번호, QR 같은 값 생성 도구.": { en: "Generate values such as UUIDs, passwords, and QR codes.", ja: "UUID、パスワード、QRなどの値を生成するツール。", zh: "生成 UUID、密码、QR 等值的工具。" },
   "추천 도구": { en: "Featured tools", ja: "おすすめツール", zh: "推荐工具" },
   "초기 운영에 적합한 검색 수요형 유틸부터 배치했습니다.": { en: "The starter set focuses on search-friendly utilities suitable for early operation.", ja: "初期運営に適した検索需要のあるユーティリティから配置しました。", zh: "首批工具优先放置适合早期运营、具备搜索需求的实用工具。" },
   "글자 수 세기": { en: "Word counter", ja: "文字数カウント", zh: "字数统计" },
   "문자, 단어, 줄 수를 즉시 계산합니다.": { en: "Instantly count characters, words, and lines.", ja: "文字、単語、行数をすぐに計算します。", zh: "即时计算字符、单词和行数。" },
+  "아스키 아트 생성기": { en: "ASCII art generator", ja: "ASCIIアートジェネレーター", zh: "ASCII 艺术生成器" },
+  "ASCII ART 변환기": { en: "ASCII ART converter", ja: "ASCII ART 変換ツール", zh: "ASCII ART 转换器" },
+  "짧은 문구를 복사하기 쉬운 텍스트 배너로 변환합니다.": { en: "Turn short phrases into easy-to-copy text banners.", ja: "短いフレーズをコピーしやすいテキストバナーに変換します。", zh: "将短语转换为易于复制的文本横幅。" },
+  "TEXT2ART와 IMAGE2ART를 한 페이지에서 생성합니다.": { en: "Create TEXT2ART and IMAGE2ART on one page.", ja: "TEXT2ART と IMAGE2ART を1ページで生成します。", zh: "在一个页面中生成 TEXT2ART 和 IMAGE2ART。" },
+  "텍스트를 브라우저에서 바로 아스키 아트 배너로 변환하고 복사하는 무료 도구입니다.": { en: "A free browser tool for converting text into ASCII art banners and copying them.", ja: "テキストをブラウザーでASCIIアートバナーに変換してコピーできる無料ツールです。", zh: "免费浏览器工具，可将文本转换为 ASCII 艺术横幅并复制。" },
+  "텍스트를 ASCII 배너로 변환하거나 이미지를 ASCII 문자 아트로 바꾸는 무료 브라우저 도구입니다.": { en: "A free browser tool for converting text into ASCII banners or images into ASCII character art.", ja: "テキストをASCIIバナーに変換したり、画像をASCII文字アートに変換したりできる無料ブラウザーツールです。", zh: "免费浏览器工具，可将文本转换为 ASCII 横幅，或将图片转换为 ASCII 字符艺术。" },
+  "TEXT2ART와 IMAGE2ART를 브라우저에서 바로 생성합니다.": { en: "Create TEXT2ART and IMAGE2ART directly in your browser.", ja: "ブラウザーで TEXT2ART と IMAGE2ART をすぐに生成します。", zh: "直接在浏览器中生成 TEXT2ART 和 IMAGE2ART。" },
+  "TEXT2ART": { en: "TEXT2ART", ja: "TEXT2ART", zh: "TEXT2ART" },
+  "IMAGE2ART": { en: "IMAGE2ART", ja: "IMAGE2ART", zh: "IMAGE2ART" },
+  "폭": { en: "Width", ja: "幅", zh: "宽度" },
+  "문자셋": { en: "Character set", ja: "文字セット", zh: "字符集" },
+  "반전": { en: "Invert", ja: "反転", zh: "反转" },
+  "Dense": { en: "Dense", ja: "Dense", zh: "Dense" },
+  "Soft": { en: "Soft", ja: "Soft", zh: "Soft" },
+  "Block": { en: "Block", ja: "Block", zh: "Block" },
+  "생성하기": { en: "Generate", ja: "生成", zh: "生成" },
+  "아스키 아트를 생성했습니다.": { en: "ASCII art generated.", ja: "ASCIIアートを生成しました。", zh: "已生成 ASCII 艺术。" },
+  "TEXT2ART를 생성했습니다.": { en: "TEXT2ART generated.", ja: "TEXT2ART を生成しました。", zh: "已生成 TEXT2ART。" },
+  "IMAGE2ART를 생성했습니다.": { en: "IMAGE2ART generated.", ja: "IMAGE2ART を生成しました。", zh: "已生成 IMAGE2ART。" },
+  "이미지를 선택하거나 테스트 예문을 생성하세요.": { en: "Select an image or generate a sample.", ja: "画像を選択するか、サンプルを生成してください。", zh: "请选择图片或生成测试示例。" },
+  "인코딩 변환 도구": { en: "Encoding converter", ja: "エンコード変換ツール", zh: "编码转换工具" },
+  "UTF-8, HEX, Base64, URL 인코딩을 한 번에 확인합니다.": { en: "Check UTF-8, HEX, Base64, and URL encoding at once.", ja: "UTF-8、HEX、Base64、URLエンコードをまとめて確認します。", zh: "一次查看 UTF-8、HEX、Base64 和 URL 编码。" },
+  "텍스트를 UTF-8, HEX, Base64, URL 인코딩, Unicode 코드 포인트 등 여러 표현으로 한 번에 변환하는 무료 브라우저 도구입니다.": { en: "A free browser tool that converts text into UTF-8, HEX, Base64, URL encoding, Unicode code points, and more at once.", ja: "テキストをUTF-8、HEX、Base64、URLエンコード、Unicodeコードポイントなどへ一括変換する無料ブラウザーツールです。", zh: "免费浏览器工具，可一次将文本转换为 UTF-8、HEX、Base64、URL 编码、Unicode 码点等多种表示。" },
+  "텍스트를 여러 인코딩 표현으로 동시에 변환합니다.": { en: "Convert text into multiple encoding representations at once.", ja: "テキストを複数のエンコード表現へ同時に変換します。", zh: "同时将文本转换为多种编码表示。" },
+  "URL 인코딩 변환기": { en: "URL encoder decoder", ja: "URLエンコード変換ツール", zh: "URL 编码转换器" },
+  "일반문자와 URL 인코딩 문자열을 서로 변환합니다.": { en: "Convert between plain text and URL-encoded strings.", ja: "通常文字列とURLエンコード文字列を相互に変換します。", zh: "在普通文本和 URL 编码字符串之间相互转换。" },
+  "일반 텍스트와 URL 인코딩 문자열을 브라우저에서 서로 변환하는 무료 URL encode decode 도구입니다.": { en: "A free browser URL encode decode tool for converting between plain text and URL-encoded strings.", ja: "通常テキストとURLエンコード文字列をブラウザーで相互変換できる無料のURL encode decodeツールです。", zh: "免费浏览器 URL encode decode 工具，可在普通文本和 URL 编码字符串之间相互转换。" },
+  "일반문자": { en: "Plain text", ja: "通常文字列", zh: "普通文本" },
+  "URL 인코딩": { en: "URL encoded", ja: "URLエンコード", zh: "URL 编码" },
+  "공백을 + 로 처리": { en: "Treat spaces as +", ja: "空白を + として扱う", zh: "将空格作为 + 处理" },
+  "URL 디코딩": { en: "URL decode", ja: "URLデコード", zh: "URL 解码" },
+  "서로 바꾸기": { en: "Swap", ja: "入れ替え", zh: "交换" },
+  "URL 인코딩을 완료했습니다.": { en: "URL encoding complete.", ja: "URLエンコードが完了しました。", zh: "URL 编码完成。" },
+  "URL 디코딩을 완료했습니다.": { en: "URL decoding complete.", ja: "URLデコードが完了しました。", zh: "URL 解码完成。" },
+  "URL 인코딩 문자열이 올바르지 않습니다.": { en: "The URL-encoded string is not valid.", ja: "URLエンコード文字列が正しくありません。", zh: "URL 编码字符串无效。" },
+  "두 값을 서로 바꿨습니다.": { en: "Swapped both values.", ja: "2つの値を入れ替えました。", zh: "已交换两个值。" },
+  "변환하기": { en: "Convert", ja: "変換", zh: "转换" },
+  "인코딩 변환을 완료했습니다.": { en: "Encoding conversion complete.", ja: "エンコード変換が完了しました。", zh: "编码转换完成。" },
+  "원문": { en: "Original", ja: "原文", zh: "原文" },
+  "브라우저 기본 TextEncoder는 UTF-8만 지원합니다. EUC-KR 실제 바이트 변환은 별도 인코딩 테이블이 필요합니다.": { en: "The browser's built-in TextEncoder only supports UTF-8. Actual EUC-KR byte conversion requires a separate encoding table.", ja: "ブラウザー標準のTextEncoderはUTF-8のみ対応しています。実際のEUC-KRバイト変換には別途エンコード表が必要です。", zh: "浏览器内置 TextEncoder 仅支持 UTF-8。实际 EUC-KR 字节转换需要单独的编码表。" },
+  "텍스트, JSON, XML 내용을 브라우저에서 나란히 비교하는 무료 DIFF 도구 모음입니다.": { en: "Free browser-based DIFF tools for comparing text, JSON, and XML side by side.", ja: "テキスト、JSON、XMLをブラウザーで並べて比較できる無料DIFFツール集です。", zh: "免费的浏览器 DIFF 工具集合，可并排比较文本、JSON 和 XML。" },
+  "텍스트, JSON, XML 변경점을 브라우저에서 바로 확인합니다.": { en: "Check text, JSON, and XML changes directly in your browser.", ja: "テキスト、JSON、XMLの変更点をブラウザーですぐに確認できます。", zh: "直接在浏览器中查看文本、JSON 和 XML 的差异。" },
+  "DIFF 비교 도구": { en: "DIFF compare tool", ja: "DIFF比較ツール", zh: "DIFF 比较工具" },
+  "Text, JSON, XML을 줄 단위로 비교하고 변경점을 표시합니다.": { en: "Compare Text, JSON, and XML line by line and highlight changes.", ja: "Text、JSON、XMLを行単位で比較し、変更点を表示します。", zh: "逐行比较 Text、JSON 和 XML，并标记差异。" },
+  "텍스트, JSON, XML 두 값을 브라우저에서 비교하고 추가, 삭제, 변경 라인을 확인하는 무료 DIFF 도구입니다.": { en: "A free DIFF tool for comparing two text, JSON, or XML values and checking added, removed, and changed lines in your browser.", ja: "2つのText、JSON、XMLをブラウザーで比較し、追加、削除、変更行を確認できる無料DIFFツールです。", zh: "免费的 DIFF 工具，可在浏览器中比较两段文本、JSON 或 XML，并查看新增、删除和变更行。" },
+  "비교 모드": { en: "Compare mode", ja: "比較モード", zh: "比较模式" },
+  "왼쪽 원본": { en: "Left original", ja: "左の原本", zh: "左侧原始内容" },
+  "오른쪽 대상": { en: "Right target", ja: "右の対象", zh: "右侧目标内容" },
+  "비교하기": { en: "Compare", ja: "比較", zh: "比较" },
+  "좌우 바꾸기": { en: "Swap sides", ja: "左右を入れ替え", zh: "左右互换" },
+  "두 내용이 같습니다.": { en: "Both contents are identical.", ja: "2つの内容は同じです。", zh: "两段内容相同。" },
+  "변경 라인": { en: "Changed lines", ja: "変更行", zh: "变更行" },
   "JSON 포맷터": { en: "JSON formatter", ja: "JSONフォーマッター", zh: "JSON 格式化工具" },
   "JSON을 보기 좋게 정리하고 오류 위치를 확인합니다.": { en: "Format JSON for readability and check parsing errors.", ja: "JSONを読みやすく整形し、エラーを確認します。", zh: "美化 JSON 并检查解析错误。" },
+  "XML 포맷터": { en: "XML formatter", ja: "XMLフォーマッター", zh: "XML 格式化工具" },
+  "XML을 정리하고 닫는 태그를 보정합니다.": { en: "Format XML and fix closing tags.", ja: "XMLを整形し、終了タグを補正します。", zh: "格式化 XML 并修复结束标签。" },
+  "XML을 정리하고 누락된 닫는 태그를 자동 보정합니다.": { en: "Format XML and automatically fix missing closing tags.", ja: "XMLを整形し、不足している終了タグを自動補正します。", zh: "格式化 XML 并自动修复缺失的结束标签。" },
+  "SQL 포맷터": { en: "SQL formatter", ja: "SQLフォーマッター", zh: "SQL 格式化工具" },
+  "SQL 쿼리를 읽기 좋게 정리합니다.": { en: "Format SQL queries for readability.", ja: "SQLクエリを読みやすく整形します。", zh: "美化 SQL 查询以便阅读。" },
+  "SQL을 보기 좋게 정리하고 괄호와 세미콜론을 보정합니다.": { en: "Format SQL for readability and fix parentheses and semicolons.", ja: "SQLを読みやすく整形し、括弧とセミコロンを補正します。", zh: "美化 SQL，并修复括号和分号。" },
+  "Excel CSV 정리 도구": { en: "Excel CSV cleaner", ja: "Excel CSV整理ツール", zh: "Excel CSV 清理工具" },
+  "CSV/TSV 데이터를 표 형태로 정리합니다.": { en: "Clean CSV/TSV data into table-friendly rows.", ja: "CSV/TSVデータを表形式に整理します。", zh: "将 CSV/TSV 数据整理为表格形式。" },
+  "CSV/TSV 데이터를 Excel에 붙여넣기 좋게 정리합니다.": { en: "Clean CSV/TSV data so it is easy to paste into Excel.", ja: "CSV/TSVデータをExcelに貼り付けやすく整理します。", zh: "整理 CSV/TSV 数据，方便粘贴到 Excel。" },
   "UUID 생성기": { en: "UUID generator", ja: "UUIDジェネレーター", zh: "UUID 生成器" },
   "브라우저에서 UUID v4 값을 빠르게 생성합니다.": { en: "Quickly generate UUID v4 values in your browser.", ja: "ブラウザーでUUID v4を素早く生成します。", zh: "在浏览器中快速生成 UUID v4。" },
   "All tools run in your browser.": { en: "All tools run in your browser.", ja: "すべてのツールはブラウザー内で動作します。", zh: "所有工具都在浏览器中运行。" },
@@ -51,9 +117,23 @@ const textTranslations = {
   "입력한 JSON은 브라우저 안에서만 처리됩니다.": { en: "Your JSON is processed only in the browser.", ja: "入力したJSONはブラウザー内だけで処理されます。", zh: "输入的 JSON 仅在浏览器内处理。" },
   "정리하기": { en: "Format", ja: "整形", zh: "格式化" },
   "압축하기": { en: "Minify", ja: "圧縮", zh: "压缩" },
+  "자동 복구": { en: "Auto repair", ja: "自動修復", zh: "自动修复" },
   "복사": { en: "Copy", ja: "コピー", zh: "复制" },
   "결과가 여기에 표시됩니다.": { en: "Results will appear here.", ja: "結果がここに表示されます。", zh: "结果会显示在这里。" },
   "JSON 오류:": { en: "JSON error:", ja: "JSONエラー:", zh: "JSON 错误：" },
+  "XML을 정리하고 누락된 닫는 태그와 속성 따옴표를 가능한 범위에서 자동 복구합니다.": { en: "Format XML and automatically repair missing closing tags and attribute quotes where possible.", ja: "XMLを整形し、不足している終了タグや属性の引用符を可能な範囲で自動修復します。", zh: "格式化 XML，并尽可能自动修复缺失的结束标签和属性引号。" },
+  "SQL을 읽기 좋게 정리하고 누락된 따옴표, 괄호, 세미콜론을 가능한 범위에서 자동 복구합니다.": { en: "Format SQL for readability and automatically repair missing quotes, parentheses, and semicolons where possible.", ja: "SQLを読みやすく整形し、不足している引用符、括弧、セミコロンを可能な範囲で自動修復します。", zh: "美化 SQL，并尽可能自动修复缺失的引号、括号和分号。" },
+  "Excel에 붙여넣기 좋은 CSV/TSV 데이터를 정리하고 깨진 따옴표와 행 길이를 보정합니다.": { en: "Clean CSV/TSV data for Excel and fix broken quotes and row lengths.", ja: "Excelに貼り付けやすいCSV/TSVデータに整理し、壊れた引用符と行の長さを補正します。", zh: "整理适合粘贴到 Excel 的 CSV/TSV 数据，并修复损坏的引号和行长度。" },
+  "구분자": { en: "Delimiter", ja: "区切り文字", zh: "分隔符" },
+  "자동 감지": { en: "Auto detect", ja: "自動検出", zh: "自动检测" },
+  "쉼표 CSV": { en: "Comma CSV", ja: "カンマCSV", zh: "逗号 CSV" },
+  "탭 TSV": { en: "Tab TSV", ja: "タブTSV", zh: "制表符 TSV" },
+  "세미콜론": { en: "Semicolon", ja: "セミコロン", zh: "分号" },
+  "CSV로 정리": { en: "Clean as CSV", ja: "CSVとして整理", zh: "整理为 CSV" },
+  "TSV로 변환": { en: "Convert to TSV", ja: "TSVに変換", zh: "转换为 TSV" },
+  "XML 오류:": { en: "XML error:", ja: "XMLエラー:", zh: "XML 错误：" },
+  "자동 복구 후 정리했습니다.": { en: "Formatted after auto repair.", ja: "自動修復後に整形しました。", zh: "自动修复后已格式化。" },
+  "유효한 형식입니다.": { en: "The format is valid.", ja: "有効な形式です。", zh: "格式有效。" },
   "UUID 등 자주 필요한 값을 브라우저에서 바로 생성하는 도구 모음입니다.": { en: "Generate frequently needed values such as UUIDs directly in your browser.", ja: "UUIDなどよく使う値をブラウザーで直接生成するツール集です。", zh: "直接在浏览器中生成 UUID 等常用值的工具集。" },
   "테스트와 문서 작성에 필요한 값을 즉시 만듭니다.": { en: "Create values for testing and documentation instantly.", ja: "テストや文書作成に必要な値をすぐに作成します。", zh: "即时生成测试和文档编写所需的值。" },
   "UUID v4 값을 빠르게 생성하고 복사합니다.": { en: "Quickly generate and copy UUID v4 values.", ja: "UUID v4を素早く生成してコピーします。", zh: "快速生成并复制 UUID v4。" },
@@ -76,6 +156,10 @@ const attributeTranslations = {
   "광고 영역": { en: "Ad area", ja: "広告エリア", zh: "广告区域" },
   "예: 글자 수, JSON, UUID": { en: "e.g. word count, JSON, UUID", ja: "例: 文字数、JSON、UUID", zh: "例如：字数、JSON、UUID" },
   "여기에 텍스트를 붙여넣으세요.": { en: "Paste text here.", ja: "ここにテキストを貼り付けてください。", zh: "在此粘贴文本。" },
+  "Web-Tool.Shop 인코딩 테스트": textTranslations["Web-Tool.Shop 인코딩 테스트"],
+  "Web-Tool.Shop 인코딩 테스트": { en: "Web-Tool.Shop encoding test", ja: "Web-Tool.Shop エンコードテスト", zh: "Web-Tool.Shop 编码测试" },
+  "비교할 첫 번째 내용을 붙여넣으세요.": { en: "Paste the first content to compare.", ja: "比較する1つ目の内容を貼り付けてください。", zh: "粘贴要比较的第一段内容。" },
+  "비교할 두 번째 내용을 붙여넣으세요.": { en: "Paste the second content to compare.", ja: "比較する2つ目の内容を貼り付けてください。", zh: "粘贴要比较的第二段内容。" },
   "경로": { en: "Breadcrumb", ja: "パンくずリスト", zh: "路径" },
 };
 
@@ -92,21 +176,97 @@ const pageTranslations = {
     title: { ko: "글자 수 세기 - Web-Tool.Shop", en: "Word counter - Web-Tool.Shop", ja: "文字数カウント - Web-Tool.Shop", zh: "字数统计 - Web-Tool.Shop" },
     description: { ko: "텍스트의 문자 수, 공백 제외 문자 수, 단어 수, 줄 수를 브라우저에서 즉시 계산합니다.", en: "Instantly count characters, characters without spaces, words, and lines in your browser.", ja: "テキストの文字数、空白を除いた文字数、単語数、行数をブラウザーですぐに計算します。", zh: "在浏览器中即时计算文本的字符数、不含空格字符数、单词数和行数。" },
   },
-  "/tools/developer/": {
-    title: { ko: "개발자 도구 - Web-Tool.Shop", en: "Developer tools - Web-Tool.Shop", ja: "開発者ツール - Web-Tool.Shop", zh: "开发者工具 - Web-Tool.Shop" },
-    description: { ko: "JSON, XML, SQL, CSV 데이터를 브라우저에서 정리하고 가능한 오류를 자동 복구하는 무료 개발자 도구 모음입니다.", en: "Free developer tools for formatting JSON, XML, SQL, and CSV data in your browser with practical auto repair.", ja: "JSON、XML、SQL、CSVデータをブラウザーで整形し、可能なエラーを自動修復する無料開発者ツール集です。", zh: "免费的开发者工具集合，可在浏览器中格式化 JSON、XML、SQL、CSV 数据并自动修复常见错误。" },
+  "/tools/text/ascii-art/": {
+    title: { ko: "ASCII ART 변환기 - Web-Tool.Shop", en: "ASCII ART converter - Web-Tool.Shop", ja: "ASCII ART 変換ツール - Web-Tool.Shop", zh: "ASCII ART 转换器 - Web-Tool.Shop" },
+    description: { ko: "텍스트를 ASCII 배너로 변환하거나 이미지를 ASCII 문자 아트로 바꾸는 무료 브라우저 도구입니다.", en: "A free browser tool for converting text into ASCII banners or images into ASCII character art.", ja: "テキストをASCIIバナーに変換したり、画像をASCII文字アートに変換したりできる無料ブラウザーツールです。", zh: "免费浏览器工具，可将文本转换为 ASCII 横幅，或将图片转换为 ASCII 字符艺术。" },
   },
-  "/tools/developer/json-formatter/": {
+  "/tools/text/encoding-converter/": {
+    title: { ko: "인코딩 변환 도구 - Web-Tool.Shop", en: "Encoding converter - Web-Tool.Shop", ja: "エンコード変換ツール - Web-Tool.Shop", zh: "编码转换工具 - Web-Tool.Shop" },
+    description: { ko: "텍스트를 UTF-8, HEX, Base64, URL 인코딩, Unicode 코드 포인트 등 여러 표현으로 한 번에 변환하는 무료 브라우저 도구입니다.", en: "A free browser tool that converts text into UTF-8, HEX, Base64, URL encoding, Unicode code points, and more at once.", ja: "テキストをUTF-8、HEX、Base64、URLエンコード、Unicodeコードポイントなどへ一括変換する無料ブラウザーツールです。", zh: "免费浏览器工具，可一次将文本转换为 UTF-8、HEX、Base64、URL 编码、Unicode 码点等多种表示。" },
+  },
+  "/tools/text/url-encoder/": {
+    title: { ko: "URL 인코딩 변환기 - Web-Tool.Shop", en: "URL encoder decoder - Web-Tool.Shop", ja: "URLエンコード変換ツール - Web-Tool.Shop", zh: "URL 编码转换器 - Web-Tool.Shop" },
+    description: { ko: "일반 텍스트와 URL 인코딩 문자열을 브라우저에서 서로 변환하는 무료 URL encode decode 도구입니다.", en: "A free browser URL encode decode tool for converting between plain text and URL-encoded strings.", ja: "通常テキストとURLエンコード文字列をブラウザーで相互変換できる無料のURL encode decodeツールです。", zh: "免费浏览器 URL encode decode 工具，可在普通文本和 URL 编码字符串之间相互转换。" },
+  },
+  "/tools/text/emoji-tool/": {
+    title: { ko: "Emoji Tool - Web-Tool.Shop", en: "Emoji Tool - Web-Tool.Shop", ja: "Emoji Tool - Web-Tool.Shop", zh: "Emoji Tool - Web-Tool.Shop" },
+    description: { ko: "Browse popular emojis first, filter by keyword, and click any emoji to copy it.", en: "Browse popular emojis first, filter by keyword, and click any emoji to copy it.", ja: "Browse popular emojis first, filter by keyword, and click any emoji to copy it.", zh: "Browse popular emojis first, filter by keyword, and click any emoji to copy it." },
+  },
+  "/tools/design/": {
+    title: { ko: "Design Tools - Web-Tool.Shop", en: "Design Tools - Web-Tool.Shop", ja: "Design Tools - Web-Tool.Shop", zh: "Design Tools - Web-Tool.Shop" },
+    description: { ko: "Browser tools for image filters, CSS effects, colors, and SVG generation.", en: "Browser tools for image filters, CSS effects, colors, and SVG generation.", ja: "Browser tools for image filters, CSS effects, colors, and SVG generation.", zh: "Browser tools for image filters, CSS effects, colors, and SVG generation." },
+  },
+  "/tools/design/pixelate/": {
+    title: { ko: "Image Pixelate Filter - Web-Tool.Shop", en: "Image Pixelate Filter - Web-Tool.Shop", ja: "Image Pixelate Filter - Web-Tool.Shop", zh: "Image Pixelate Filter - Web-Tool.Shop" },
+    description: { ko: "A browser-based design utility from Web-Tool.Shop.", en: "A browser-based design utility from Web-Tool.Shop.", ja: "A browser-based design utility from Web-Tool.Shop.", zh: "A browser-based design utility from Web-Tool.Shop." },
+  },
+  "/tools/design/box-shadow/": {
+    title: { ko: "Box-Shadow Generator - Web-Tool.Shop", en: "Box-Shadow Generator - Web-Tool.Shop", ja: "Box-Shadow Generator - Web-Tool.Shop", zh: "Box-Shadow Generator - Web-Tool.Shop" },
+    description: { ko: "A browser-based design utility from Web-Tool.Shop.", en: "A browser-based design utility from Web-Tool.Shop.", ja: "A browser-based design utility from Web-Tool.Shop.", zh: "A browser-based design utility from Web-Tool.Shop." },
+  },
+  "/tools/design/glassmorphism/": {
+    title: { ko: "Glassmorphism Generator - Web-Tool.Shop", en: "Glassmorphism Generator - Web-Tool.Shop", ja: "Glassmorphism Generator - Web-Tool.Shop", zh: "Glassmorphism Generator - Web-Tool.Shop" },
+    description: { ko: "A browser-based design utility from Web-Tool.Shop.", en: "A browser-based design utility from Web-Tool.Shop.", ja: "A browser-based design utility from Web-Tool.Shop.", zh: "A browser-based design utility from Web-Tool.Shop." },
+  },
+  "/tools/design/button-badge/": {
+    title: { ko: "Button & Badge Maker - Web-Tool.Shop", en: "Button & Badge Maker - Web-Tool.Shop", ja: "Button & Badge Maker - Web-Tool.Shop", zh: "Button & Badge Maker - Web-Tool.Shop" },
+    description: { ko: "A browser-based design utility from Web-Tool.Shop.", en: "A browser-based design utility from Web-Tool.Shop.", ja: "A browser-based design utility from Web-Tool.Shop.", zh: "A browser-based design utility from Web-Tool.Shop." },
+  },
+  "/tools/design/palette-extractor/": {
+    title: { ko: "Image Palette Extractor - Web-Tool.Shop", en: "Image Palette Extractor - Web-Tool.Shop", ja: "Image Palette Extractor - Web-Tool.Shop", zh: "Image Palette Extractor - Web-Tool.Shop" },
+    description: { ko: "A browser-based design utility from Web-Tool.Shop.", en: "A browser-based design utility from Web-Tool.Shop.", ja: "A browser-based design utility from Web-Tool.Shop.", zh: "A browser-based design utility from Web-Tool.Shop." },
+  },
+  "/tools/design/svg-placeholder/": {
+    title: { ko: "SVG Placeholder Generator - Web-Tool.Shop", en: "SVG Placeholder Generator - Web-Tool.Shop", ja: "SVG Placeholder Generator - Web-Tool.Shop", zh: "SVG Placeholder Generator - Web-Tool.Shop" },
+    description: { ko: "A browser-based design utility from Web-Tool.Shop.", en: "A browser-based design utility from Web-Tool.Shop.", ja: "A browser-based design utility from Web-Tool.Shop.", zh: "A browser-based design utility from Web-Tool.Shop." },
+  },
+  "/tools/design/gradient-generator/": {
+    title: { ko: "Gradient Generator - Web-Tool.Shop", en: "Gradient Generator - Web-Tool.Shop", ja: "Gradient Generator - Web-Tool.Shop", zh: "Gradient Generator - Web-Tool.Shop" },
+    description: { ko: "A browser-based design utility from Web-Tool.Shop.", en: "A browser-based design utility from Web-Tool.Shop.", ja: "A browser-based design utility from Web-Tool.Shop.", zh: "A browser-based design utility from Web-Tool.Shop." },
+  },
+  "/tools/design/color-converter/": {
+    title: { ko: "Color Code Converter - Web-Tool.Shop", en: "Color Code Converter - Web-Tool.Shop", ja: "Color Code Converter - Web-Tool.Shop", zh: "Color Code Converter - Web-Tool.Shop" },
+    description: { ko: "A browser-based design utility from Web-Tool.Shop.", en: "A browser-based design utility from Web-Tool.Shop.", ja: "A browser-based design utility from Web-Tool.Shop.", zh: "A browser-based design utility from Web-Tool.Shop." },
+  },
+  "/tools/css-art/": {
+    title: { ko: "CSS-ART - Web-Tool.Shop", en: "CSS-ART - Web-Tool.Shop", ja: "CSS-ART - Web-Tool.Shop", zh: "CSS-ART - Web-Tool.Shop" },
+    description: { ko: "An archive of copyable CSS effects.", en: "An archive of copyable CSS effects.", ja: "An archive of copyable CSS effects.", zh: "An archive of copyable CSS effects." },
+  },
+  "/tools/css-art/art-gallery/": {
+    title: { ko: "CSS ART Archive - Web-Tool.Shop", en: "CSS ART Archive - Web-Tool.Shop", ja: "CSS ART Archive - Web-Tool.Shop", zh: "CSS ART Archive - Web-Tool.Shop" },
+    description: { ko: "Copyable CSS art effect snippets with live previews.", en: "Copyable CSS art effect snippets with live previews.", ja: "Copyable CSS art effect snippets with live previews.", zh: "Copyable CSS art effect snippets with live previews." },
+  },
+  "/tools/converter/": {
+    title: { ko: "자료형 변환 - Web-Tool.Shop", en: "Data conversion - Web-Tool.Shop", ja: "データ変換 - Web-Tool.Shop", zh: "数据转换 - Web-Tool.Shop" },
+    description: { ko: "JSON, XML, SQL, CSV, UUID 데이터를 브라우저에서 정리하고 가능한 오류를 자동 복구하는 무료 자료형 변환 도구 모음입니다.", en: "Free data conversion tools for JSON, XML, SQL, CSV, and UUID work in your browser with practical auto repair.", ja: "JSON、XML、SQL、CSV、UUIDデータをブラウザーで整理し、可能なエラーを自動修復する無料データ変換ツール集です。", zh: "免费的数据转换工具集合，可在浏览器中整理 JSON、XML、SQL、CSV 和 UUID 数据并自动修复常见错误。" },
+  },
+  "/tools/converter/json-formatter/": {
     title: { ko: "JSON 포맷터 - Web-Tool.Shop", en: "JSON formatter - Web-Tool.Shop", ja: "JSONフォーマッター - Web-Tool.Shop", zh: "JSON 格式化工具 - Web-Tool.Shop" },
     description: { ko: "JSON 문자열을 보기 좋게 정리하고 누락된 따옴표, 중괄호, 대괄호, 후행 쉼표를 가능한 범위에서 자동 복구합니다.", en: "Format JSON and automatically repair missing quotes, braces, brackets, and trailing commas where possible.", ja: "JSONを整形し、不足した引用符、中括弧、角括弧、末尾のカンマを可能な範囲で自動修復します。", zh: "格式化 JSON，并尽可能自动修复缺失的引号、大括号、中括号和尾随逗号。" },
   },
-  "/tools/generator/": {
-    title: { ko: "생성기 - Web-Tool.Shop", en: "Generators - Web-Tool.Shop", ja: "ジェネレーター - Web-Tool.Shop", zh: "生成器 - Web-Tool.Shop" },
-    description: { ko: "UUID 등 자주 필요한 값을 브라우저에서 바로 생성하는 도구 모음입니다.", en: "Generate frequently needed values such as UUIDs directly in your browser.", ja: "UUIDなどよく使う値をブラウザーで直接生成するツール集です。", zh: "直接在浏览器中生成 UUID 等常用值的工具集。" },
+  "/tools/converter/xml-formatter/": {
+    title: { ko: "XML 포맷터 - Web-Tool.Shop", en: "XML formatter - Web-Tool.Shop", ja: "XMLフォーマッター - Web-Tool.Shop", zh: "XML 格式化工具 - Web-Tool.Shop" },
+    description: { ko: "XML을 보기 좋게 정리하고 누락된 닫는 태그, 속성 따옴표, 깨진 엔티티를 가능한 범위에서 자동 복구합니다.", en: "Format XML and automatically repair missing closing tags, attribute quotes, and broken entities where possible.", ja: "XMLを整形し、不足した終了タグ、属性の引用符、壊れたエンティティを可能な範囲で自動修復します。", zh: "格式化 XML，并尽可能自动修复缺失的结束标签、属性引号和损坏的实体。" },
   },
-  "/tools/generator/uuid-generator/": {
+  "/tools/converter/sql-formatter/": {
+    title: { ko: "SQL 포맷터 - Web-Tool.Shop", en: "SQL formatter - Web-Tool.Shop", ja: "SQLフォーマッター - Web-Tool.Shop", zh: "SQL 格式化工具 - Web-Tool.Shop" },
+    description: { ko: "SQL 쿼리를 읽기 좋게 정리하고 누락된 따옴표, 괄호, 세미콜론을 가능한 범위에서 자동 보정합니다.", en: "Format SQL queries for readability and automatically repair missing quotes, parentheses, and semicolons where possible.", ja: "SQLクエリを読みやすく整形し、不足した引用符、括弧、セミコロンを可能な範囲で自動補正します。", zh: "美化 SQL 查询，并尽可能自动修复缺失的引号、括号和分号。" },
+  },
+  "/tools/converter/excel-cleaner/": {
+    title: { ko: "Excel CSV 정리 도구 - Web-Tool.Shop", en: "Excel CSV cleaner - Web-Tool.Shop", ja: "Excel CSV整理ツール - Web-Tool.Shop", zh: "Excel CSV 清理工具 - Web-Tool.Shop" },
+    description: { ko: "Excel에 붙여넣기 좋은 CSV/TSV 데이터를 정리하고 깨진 따옴표와 행 길이를 보정하는 무료 브라우저 도구입니다.", en: "A free browser tool for cleaning CSV/TSV data for Excel while fixing broken quotes and row lengths.", ja: "Excelに貼り付けやすいCSV/TSVデータを整理し、壊れた引用符と行の長さを補正する無料ブラウザーツールです。", zh: "免费浏览器工具，可整理适合 Excel 的 CSV/TSV 数据，并修复损坏的引号和行长度。" },
+  },
+  "/tools/converter/uuid-generator/": {
     title: { ko: "UUID 생성기 - Web-Tool.Shop", en: "UUID generator - Web-Tool.Shop", ja: "UUIDジェネレーター - Web-Tool.Shop", zh: "UUID 生成器 - Web-Tool.Shop" },
     description: { ko: "브라우저에서 UUID v4 값을 생성하고 복사하는 간단한 도구입니다.", en: "A simple tool for generating and copying UUID v4 values in your browser.", ja: "ブラウザーでUUID v4を生成してコピーするシンプルなツールです。", zh: "一个在浏览器中生成并复制 UUID v4 的简单工具。" },
+  },
+  "/tools/diff/": {
+    title: { ko: "비교하기 - Web-Tool.Shop", en: "Compare - Web-Tool.Shop", ja: "比較 - Web-Tool.Shop", zh: "比较 - Web-Tool.Shop" },
+    description: { ko: "텍스트, JSON, XML 내용을 브라우저에서 나란히 비교하는 무료 DIFF 도구 모음입니다.", en: "Free browser-based DIFF tools for comparing text, JSON, and XML side by side.", ja: "テキスト、JSON、XMLをブラウザーで並べて比較できる無料DIFFツール集です。", zh: "免费的浏览器 DIFF 工具集合，可并排比较文本、JSON 和 XML。" },
+  },
+  "/tools/diff/compare/": {
+    title: { ko: "DIFF 비교 도구 - Web-Tool.Shop", en: "DIFF compare tool - Web-Tool.Shop", ja: "DIFF比較ツール - Web-Tool.Shop", zh: "DIFF 比较工具 - Web-Tool.Shop" },
+    description: { ko: "텍스트, JSON, XML 두 값을 브라우저에서 비교하고 추가, 삭제, 변경 라인을 확인하는 무료 DIFF 도구입니다.", en: "A free DIFF tool for comparing two text, JSON, or XML values and checking added, removed, and changed lines in your browser.", ja: "2つのText、JSON、XMLをブラウザーで比較し、追加、削除、変更行を確認できる無料DIFFツールです。", zh: "免费的 DIFF 工具，可在浏览器中比较两段文本、JSON 或 XML，并查看新增、删除和变更行。" },
   },
   "/privacy.html": {
     title: { ko: "개인정보처리방침 - Web-Tool.Shop", en: "Privacy policy - Web-Tool.Shop", ja: "プライバシーポリシー - Web-Tool.Shop", zh: "隐私政策 - Web-Tool.Shop" },
@@ -118,15 +278,37 @@ const pageTranslations = {
   },
 };
 
+function normalizeLanguage(value) {
+  const language = String(value || "").toLowerCase();
+  if (supportedLanguages.includes(language)) return language;
+  if (language.startsWith("ko")) return "ko";
+  if (language.startsWith("en")) return "en";
+  if (language.startsWith("ja")) return "ja";
+  if (language.startsWith("zh")) return "zh";
+  return "";
+}
+
+function getQueryLanguage() {
+  return normalizeLanguage(new URLSearchParams(window.location.search).get("locale"));
+}
+
 function getStoredLanguage() {
   const stored = localStorage.getItem("gadget-language");
   if (supportedLanguages.includes(stored)) return stored;
 
   const browserLanguage = navigator.language.toLowerCase();
-  if (browserLanguage.startsWith("ja")) return "ja";
-  if (browserLanguage.startsWith("zh")) return "zh";
-  if (browserLanguage.startsWith("en")) return "en";
+  const normalizedBrowserLanguage = normalizeLanguage(browserLanguage);
+  if (normalizedBrowserLanguage) return normalizedBrowserLanguage;
   return "ko";
+}
+
+function getInitialLanguage() {
+  const queryLanguage = getQueryLanguage();
+  if (queryLanguage) {
+    localStorage.setItem("gadget-language", queryLanguage);
+    return queryLanguage;
+  }
+  return getStoredLanguage();
 }
 
 function translate(key, language) {
@@ -195,6 +377,29 @@ function translatePageMeta(language) {
   if (ogDescription) ogDescription.setAttribute("content", page.description[language] || page.description.ko);
 }
 
+function setLocaleQuery(language) {
+  const url = new URL(window.location.href);
+  url.searchParams.set("locale", language);
+  window.history.replaceState({}, "", `${url.pathname}${url.search}${url.hash}`);
+}
+
+function withLocale(href, language) {
+  if (!href || href.startsWith("#") || href.startsWith("mailto:") || href.startsWith("tel:")) return href;
+
+  const url = new URL(href, window.location.href);
+  if (url.origin !== window.location.origin) return href;
+  url.searchParams.set("locale", language);
+  return `${url.pathname}${url.search}${url.hash}`;
+}
+
+function updateInternalLinks(language) {
+  for (const link of document.querySelectorAll('a[href]')) {
+    const originalHref = link.dataset.i18nHref || link.getAttribute("href");
+    link.dataset.i18nHref = originalHref;
+    link.setAttribute("href", withLocale(originalHref, language));
+  }
+}
+
 function injectLanguageSelect(language) {
   const header = document.querySelector(".site-header");
   if (!header || document.querySelector("#language-select")) return;
@@ -216,6 +421,7 @@ function injectLanguageSelect(language) {
 
   select.addEventListener("change", () => {
     localStorage.setItem("gadget-language", select.value);
+    setLocaleQuery(select.value);
     applyLanguage(select.value);
   });
 
@@ -233,11 +439,13 @@ function applyLanguage(language) {
   translatePageMeta(language);
   translateTextNodes(language);
   translateAttributes(language);
+  updateInternalLinks(language);
   const select = document.querySelector("#language-select");
   if (select) select.value = language;
   window.gadgetLanguage = language;
 }
 
-const initialLanguage = getStoredLanguage();
+const initialLanguage = getInitialLanguage();
+if (getQueryLanguage()) setLocaleQuery(initialLanguage);
 injectLanguageSelect(initialLanguage);
 applyLanguage(initialLanguage);

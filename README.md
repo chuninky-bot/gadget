@@ -19,8 +19,16 @@ tools/
 
 ```text
 tools/text/word-counter/
-tools/developer/json-formatter/
-tools/generator/uuid-generator/
+tools/text/ascii-art/
+tools/text/encoding-converter/
+tools/text/url-encoder/
+tools/text/emoji-tool/
+tools/design/box-shadow/
+tools/design/glassmorphism/
+tools/css-art/art-gallery/
+tools/converter/json-formatter/
+tools/converter/uuid-generator/
+tools/diff/compare/
 ```
 
 ## GitHub Pages 설정
