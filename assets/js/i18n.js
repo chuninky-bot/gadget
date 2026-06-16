@@ -212,9 +212,11 @@ const textTranslations = {
   "Click an emoji to copy it.": { ko: "이모지를 클릭하면 복사됩니다.", en: "Click an emoji to copy it.", ja: "絵文字をクリックするとコピーされます。", zh: "点击表情符号即可复制。" },
   "Click an emoji to copy it to the clipboard.": { ko: "이모지를 클릭하면 클립보드에 복사됩니다.", en: "Click an emoji to copy it to the clipboard.", ja: "絵文字をクリックするとクリップボードにコピーされます。", zh: "点击表情符号即可复制到剪贴板。" },
   "Click to copy": { ko: "클릭해서 복사", en: "Click to copy", ja: "クリックしてコピー", zh: "点击复制" },
+  "Copied to clipboard.": { ko: "클립보드에 복사되었습니다.", en: "Copied to clipboard.", ja: "クリップボードにコピーしました。", zh: "已复制到剪贴板。" },
   "Popular emojis": { ko: "자주 쓰이는 이모지", en: "Popular emojis", ja: "よく使う絵文字", zh: "常用表情符号" },
   "All emojis": { ko: "전체 이모지", en: "All emojis", ja: "すべての絵文字", zh: "全部表情符号" },
   "emojis found.": { ko: "개의 이모지를 찾았습니다.", en: "emojis found.", ja: "件の絵文字が見つかりました。", zh: "个表情符号。" },
+  "emojis loaded.": { ko: "개의 이모지를 불러왔습니다.", en: "emojis loaded.", ja: "件の絵文字を読み込みました。", zh: "个表情符号已加载。" },
 };
 
 const attributeTranslations = {

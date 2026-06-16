@@ -7,7 +7,8 @@
                     "dev":  "browser-sync start --server . --files \"*.html,tools/**/*.html,tools/**/*.js,assets/css/*.css,assets/js/*.js\" --port 3000 --no-open",
                     "watch:css":  "chokidar \"assets/less/**/*.less\" -c \"npm run build:css\"",
                     "apply:env":  "node scripts/apply-env.js",
-                    "apply:seo":  "node scripts/apply-seo.js"
+                    "apply:seo":  "node scripts/apply-seo.js",
+                    "generate:emoji":  "node scripts/generate-emoji-data.js"
                 },
     "devDependencies":  {
                             "less":  "^4.2.2",

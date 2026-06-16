@@ -91,8 +91,8 @@ const pages = [
   {
     file: "tools/text/emoji-tool/index.html",
     url: "/tools/text/emoji-tool/",
-    title: "Design Tools - Web-Tool.Shop",
-    description: "Browse popular emojis first, filter by keyword, and click any emoji to copy it.",
+    title: "이모지 도구 - Web-Tool.Shop",
+    description: "자주 쓰이는 이모지를 먼저 보고, 키워드로 필터링한 뒤 클릭해서 복사하는 무료 브라우저 도구입니다.",
     type: "SoftwareApplication",
     category: "Text Utility",
     priority: "0.8",
