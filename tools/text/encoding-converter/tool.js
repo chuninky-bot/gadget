@@ -1,120 +1,158 @@
 const input = document.querySelector("#encoding-input");
 const output = document.querySelector("#encoding-output");
 const status = document.querySelector("#encoding-status");
-const sampleButton = document.querySelector("#sample");
+const sampleButtons = document.querySelectorAll("[data-sample]");
 const clearButton = document.querySelector("#clear");
 
 function message(key) {
   return window.gadgetTranslate ? window.gadgetTranslate(key) : key;
 }
 
-function currentLanguage() {
-  const queryLocale = new URLSearchParams(window.location.search).get("locale");
-  const locale = String(queryLocale || window.gadgetLanguage || "ko").toLowerCase();
-  if (locale.startsWith("en")) return "en";
-  if (locale.startsWith("ja")) return "ja";
-  if (locale.startsWith("zh")) return "zh";
-  return "ko";
-}
-
-function localizedSample(samples) {
-  return samples[currentLanguage()] || samples.ko;
-}
-
-const samples = {
-  ko: "Web-Tool.Shop 인코딩 테스트 ABC 123",
-  en: "Web-Tool.Shop encoding test ABC 123",
-  ja: "Web-Tool.Shop エンコードテスト ABC 123",
-  zh: "Web-Tool.Shop 编码测试 ABC 123",
-};
-
 function bytesToHex(bytes) {
   return Array.from(bytes, (byte) => byte.toString(16).padStart(2, "0").toUpperCase()).join(" ");
 }
 
-function bytesToBinary(bytes) {
-  return Array.from(bytes, (byte) => byte.toString(2).padStart(8, "0")).join(" ");
+function utf8Encode(text) {
+  return new (window.NativeTextEncoder || TextEncoder)().encode(text);
 }
 
-function bytesToPercent(bytes) {
-  return Array.from(bytes, (byte) => `%${byte.toString(16).padStart(2, "0").toUpperCase()}`).join("");
-}
-
-function bytesToBase64(bytes) {
-  let binary = "";
-  for (const byte of bytes) binary += String.fromCharCode(byte);
-  return btoa(binary);
-}
-
-function unicodeCodePoints(text) {
-  return Array.from(text, (char) => `U+${char.codePointAt(0).toString(16).toUpperCase().padStart(4, "0")}`).join(" ");
-}
-
-function utf16CodeUnits(text) {
-  return Array.from(text, (_, index) => text.charCodeAt(index).toString(16).toUpperCase().padStart(4, "0"))
-    .map((unit) => `0x${unit}`)
-    .join(" ");
-}
-
-function htmlEntities(text) {
-  return Array.from(text, (char) => `&#x${char.codePointAt(0).toString(16).toUpperCase()};`).join("");
-}
-
-function encodeEucKr(text) {
+function decodeBytes(bytes, encoding) {
   try {
-    return new TextEncoder("euc-kr", { NONSTANDARD_allowLegacyEncoding: true }).encode(text);
+    return new TextDecoder(encoding, { fatal: false }).decode(bytes);
+  } catch (_) {
+    return "";
+  }
+}
+
+function encodeBytes(text, encoding) {
+  try {
+    return new TextEncoder(encoding, { NONSTANDARD_allowLegacyEncoding: true }).encode(text);
   } catch (_) {
     return null;
   }
 }
 
-function eucKrFallback() {
-  return message("브라우저 기본 TextEncoder는 UTF-8만 지원합니다. EUC-KR 실제 바이트 변환은 별도 인코딩 테이블이 필요합니다.");
+function parseHex(value) {
+  const normalized = value.trim().replace(/\\x/gi, "").replace(/0x/gi, "");
+  if (/[^0-9a-f\s,;:_-]/i.test(normalized)) return null;
+  const cleaned = normalized
+    .replace(/\\x/gi, " ")
+    .replace(/0x/gi, " ")
+    .replace(/[^0-9a-f]/gi, "");
+  if (!cleaned || cleaned.length % 2 !== 0) return null;
+  return Uint8Array.from(cleaned.match(/../g).map((part) => parseInt(part, 16)));
 }
 
-function createResultCard(title, value) {
+function parseUrlBytes(value) {
+  if (!/%[0-9a-f]{2}/i.test(value)) return null;
+  try {
+    const normalized = value.replace(/\+/g, "%20");
+    const bytes = [];
+    for (let index = 0; index < normalized.length; index += 1) {
+      if (normalized[index] === "%" && /[0-9a-f]{2}/i.test(normalized.slice(index + 1, index + 3))) {
+        bytes.push(parseInt(normalized.slice(index + 1, index + 3), 16));
+        index += 2;
+      } else {
+        bytes.push(...utf8Encode(normalized[index]));
+      }
+    }
+    return Uint8Array.from(bytes);
+  } catch (_) {
+    return null;
+  }
+}
+
+function parseBase64Bytes(value) {
+  const trimmed = value.trim();
+  if (!trimmed || trimmed.length < 4 || trimmed.length % 4 !== 0 || !/^[A-Za-z0-9+/]+={0,2}$/.test(trimmed)) return null;
+  try {
+    const binary = atob(trimmed);
+    return Uint8Array.from(binary, (char) => char.charCodeAt(0));
+  } catch (_) {
+    return null;
+  }
+}
+
+function uniqueRows(rows) {
+  const seen = new Set();
+  return rows.filter((row) => {
+    const key = `${row.title}\n${row.value}`;
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+}
+
+function createResultCard(row) {
   const article = document.createElement("article");
   article.className = "encoding-card";
 
   const heading = document.createElement("h2");
-  heading.textContent = message(title);
+  heading.textContent = message(row.title);
 
   const pre = document.createElement("pre");
-  pre.textContent = value || "-";
+  pre.textContent = row.value || "-";
 
   article.append(heading, pre);
   return article;
 }
 
-function convert() {
-  const text = input.value;
-  const utf8 = new TextEncoder().encode(text);
-  const eucKr = encodeEucKr(text);
-  const rows = [
-    ["원문", text],
-    ["UTF-8 HEX", bytesToHex(utf8)],
-    ["UTF-8 Bytes", Array.from(utf8).join(", ")],
-    ["UTF-8 Binary", bytesToBinary(utf8)],
-    ["HEX", bytesToHex(utf8).replace(/\s/g, "")],
-    ["URL Percent Encoding", bytesToPercent(utf8)],
-    ["encodeURIComponent", encodeURIComponent(text)],
-    ["Base64 (UTF-8)", bytesToBase64(utf8)],
-    ["Unicode Code Point", unicodeCodePoints(text)],
-    ["UTF-16 Code Unit", utf16CodeUnits(text)],
-    ["HTML Entity", htmlEntities(text)],
-    ["EUC-KR HEX", eucKr ? bytesToHex(eucKr) : eucKrFallback()],
-    ["EUC-KR Bytes", eucKr ? eucKr.join(", ") : eucKrFallback()],
+function readableRowsFromBytes(bytes, sourceLabel) {
+  return [
+    { title: sourceLabel, value: bytesToHex(bytes) },
+    { title: "UTF-8로 읽은 결과", value: decodeBytes(bytes, "utf-8") },
+    { title: "EUC-KR로 읽은 결과", value: decodeBytes(bytes, "euc-kr") },
+    { title: "ISO-8859-1로 읽은 결과", value: decodeBytes(bytes, "iso-8859-1") },
   ];
-
-  output.replaceChildren(...rows.map(([title, value]) => createResultCard(title, value)));
-  status.textContent = message("인코딩 변환을 완료했습니다.");
 }
 
-sampleButton.addEventListener("click", () => {
-  input.value = localizedSample(samples);
-  convert();
-  input.focus();
+function convert() {
+  const value = input.value.trim();
+  if (!value) {
+    output.replaceChildren();
+    status.textContent = message("결과가 여기에 표시됩니다.");
+    return;
+  }
+
+  const rows = [];
+  const hexBytes = parseHex(value);
+  const urlBytes = parseUrlBytes(value);
+  const base64Bytes = parseBase64Bytes(value);
+
+  if (hexBytes) rows.push(...readableRowsFromBytes(hexBytes, "HEX 바이트"));
+  if (urlBytes) rows.push(...readableRowsFromBytes(urlBytes, "URL 바이트"));
+  if (base64Bytes) rows.push(...readableRowsFromBytes(base64Bytes, "Base64 바이트"));
+
+  if (!rows.length) {
+    const utf8 = utf8Encode(value);
+    const eucKr = encodeBytes(value, "euc-kr");
+    rows.push(
+      { title: "입력한 문자", value },
+      { title: "UTF-8 바이트", value: bytesToHex(utf8) },
+    );
+    if (eucKr) rows.push({ title: "EUC-KR 바이트", value: bytesToHex(eucKr) });
+  }
+
+  output.replaceChildren(...uniqueRows(rows).map(createResultCard));
+  status.textContent = message(rows.length ? "읽을 수 있는 문자로 변환했습니다." : "결과가 여기에 표시됩니다.");
+}
+
+const samples = {
+  utf8: "EC 95 88 EB 85 95",
+  "euc-kr": "BE C8 B3 E7",
+  hex: "41 50 50 4C 45",
+  base64: "QVBQTEU=",
+  url: "%EC%95%88%EB%85%95",
+};
+
+sampleButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    input.value = samples[button.dataset.sample] || samples.hex;
+    convert();
+    input.focus();
+  });
 });
+
 clearButton.addEventListener("click", () => {
   input.value = "";
   output.replaceChildren();
@@ -122,5 +160,5 @@ clearButton.addEventListener("click", () => {
 });
 input.addEventListener("input", convert);
 
-input.value = localizedSample(samples);
+input.value = samples.hex;
 convert();

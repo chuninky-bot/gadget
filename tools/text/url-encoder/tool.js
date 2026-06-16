@@ -1,12 +1,9 @@
-const plainInput = document.querySelector("#plain-input");
-const encodedInput = document.querySelector("#encoded-input");
+const input = document.querySelector("#plain-input");
+const output = document.querySelector("#encoded-input");
 const status = document.querySelector("#url-status");
 const spaceAsPlus = document.querySelector("#space-as-plus");
-const swapButton = document.querySelector("#swap");
 const sampleButton = document.querySelector("#sample");
 const clearButton = document.querySelector("#clear");
-
-let activeSide = "plain";
 
 function message(key) {
   return window.gadgetTranslate ? window.gadgetTranslate(key) : key;
@@ -32,6 +29,11 @@ const samples = {
   zh: "你好 Web-Tool.Shop? q=中文测试&lang=zh",
 };
 
+function setStatus(text, isError = false) {
+  status.textContent = message(text);
+  status.dataset.state = isError ? "error" : "ok";
+}
+
 function encodeText(value) {
   const encoded = encodeURIComponent(value);
   return spaceAsPlus.checked ? encoded.replace(/%20/g, "+") : encoded;
@@ -42,55 +44,46 @@ function decodeText(value) {
   return decodeURIComponent(normalized);
 }
 
-function setStatus(text, isError = false) {
-  status.textContent = message(text);
-  status.dataset.state = isError ? "error" : "ok";
+function looksUrlEncoded(value) {
+  const trimmed = value.trim();
+  if (!trimmed) return false;
+  if (/%[0-9a-f]{2}/i.test(trimmed)) return true;
+  return spaceAsPlus.checked && trimmed.includes("+") && !trimmed.includes(" ");
 }
 
-function syncFromPlain() {
-  encodedInput.value = encodeText(plainInput.value);
-  setStatus("URL 인코딩을 완료했습니다.");
-}
+function convert() {
+  const value = input.value;
+  if (!value) {
+    output.value = "";
+    setStatus("결과가 여기에 표시됩니다.");
+    return;
+  }
 
-function syncFromEncoded() {
+  if (!looksUrlEncoded(value)) {
+    output.value = encodeText(value);
+    setStatus("입력 문자를 URL 인코딩했습니다.");
+    return;
+  }
+
   try {
-    plainInput.value = decodeText(encodedInput.value);
-    setStatus("URL 디코딩을 완료했습니다.");
+    output.value = decodeText(value);
+    setStatus("URL 인코딩을 일반문자로 디코딩했습니다.");
   } catch (_) {
+    output.value = "";
     setStatus("URL 인코딩 문자열이 올바르지 않습니다.", true);
   }
 }
 
-function sync() {
-  if (activeSide === "encoded") syncFromEncoded();
-  else syncFromPlain();
-}
-
-plainInput.addEventListener("input", () => {
-  activeSide = "plain";
-  syncFromPlain();
-});
-encodedInput.addEventListener("input", () => {
-  activeSide = "encoded";
-  syncFromEncoded();
-});
-spaceAsPlus.addEventListener("change", sync);
-swapButton.addEventListener("click", () => {
-  const plain = plainInput.value;
-  plainInput.value = encodedInput.value;
-  encodedInput.value = plain;
-  activeSide = activeSide === "plain" ? "encoded" : "plain";
-  setStatus("두 값을 서로 바꿨습니다.");
-});
+input.addEventListener("input", convert);
+spaceAsPlus.addEventListener("change", convert);
 sampleButton.addEventListener("click", () => {
-  activeSide = "plain";
-  plainInput.value = localizedSample(samples);
-  syncFromPlain();
-  plainInput.focus();
+  input.value = localizedSample(samples);
+  convert();
+  input.focus();
 });
 clearButton.addEventListener("click", () => {
-  plainInput.value = "";
-  encodedInput.value = "";
+  input.value = "";
+  output.value = "";
   setStatus("결과가 여기에 표시됩니다.");
 });
 

@@ -41,6 +41,7 @@ Pages without a local `tool.js` still load `site-shell.js` before `i18n.js` and 
 - Add placeholders, `aria-label`, and `title` strings to `attributeTranslations`.
 - Dynamic JS messages must use `window.gadgetTranslate()` or a local `message()` wrapper.
 - Test sample/example content must branch by the current locale too. Do not hardcode Korean-only sample text in `#sample` handlers, default textareas, generated demo values, or placeholder examples.
+- Run `npm run check:i18n` after adding or changing visible HTML text. Every visible sentence, label, placeholder, `aria-label`, and `title` must have `ko`, `en`, `ja`, and `zh` coverage unless it is a brand name, code token, number, or standard acronym.
 - The emoji tool uses generated Unicode data from `assets/js/emoji-data.js`; regenerate it with `npm run generate:emoji` when updating emoji coverage or multilingual search keywords.
 - Verify direct locale URLs for new pages:
   - `?locale=ko`

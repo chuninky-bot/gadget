@@ -72,7 +72,7 @@ const pages = [
     file: "tools/text/encoding-converter/index.html",
     url: "/tools/text/encoding-converter/",
     title: "인코딩 변환 도구 - Web-Tool.Shop",
-    description: "텍스트를 UTF-8, HEX, Base64, URL 인코딩, Unicode 코드 포인트 등 여러 표현으로 한 번에 변환하는 무료 브라우저 도구입니다.",
+    description: "HEX, Base64, URL 인코딩, UTF-8, EUC-KR 값을 브라우저에서 읽을 수 있는 문자로 변환하는 무료 인코딩 도구입니다.",
     type: "SoftwareApplication",
     category: "Text Utility",
     priority: "0.8",

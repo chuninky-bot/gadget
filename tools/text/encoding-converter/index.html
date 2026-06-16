@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>인코딩 변환 도구 - Web-Tool.Shop</title>
-    <meta name="description" content="텍스트를 UTF-8, HEX, Base64, URL 인코딩, Unicode 코드 포인트 등 여러 표현으로 한 번에 변환하는 무료 브라우저 도구입니다.">
+    <meta name="description" content="HEX, Base64, URL 인코딩, UTF-8, EUC-KR 값을 브라우저에서 읽을 수 있는 문자로 변환하는 무료 인코딩 도구입니다.">
     <link rel="stylesheet" href="../../../assets/css/styles.css">
     <script defer src="../../../assets/js/site-shell.js"></script>
     <script defer src="../../../assets/js/i18n.js"></script>
@@ -22,41 +22,34 @@
     <link rel="canonical" href="https://web-tool.shop/tools/text/encoding-converter/">
     <meta property="og:site_name" content="Web-Tool.Shop">
     <meta property="og:title" content="인코딩 변환 도구 - Web-Tool.Shop">
-    <meta property="og:description" content="텍스트를 UTF-8, HEX, Base64, URL 인코딩, Unicode 코드 포인트 등 여러 표현으로 한 번에 변환하는 무료 브라우저 도구입니다.">
+    <meta property="og:description" content="HEX, Base64, URL 인코딩, UTF-8, EUC-KR 값을 브라우저에서 읽을 수 있는 문자로 변환하는 무료 인코딩 도구입니다.">
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://web-tool.shop/tools/text/encoding-converter/">
     <meta property="og:locale" content="ko_KR">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="인코딩 변환 도구 - Web-Tool.Shop">
-    <meta name="twitter:description" content="텍스트를 UTF-8, HEX, Base64, URL 인코딩, Unicode 코드 포인트 등 여러 표현으로 한 번에 변환하는 무료 브라우저 도구입니다.">
+    <meta name="twitter:description" content="HEX, Base64, URL 인코딩, UTF-8, EUC-KR 값을 브라우저에서 읽을 수 있는 문자로 변환하는 무료 인코딩 도구입니다.">
     <!-- SEO_META_END -->
     <!-- STRUCTURED_DATA_START -->
-    <script type="application/ld+json">[{"@context":"https://schema.org","@type":"Organization","name":"Web-Tool.Shop","url":"https://web-tool.shop"},{"@context":"https://schema.org","@type":"SoftwareApplication","name":"인코딩 변환 도구","url":"https://web-tool.shop/tools/text/encoding-converter/","description":"텍스트를 UTF-8, HEX, Base64, URL 인코딩, Unicode 코드 포인트 등 여러 표현으로 한 번에 변환하는 무료 브라우저 도구입니다.","applicationCategory":"Text Utility","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Web-Tool.Shop","item":"https://web-tool.shop/"},{"@type":"ListItem","position":2,"name":"텍스트 도구","item":"https://web-tool.shop/tools/text/"},{"@type":"ListItem","position":3,"name":"인코딩 변환 도구","item":"https://web-tool.shop/tools/text/encoding-converter/"}]}]</script>
+    <script type="application/ld+json">[{"@context":"https://schema.org","@type":"Organization","name":"Web-Tool.Shop","url":"https://web-tool.shop"},{"@context":"https://schema.org","@type":"SoftwareApplication","name":"인코딩 변환 도구","url":"https://web-tool.shop/tools/text/encoding-converter/","description":"HEX, Base64, URL 인코딩, UTF-8, EUC-KR 값을 브라우저에서 읽을 수 있는 문자로 변환하는 무료 인코딩 도구입니다.","applicationCategory":"Text Utility","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Web-Tool.Shop","item":"https://web-tool.shop/"},{"@type":"ListItem","position":2,"name":"텍스트 도구","item":"https://web-tool.shop/tools/text/"},{"@type":"ListItem","position":3,"name":"인코딩 변환 도구","item":"https://web-tool.shop/tools/text/encoding-converter/"}]}]</script>
     <!-- STRUCTURED_DATA_END -->
   </head>
   <body>
-    <header class="site-header">
-      <a class="brand" href="../../../">Web-Tool.Shop</a>
-      <nav class="nav" aria-label="주요 메뉴">
-        <a href="../">텍스트</a>
-        <a href="../../converter/">자료형 변환</a>
-        <a href="../../diff/">비교하기</a>
-        <a href="../../design/">???</a>
-        <a href="../../css-art/">CSS-ART</a>
-      </nav>
-    </header>
     <main>
       <nav class="breadcrumb" aria-label="경로"><a href="../../../">홈</a><span>/</span><a href="../">텍스트</a><span>/</span><span>인코딩 변환 도구</span></nav>
       <section class="section">
         <div class="section-heading">
           <h1>인코딩 변환 도구</h1>
-          <p>텍스트를 여러 인코딩 표현으로 동시에 변환합니다.</p>
+          <p>HEX, Base64, URL 인코딩, UTF-8, EUC-KR 값을 읽을 수 있는 문자로 변환합니다.</p>
         </div>
         <div class="tool-shell">
-          <textarea id="encoding-input" class="tool-textarea" placeholder="Web-Tool.Shop 인코딩 테스트"></textarea>
+          <textarea id="encoding-input" class="tool-textarea" placeholder="예: 41 50 50 4C 45 또는 %EC%95%88%EB%85%95"></textarea>
           <div class="tool-actions">
-            <button class="button" id="convert" type="button">변환하기</button>
-            <button class="button secondary" id="sample" type="button">테스트 예문</button>
+            <button class="button secondary" type="button" data-sample="utf8">UTF-8 예문</button>
+            <button class="button secondary" type="button" data-sample="euc-kr">EUC-KR 예문</button>
+            <button class="button secondary" type="button" data-sample="hex">HEX 예문</button>
+            <button class="button secondary" type="button" data-sample="base64">Base64 예문</button>
+            <button class="button secondary" type="button" data-sample="url">URL 예문</button>
             <button class="button secondary" id="clear" type="button">지우기</button>
           </div>
           <output id="encoding-status" class="status-line">결과가 여기에 표시됩니다.</output>
@@ -65,6 +58,5 @@
       </section>
       <aside class="ad-slot" aria-label="광고 영역"><span>Advertisement</span></aside>
     </main>
-    <footer class="site-footer"><a href="../../../privacy.html">개인정보처리방침</a><span>All tools run in your browser.</span></footer>
   </body>
 </html>
