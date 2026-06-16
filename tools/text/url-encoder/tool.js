@@ -2,12 +2,11 @@ const plainInput = document.querySelector("#plain-input");
 const encodedInput = document.querySelector("#encoded-input");
 const status = document.querySelector("#url-status");
 const spaceAsPlus = document.querySelector("#space-as-plus");
-const encodeButton = document.querySelector("#encode");
-const decodeButton = document.querySelector("#decode");
 const swapButton = document.querySelector("#swap");
 const sampleButton = document.querySelector("#sample");
-const copyButton = document.querySelector("#copy");
 const clearButton = document.querySelector("#clear");
+
+let activeSide = "plain";
 
 function message(key) {
   return window.gadgetTranslate ? window.gadgetTranslate(key) : key;
@@ -28,12 +27,12 @@ function setStatus(text, isError = false) {
   status.dataset.state = isError ? "error" : "ok";
 }
 
-function encodeValue() {
+function syncFromPlain() {
   encodedInput.value = encodeText(plainInput.value);
   setStatus("URL 인코딩을 완료했습니다.");
 }
 
-function decodeValue() {
+function syncFromEncoded() {
   try {
     plainInput.value = decodeText(encodedInput.value);
     setStatus("URL 디코딩을 완료했습니다.");
@@ -42,30 +41,37 @@ function decodeValue() {
   }
 }
 
-encodeButton.addEventListener("click", encodeValue);
-decodeButton.addEventListener("click", decodeValue);
+function sync() {
+  if (activeSide === "encoded") syncFromEncoded();
+  else syncFromPlain();
+}
+
+plainInput.addEventListener("input", () => {
+  activeSide = "plain";
+  syncFromPlain();
+});
+encodedInput.addEventListener("input", () => {
+  activeSide = "encoded";
+  syncFromEncoded();
+});
+spaceAsPlus.addEventListener("change", sync);
 swapButton.addEventListener("click", () => {
   const plain = plainInput.value;
   plainInput.value = encodedInput.value;
   encodedInput.value = plain;
+  activeSide = activeSide === "plain" ? "encoded" : "plain";
   setStatus("두 값을 서로 바꿨습니다.");
 });
 sampleButton.addEventListener("click", () => {
+  activeSide = "plain";
   plainInput.value = "안녕하세요 Web-Tool.Shop? q=한글 테스트&lang=ko";
-  encodeValue();
-});
-copyButton.addEventListener("click", () => {
-  const value = encodedInput.value || plainInput.value;
-  navigator.clipboard?.writeText(value);
-  setStatus("복사했습니다.");
+  syncFromPlain();
+  plainInput.focus();
 });
 clearButton.addEventListener("click", () => {
   plainInput.value = "";
   encodedInput.value = "";
   setStatus("결과가 여기에 표시됩니다.");
-});
-spaceAsPlus.addEventListener("change", () => {
-  if (plainInput.value) encodeValue();
 });
 
 sampleButton.click();

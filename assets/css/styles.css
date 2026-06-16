@@ -38,6 +38,27 @@
 * {
   box-sizing: border-box;
 }
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(101, 113, 127, 0.55) transparent;
+}
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+*::-webkit-scrollbar-thumb {
+  border: 3px solid transparent;
+  border-radius: 999px;
+  background: rgba(101, 113, 127, 0.48);
+  background-clip: padding-box;
+}
+*::-webkit-scrollbar-thumb:hover {
+  background: rgba(29, 127, 115, 0.72);
+  background-clip: padding-box;
+}
 body {
   margin: 0;
   background: var(--bg);
@@ -359,7 +380,16 @@ main {
   opacity: 1;
 }
 .tool-actions #copy,
-.encoding-card > .button {
+.encoding-card > .button,
+.tool-actions #format,
+.tool-actions #repair,
+.tool-actions #minify,
+.tool-actions #convert,
+.tool-actions #compare,
+.tool-actions #encode,
+.tool-actions #decode,
+.tool-actions #tsv,
+.tool-actions #generate {
   display: none;
 }
 .favorite-tool-button {
@@ -440,6 +470,7 @@ main {
   max-width: 100%;
   overflow: auto;
   white-space: pre;
+  overflow-wrap: normal;
   font-family: Consolas, "Courier New", monospace;
   font-size: 0.82rem;
   line-height: 1.05;
@@ -776,6 +807,11 @@ main {
 }
 .copy-shell > .result-panel {
   padding-right: 46px;
+}
+.result-panel.ascii-output {
+  overflow: auto;
+  overflow-wrap: normal;
+  white-space: pre;
 }
 .recent-tools-panel {
   width: min(1120px, calc(100% - 32px));

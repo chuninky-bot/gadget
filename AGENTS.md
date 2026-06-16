@@ -59,6 +59,8 @@ When adding a new tool or category:
 - Do not add standalone visible copy buttons inside action rows for new text/result surfaces.
 - Textareas, result panels, and generated code blocks should rely on the shared copy icon behavior from `assets/js/recent-tools.js`.
 - Copy feedback should use the shared toast, not per-tool alert dialogs.
+- Prefer live conversion on input/change events. Avoid primary "generate", "convert", "format", or "run" buttons when the result can update safely in real time.
+- Scrollable result previews must use the shared simple scrollbar styling. ASCII/preformatted previews should keep `white-space: pre` and use horizontal scrolling instead of wrapping long lines.
 
 ## Styling
 

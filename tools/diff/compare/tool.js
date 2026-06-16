@@ -3,7 +3,6 @@ const leftInput = document.querySelector("#left-input");
 const rightInput = document.querySelector("#right-input");
 const output = document.querySelector("#compare-output");
 const status = document.querySelector("#compare-status");
-const compareButton = document.querySelector("#compare");
 const sampleButton = document.querySelector("#sample");
 const swapButton = document.querySelector("#swap");
 const clearButton = document.querySelector("#clear");
@@ -58,16 +57,8 @@ function diffLines(leftText, rightText) {
     }
   }
 
-  while (i < left.length) {
-    changes.push({ type: "remove", left: left[i], right: "" });
-    i += 1;
-  }
-
-  while (j < right.length) {
-    changes.push({ type: "add", left: "", right: right[j] });
-    j += 1;
-  }
-
+  while (i < left.length) changes.push({ type: "remove", left: left[i++], right: "" });
+  while (j < right.length) changes.push({ type: "add", left: "", right: right[j++] });
   return changes;
 }
 
@@ -123,9 +114,10 @@ function fillSample() {
   compare();
 }
 
-compareButton.addEventListener("click", compare);
 sampleButton.addEventListener("click", fillSample);
 modeSelect.addEventListener("change", fillSample);
+leftInput.addEventListener("input", compare);
+rightInput.addEventListener("input", compare);
 swapButton.addEventListener("click", () => {
   const left = leftInput.value;
   leftInput.value = rightInput.value;

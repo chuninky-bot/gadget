@@ -1,7 +1,6 @@
 const input = document.querySelector("#encoding-input");
 const output = document.querySelector("#encoding-output");
 const status = document.querySelector("#encoding-status");
-const convertButton = document.querySelector("#convert");
 const sampleButton = document.querySelector("#sample");
 const clearButton = document.querySelector("#clear");
 
@@ -63,13 +62,7 @@ function createResultCard(title, value) {
   const pre = document.createElement("pre");
   pre.textContent = value || "-";
 
-  const button = document.createElement("button");
-  button.className = "button secondary";
-  button.type = "button";
-  button.textContent = message("복사");
-  button.addEventListener("click", () => navigator.clipboard?.writeText(pre.textContent));
-
-  article.append(heading, pre, button);
+  article.append(heading, pre);
   return article;
 }
 
@@ -97,16 +90,17 @@ function convert() {
   status.textContent = message("인코딩 변환을 완료했습니다.");
 }
 
-convertButton.addEventListener("click", convert);
 sampleButton.addEventListener("click", () => {
   input.value = "Web-Tool.Shop 인코딩 테스트 ABC 123";
   convert();
+  input.focus();
 });
 clearButton.addEventListener("click", () => {
   input.value = "";
   output.replaceChildren();
   status.textContent = message("결과가 여기에 표시됩니다.");
 });
+input.addEventListener("input", convert);
 
 input.value = "Web-Tool.Shop 인코딩 테스트";
 convert();

@@ -1,16 +1,13 @@
 const input = document.querySelector("#json-input");
 const output = document.querySelector("#json-output");
 const status = document.querySelector("#json-status");
-const formatButton = document.querySelector("#format");
-const repairButton = document.querySelector("#repair");
-const minifyButton = document.querySelector("#minify");
-const copyButton = document.querySelector("#copy");
+const sampleButton = document.querySelector("#sample");
 
 function message(key) {
   return window.gadgetTranslate ? window.gadgetTranslate(key) : key;
 }
 
-function renderJson(space, writeRepair = false) {
+function renderJson(writeRepair = false) {
   const result = window.formatUtils.parseJsonWithRepair(input.value);
 
   if (!result.value) {
@@ -20,21 +17,15 @@ function renderJson(space, writeRepair = false) {
   }
 
   if (writeRepair) input.value = result.repaired;
-  output.textContent = JSON.stringify(result.value, null, space);
+  output.textContent = JSON.stringify(result.value, null, 2);
   status.textContent = result.changed ? message("자동 복구 후 정리했습니다.") : message("유효한 형식입니다.");
 }
 
-formatButton.addEventListener("click", () => renderJson(2));
-repairButton.addEventListener("click", () => renderJson(2, true));
-minifyButton.addEventListener("click", () => renderJson(0));
-copyButton.addEventListener("click", () => {
-  navigator.clipboard?.writeText(output.textContent);
-});
-
-const sampleButton = document.querySelector("#sample");
-
 sampleButton.addEventListener("click", () => {
   input.value = '{name:"Web-Tool.Shop", ready:true, items:["json","xml",';
-  renderJson(2, true);
+  renderJson(true);
   input.focus();
 });
+input.addEventListener("input", () => renderJson(true));
+
+renderJson(true);
