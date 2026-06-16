@@ -405,15 +405,23 @@ function updateInternalLinks(language) {
 
 function injectLanguageSelect(language) {
   const header = document.querySelector(".site-header");
-  if (!header || document.querySelector("#language-select")) return;
+  if (!header) return;
 
-  const label = document.createElement("label");
-  label.className = "language-switcher";
-  label.setAttribute("aria-label", "Language");
+  let select = document.querySelector("#language-select");
+  let label = select?.closest(".language-switcher");
 
-  const select = document.createElement("select");
-  select.id = "language-select";
+  if (!select) {
+    label = document.createElement("label");
+    label.className = "language-switcher";
+    label.setAttribute("aria-label", "Language");
 
+    select = document.createElement("select");
+    select.id = "language-select";
+    label.append(select);
+    header.append(label);
+  }
+
+  select.replaceChildren();
   for (const code of supportedLanguages) {
     const option = document.createElement("option");
     option.value = code;
@@ -422,14 +430,16 @@ function injectLanguageSelect(language) {
     select.append(option);
   }
 
-  select.addEventListener("change", () => {
-    localStorage.setItem("gadget-language", select.value);
-    setLocaleQuery(select.value);
-    applyLanguage(select.value);
-  });
+  if (select.dataset.languageHandler !== "true") {
+    select.addEventListener("change", () => {
+      localStorage.setItem("gadget-language", select.value);
+      setLocaleQuery(select.value);
+      applyLanguage(select.value);
+    });
+    select.dataset.languageHandler = "true";
+  }
 
-  label.append(select);
-  header.append(label);
+  select.value = language;
 }
 
 function translateUiMessage(key, language = window.gadgetLanguage || getStoredLanguage()) {

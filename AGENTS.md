@@ -7,6 +7,8 @@ This file is for AI/code-generation agents working on Web-Tool.Shop. User-facing
 - Do not hand-maintain duplicated header or footer markup page by page.
 - Every HTML page must load `assets/js/site-shell.js` before `assets/js/i18n.js`.
 - `site-shell.js` owns the global header navigation and footer.
+- `site-shell.js` must install the header before `i18n.js` injects the language selector.
+- The language selector is owned by `assets/js/i18n.js`; keep it in the shared header and sync it with the `locale` query parameter.
 - When adding a top-level category, update `assets/js/site-shell.js` first.
 - Do not fix only one page's nav when a global menu changes.
 
@@ -62,6 +64,14 @@ When adding a new tool or category:
 - Prefer existing classes such as `tool-shell`, `tool-grid`, `tool-input`, `tool-textarea`, `result-panel`, and `form-grid`.
 
 ## Verification
+
+Use port `3001` for agent-run local browser checks. Keep port `3000` available for the user to run and inspect the site manually.
+
+Recommended local test server:
+
+```bash
+npx browser-sync start --server . --files "*.html,tools/**/*.html,tools/**/*.js,assets/css/*.css,assets/js/*.js" --port 3001 --no-open
+```
 
 Minimum checks before commit:
 

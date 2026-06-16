@@ -69,5 +69,9 @@
     else document.body.append(footer);
   }
 
-  document.addEventListener("DOMContentLoaded", installShell);
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", installShell, { once: true });
+  } else {
+    installShell();
+  }
 })();
