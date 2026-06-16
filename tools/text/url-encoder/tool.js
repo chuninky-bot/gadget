@@ -39,9 +39,46 @@ function encodeText(value) {
   return spaceAsPlus.checked ? encoded.replace(/%20/g, "+") : encoded;
 }
 
+function normalizeEncodedInput(value) {
+  return spaceAsPlus.checked ? value.replace(/\+/g, "%20") : value;
+}
+
+function decodePercentBytes(value) {
+  const normalized = normalizeEncodedInput(value);
+  const decoder = new TextDecoder("utf-8");
+  const bytes = [];
+  let decoded = "";
+
+  function flushBytes() {
+    if (!bytes.length) return;
+    decoded += decoder.decode(new Uint8Array(bytes));
+    bytes.length = 0;
+  }
+
+  for (let index = 0; index < normalized.length; index += 1) {
+    const char = normalized[index];
+    const pair = normalized.slice(index + 1, index + 3);
+    if (char === "%" && /^[0-9a-f]{2}$/i.test(pair)) {
+      bytes.push(parseInt(pair, 16));
+      index += 2;
+      continue;
+    }
+
+    flushBytes();
+    decoded += char;
+  }
+
+  flushBytes();
+  return decoded;
+}
+
 function decodeText(value) {
-  const normalized = spaceAsPlus.checked ? value.replace(/\+/g, "%20") : value;
-  return decodeURIComponent(normalized);
+  const normalized = normalizeEncodedInput(value);
+  try {
+    return decodeURIComponent(normalized);
+  } catch (_) {
+    return decodePercentBytes(value);
+  }
 }
 
 function looksUrlEncoded(value) {
@@ -54,24 +91,19 @@ function looksUrlEncoded(value) {
 function convert() {
   const value = input.value;
   if (!value) {
-    output.value = "";
+    output.textContent = message("결과가 여기에 표시됩니다.");
     setStatus("결과가 여기에 표시됩니다.");
     return;
   }
 
   if (!looksUrlEncoded(value)) {
-    output.value = encodeText(value);
+    output.textContent = encodeText(value);
     setStatus("입력 문자를 URL 인코딩했습니다.");
     return;
   }
 
-  try {
-    output.value = decodeText(value);
-    setStatus("URL 인코딩을 일반문자로 디코딩했습니다.");
-  } catch (_) {
-    output.value = "";
-    setStatus("URL 인코딩 문자열이 올바르지 않습니다.", true);
-  }
+  output.textContent = decodeText(value);
+  setStatus("URL 인코딩을 일반문자로 디코딩했습니다.");
 }
 
 input.addEventListener("input", convert);
@@ -83,7 +115,7 @@ sampleButton.addEventListener("click", () => {
 });
 clearButton.addEventListener("click", () => {
   input.value = "";
-  output.value = "";
+  output.textContent = message("결과가 여기에 표시됩니다.");
   setStatus("결과가 여기에 표시됩니다.");
 });
 

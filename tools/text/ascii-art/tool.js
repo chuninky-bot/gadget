@@ -252,7 +252,13 @@ function render() {
     return;
   }
 
-  const value = input.value.trim() || "WEB TOOL";
+  const value = input.value.trim();
+  if (!value) {
+    output.textContent = message("결과가 여기에 표시됩니다.");
+    status.textContent = message("입력하면 자동으로 변환됩니다.");
+    return;
+  }
+
   output.textContent = renderTextArt(value);
   status.textContent = message("TEXT2ART를 생성했습니다.");
 }

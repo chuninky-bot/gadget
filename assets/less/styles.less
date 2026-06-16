@@ -960,10 +960,18 @@ main {
   vertical-align: top;
 }
 .result-panel {
+  display: block;
+  width: 100%;
+  max-width: 100%;
   min-height: 120px;
   padding: 14px;
-  white-space: pre-wrap;
-  overflow-wrap: anywhere;
+  overflow: auto;
+  white-space: pre;
+  overflow-wrap: normal;
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 0.92rem;
+  line-height: 1.45;
+  color: var(--text);
 }
 
 .copy-shell > .result-panel {
@@ -971,9 +979,7 @@ main {
 }
 
 .result-panel.ascii-output {
-  overflow: auto;
-  overflow-wrap: normal;
-  white-space: pre;
+  line-height: 1.05;
 }
 
 

@@ -52,6 +52,13 @@ function renderPreview(rows) {
 }
 
 function formatDelimited() {
+  if (!input.value.trim()) {
+    output.textContent = message("결과가 여기에 표시됩니다.");
+    status.textContent = message("결과가 여기에 표시됩니다.");
+    preview.replaceChildren();
+    return;
+  }
+
   const delimiter = selectedDelimiter();
   const rows = window.formatUtils.parseDelimited(input.value, delimiter);
   output.textContent = window.formatUtils.stringifyDelimited(rows, delimiterSelect.value === "tab" ? "\t" : ",");
@@ -67,10 +74,5 @@ sampleButton.addEventListener("click", () => {
 });
 input.addEventListener("input", formatDelimited);
 delimiterSelect.addEventListener("change", formatDelimited);
-
-if (!input.value.trim() || input.value.includes("keyboard,19900")) {
-  delimiterSelect.value = "auto";
-  input.value = localizedSample(samples);
-}
 
 formatDelimited();

@@ -28,6 +28,12 @@ const samples = {
 };
 
 function renderJson(writeRepair = false) {
+  if (!input.value.trim()) {
+    output.textContent = message("결과가 여기에 표시됩니다.");
+    status.textContent = message("결과가 여기에 표시됩니다.");
+    return;
+  }
+
   const result = window.formatUtils.parseJsonWithRepair(input.value);
 
   if (!result.value) {
