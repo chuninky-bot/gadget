@@ -7,6 +7,26 @@ function message(key) {
   return window.gadgetTranslate ? window.gadgetTranslate(key) : key;
 }
 
+function currentLanguage() {
+  const queryLocale = new URLSearchParams(window.location.search).get("locale");
+  const locale = String(queryLocale || window.gadgetLanguage || "ko").toLowerCase();
+  if (locale.startsWith("en")) return "en";
+  if (locale.startsWith("ja")) return "ja";
+  if (locale.startsWith("zh")) return "zh";
+  return "ko";
+}
+
+function localizedSample(samples) {
+  return samples[currentLanguage()] || samples.ko;
+}
+
+const samples = {
+  ko: '{name:"웹 도구", ready:true, items:["json","xml",',
+  en: '{name:"Web-Tool.Shop", ready:true, items:["json","xml",',
+  ja: '{name:"Webツール", ready:true, items:["json","xml",',
+  zh: '{name:"网页工具", ready:true, items:["json","xml",',
+};
+
 function renderJson(writeRepair = false) {
   const result = window.formatUtils.parseJsonWithRepair(input.value);
 
@@ -22,7 +42,7 @@ function renderJson(writeRepair = false) {
 }
 
 sampleButton.addEventListener("click", () => {
-  input.value = '{name:"Web-Tool.Shop", ready:true, items:["json","xml",';
+  input.value = localizedSample(samples);
   renderJson(true);
   input.focus();
 });

@@ -7,6 +7,26 @@ function message(key) {
   return window.gadgetTranslate ? window.gadgetTranslate(key) : key;
 }
 
+function currentLanguage() {
+  const queryLocale = new URLSearchParams(window.location.search).get("locale");
+  const locale = String(queryLocale || window.gadgetLanguage || "ko").toLowerCase();
+  if (locale.startsWith("en")) return "en";
+  if (locale.startsWith("ja")) return "ja";
+  if (locale.startsWith("zh")) return "zh";
+  return "ko";
+}
+
+function localizedSample(samples) {
+  return samples[currentLanguage()] || samples.ko;
+}
+
+const samples = {
+  ko: "select id,name,email from users where status = '활성 order by created_at desc",
+  en: "select id,name,email from users where status = 'active order by created_at desc",
+  ja: "select id,name,email from users where status = '有効 order by created_at desc",
+  zh: "select id,name,email from users where status = '启用 order by created_at desc",
+};
+
 function formatSql(writeRepair = false) {
   const repaired = window.formatUtils.repairSql(input.value);
   const changed = repaired !== input.value;
@@ -16,7 +36,7 @@ function formatSql(writeRepair = false) {
 }
 
 sampleButton.addEventListener("click", () => {
-  input.value = "select id,name,email from users where status = 'active order by created_at desc";
+  input.value = localizedSample(samples);
   formatSql(true);
   input.focus();
 });

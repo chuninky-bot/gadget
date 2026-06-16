@@ -11,6 +11,40 @@ function message(key) {
   return window.gadgetTranslate ? window.gadgetTranslate(key) : key;
 }
 
+function currentLanguage() {
+  const queryLocale = new URLSearchParams(window.location.search).get("locale");
+  const locale = String(queryLocale || window.gadgetLanguage || "ko").toLowerCase();
+  if (locale.startsWith("en")) return "en";
+  if (locale.startsWith("ja")) return "ja";
+  if (locale.startsWith("zh")) return "zh";
+  return "ko";
+}
+
+function localizedSample(samples) {
+  return samples[currentLanguage()] || samples.ko;
+}
+
+const samples = {
+  text: {
+    ko: ["Web-Tool.Shop\n텍스트 비교\nJSON 비교", "Web-Tool.Shop\n텍스트 차이\nJSON 비교\nXML 비교"],
+    en: ["Web-Tool.Shop\nText compare\nJSON compare", "Web-Tool.Shop\nText diff\nJSON compare\nXML compare"],
+    ja: ["Web-Tool.Shop\nテキスト比較\nJSON比較", "Web-Tool.Shop\nテキスト差分\nJSON比較\nXML比較"],
+    zh: ["Web-Tool.Shop\n文本比较\nJSON 比较", "Web-Tool.Shop\n文本差异\nJSON 比较\nXML 比较"],
+  },
+  json: {
+    ko: ['{name:"웹 도구",items:["텍스트","JSON"]}', '{"name":"웹 도구","items":["텍스트","JSON","XML"],"ready":true}'],
+    en: ['{name:"Web-Tool.Shop",items:["text","JSON"]}', '{"name":"Web-Tool.Shop","items":["text","JSON","XML"],"ready":true}'],
+    ja: ['{name:"Webツール",items:["テキスト","JSON"]}', '{"name":"Webツール","items":["テキスト","JSON","XML"],"ready":true}'],
+    zh: ['{name:"网页工具",items:["文本","JSON"]}', '{"name":"网页工具","items":["文本","JSON","XML"],"ready":true}'],
+  },
+  xml: {
+    ko: ["<note><to>사용자</to><message>안녕하세요</message></note>", "<note priority=high><to>사용자</to><message>안녕하세요 Web-Tool.Shop</message></note>"],
+    en: ["<note><to>User</to><message>Hello</message></note>", "<note priority=high><to>User</to><message>Hello world</message></note>"],
+    ja: ["<note><to>ユーザー</to><message>こんにちは</message></note>", "<note priority=high><to>ユーザー</to><message>こんにちは Web-Tool.Shop</message></note>"],
+    zh: ["<note><to>用户</to><message>你好</message></note>", "<note priority=high><to>用户</to><message>你好 Web-Tool.Shop</message></note>"],
+  },
+};
+
 function normalizeJson(value) {
   const result = window.formatUtils.parseJsonWithRepair(value);
   if (!result.value) return { text: result.repaired || value, error: result.error };
@@ -101,16 +135,9 @@ function compare() {
 
 function fillSample() {
   const mode = modeSelect.value;
-  if (mode === "json") {
-    leftInput.value = '{name:"Web-Tool.Shop",items:[1,2]}';
-    rightInput.value = '{"name":"Web-Tool.Shop","items":[1,2,3],"ready":true}';
-  } else if (mode === "xml") {
-    leftInput.value = "<note><to>User</to><message>Hello</message></note>";
-    rightInput.value = "<note priority=high><to>User</to><message>Hello world</message></note>";
-  } else {
-    leftInput.value = "Web-Tool.Shop\nText compare\nJSON compare";
-    rightInput.value = "Web-Tool.Shop\nText diff\nJSON compare\nXML compare";
-  }
+  const [left, right] = localizedSample(samples[mode] || samples.text);
+  leftInput.value = left;
+  rightInput.value = right;
   compare();
 }
 

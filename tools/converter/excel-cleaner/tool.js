@@ -9,6 +9,26 @@ function message(key) {
   return window.gadgetTranslate ? window.gadgetTranslate(key) : key;
 }
 
+function currentLanguage() {
+  const queryLocale = new URLSearchParams(window.location.search).get("locale");
+  const locale = String(queryLocale || window.gadgetLanguage || "ko").toLowerCase();
+  if (locale.startsWith("en")) return "en";
+  if (locale.startsWith("ja")) return "ja";
+  if (locale.startsWith("zh")) return "zh";
+  return "ko";
+}
+
+function localizedSample(samples) {
+  return samples[currentLanguage()] || samples.ko;
+}
+
+const samples = {
+  ko: '이름,가격,분류\n"키보드,19900,장치\n마우스,9900',
+  en: 'name,price,category\n"keyboard,19900,device\nmouse,9900',
+  ja: '名前,価格,分類\n"キーボード,19900,機器\nマウス,9900',
+  zh: '名称,价格,分类\n"键盘,19900,设备\n鼠标,9900',
+};
+
 function selectedDelimiter() {
   if (delimiterSelect.value === "tab") return "\t";
   if (delimiterSelect.value === "semicolon") return ";";
@@ -41,11 +61,16 @@ function formatDelimited() {
 
 sampleButton.addEventListener("click", () => {
   delimiterSelect.value = "auto";
-  input.value = 'name,price,category\n"keyboard,19900,device\nmouse,9900';
+  input.value = localizedSample(samples);
   formatDelimited();
   input.focus();
 });
 input.addEventListener("input", formatDelimited);
 delimiterSelect.addEventListener("change", formatDelimited);
+
+if (!input.value.trim() || input.value.includes("keyboard,19900")) {
+  delimiterSelect.value = "auto";
+  input.value = localizedSample(samples);
+}
 
 formatDelimited();

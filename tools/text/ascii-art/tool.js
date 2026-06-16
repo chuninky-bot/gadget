@@ -112,6 +112,26 @@ function message(key) {
   return window.gadgetTranslate ? window.gadgetTranslate(key) : key;
 }
 
+function currentLanguage() {
+  const queryLocale = new URLSearchParams(window.location.search).get("locale");
+  const locale = String(queryLocale || window.gadgetLanguage || "ko").toLowerCase();
+  if (locale.startsWith("en")) return "en";
+  if (locale.startsWith("ja")) return "ja";
+  if (locale.startsWith("zh")) return "zh";
+  return "ko";
+}
+
+function localizedSample(samples) {
+  return samples[currentLanguage()] || samples.ko;
+}
+
+const textSamples = {
+  ko: "WEB TOOL",
+  en: "WEB TOOL",
+  ja: "ASCII ART",
+  zh: "WEB TOOL",
+};
+
 function populateStyles() {
   styleSelect.replaceChildren(...styleDefinitions.map(([value, label]) => {
     const option = document.createElement("option");
@@ -284,7 +304,7 @@ sampleButton.addEventListener("click", () => {
     loadSampleImage();
     return;
   }
-  input.value = "WEB TOOL";
+  input.value = localizedSample(textSamples);
   render();
 });
 clearButton.addEventListener("click", () => {

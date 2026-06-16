@@ -8,6 +8,26 @@ function message(key) {
   return window.gadgetTranslate ? window.gadgetTranslate(key) : key;
 }
 
+function currentLanguage() {
+  const queryLocale = new URLSearchParams(window.location.search).get("locale");
+  const locale = String(queryLocale || window.gadgetLanguage || "ko").toLowerCase();
+  if (locale.startsWith("en")) return "en";
+  if (locale.startsWith("ja")) return "ja";
+  if (locale.startsWith("zh")) return "zh";
+  return "ko";
+}
+
+function localizedSample(samples) {
+  return samples[currentLanguage()] || samples.ko;
+}
+
+const samples = {
+  ko: "Web-Tool.Shop 인코딩 테스트 ABC 123",
+  en: "Web-Tool.Shop encoding test ABC 123",
+  ja: "Web-Tool.Shop エンコードテスト ABC 123",
+  zh: "Web-Tool.Shop 编码测试 ABC 123",
+};
+
 function bytesToHex(bytes) {
   return Array.from(bytes, (byte) => byte.toString(16).padStart(2, "0").toUpperCase()).join(" ");
 }
@@ -91,7 +111,7 @@ function convert() {
 }
 
 sampleButton.addEventListener("click", () => {
-  input.value = "Web-Tool.Shop 인코딩 테스트 ABC 123";
+  input.value = localizedSample(samples);
   convert();
   input.focus();
 });
@@ -102,5 +122,5 @@ clearButton.addEventListener("click", () => {
 });
 input.addEventListener("input", convert);
 
-input.value = "Web-Tool.Shop 인코딩 테스트";
+input.value = localizedSample(samples);
 convert();

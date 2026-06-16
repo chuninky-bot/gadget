@@ -4,6 +4,27 @@ const charsNoSpace = document.querySelector("#chars-no-space");
 const words = document.querySelector("#words");
 const lines = document.querySelector("#lines");
 const clear = document.querySelector("#clear");
+const sample = document.querySelector("#sample");
+
+function currentLanguage() {
+  const queryLocale = new URLSearchParams(window.location.search).get("locale");
+  const locale = String(queryLocale || window.gadgetLanguage || "ko").toLowerCase();
+  if (locale.startsWith("en")) return "en";
+  if (locale.startsWith("ja")) return "ja";
+  if (locale.startsWith("zh")) return "zh";
+  return "ko";
+}
+
+function localizedSample(samples) {
+  return samples[currentLanguage()] || samples.ko;
+}
+
+const samples = {
+  ko: "Web-Tool.Shop 테스트 예문입니다.\n브라우저에서 바로 글자 수, 단어 수, 줄 수를 확인합니다.",
+  en: "This is a Web-Tool.Shop sample.\nCheck characters, words, and lines directly in your browser.",
+  ja: "Web-Tool.Shopのサンプル文です。\nブラウザーで文字数、単語数、行数をすぐに確認できます。",
+  zh: "这是 Web-Tool.Shop 示例文本。\n可直接在浏览器中查看字符数、单词数和行数。",
+};
 
 function updateStats() {
   const value = source.value;
@@ -22,10 +43,8 @@ clear.addEventListener("click", () => {
   source.focus();
 });
 
-const sample = document.querySelector("#sample");
-
 sample.addEventListener("click", () => {
-  source.value = "Web-Tool.Shop 테스트 예문입니다.\n브라우저에서 바로 글자 수, 단어 수, 줄 수를 확인합니다.";
+  source.value = localizedSample(samples);
   updateStats();
   source.focus();
 });

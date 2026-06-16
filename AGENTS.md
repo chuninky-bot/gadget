@@ -31,6 +31,7 @@ Pages without a local `tool.js` still load `site-shell.js` before `i18n.js` and 
 - Add new page URLs to `pageTranslations`; otherwise `?locale=en` can fall back to home metadata.
 - Add placeholders, `aria-label`, and `title` strings to `attributeTranslations`.
 - Dynamic JS messages must use `window.gadgetTranslate()` or a local `message()` wrapper.
+- Test sample/example content must branch by the current locale too. Do not hardcode Korean-only sample text in `#sample` handlers, default textareas, generated demo values, or placeholder examples.
 - The emoji tool uses generated Unicode data from `assets/js/emoji-data.js`; regenerate it with `npm run generate:emoji` when updating emoji coverage or multilingual search keywords.
 - Verify direct locale URLs for new pages:
   - `?locale=ko`

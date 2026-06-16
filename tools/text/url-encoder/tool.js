@@ -12,6 +12,26 @@ function message(key) {
   return window.gadgetTranslate ? window.gadgetTranslate(key) : key;
 }
 
+function currentLanguage() {
+  const queryLocale = new URLSearchParams(window.location.search).get("locale");
+  const locale = String(queryLocale || window.gadgetLanguage || "ko").toLowerCase();
+  if (locale.startsWith("en")) return "en";
+  if (locale.startsWith("ja")) return "ja";
+  if (locale.startsWith("zh")) return "zh";
+  return "ko";
+}
+
+function localizedSample(samples) {
+  return samples[currentLanguage()] || samples.ko;
+}
+
+const samples = {
+  ko: "안녕하세요 Web-Tool.Shop? q=한글 테스트&lang=ko",
+  en: "Hello Web-Tool.Shop? q=english test&lang=en",
+  ja: "こんにちは Web-Tool.Shop? q=日本語テスト&lang=ja",
+  zh: "你好 Web-Tool.Shop? q=中文测试&lang=zh",
+};
+
 function encodeText(value) {
   const encoded = encodeURIComponent(value);
   return spaceAsPlus.checked ? encoded.replace(/%20/g, "+") : encoded;
@@ -64,7 +84,7 @@ swapButton.addEventListener("click", () => {
 });
 sampleButton.addEventListener("click", () => {
   activeSide = "plain";
-  plainInput.value = "안녕하세요 Web-Tool.Shop? q=한글 테스트&lang=ko";
+  plainInput.value = localizedSample(samples);
   syncFromPlain();
   plainInput.focus();
 });
