@@ -78,6 +78,75 @@ NAVER_SITE_VERIFICATION=
 - 모든 주요 페이지 제목, 설명, 내비게이션, 버튼, 입력창 placeholder는 다국어로 표시되어야 합니다.
 - 새 도구를 추가할 때는 `assets/js/i18n.js`의 번역 사전에 한국어, 영어, 일본어, 중국어 문구를 함께 추가합니다.
 
+### 새 페이지 다국어 적용 규칙
+
+새 도구나 새 카테고리 페이지를 만들 때는 HTML만 추가하지 말고 아래 항목을 반드시 함께 처리합니다.
+
+1. `assets/js/i18n.js`의 `textTranslations`에 화면에 보이는 모든 고정 문구를 등록합니다.
+   - 대상: 내비게이션, breadcrumb, `h1`, 설명문, 카드 제목/설명, 버튼, 라벨, 상태 메시지, 결과 안내문
+   - 동적으로 JS에서 만드는 문구도 반드시 등록합니다. 예: `완료했습니다`, `복사되었습니다`, `N개를 찾았습니다`
+   - 한 언어만 넣지 않습니다. `ko`, `en`, `ja`, `zh` 4개 언어를 모두 채웁니다.
+
+2. `assets/js/i18n.js`의 `attributeTranslations`에 속성 문구를 등록합니다.
+   - 대상: `placeholder`, `aria-label`, `title`
+   - 검색창, textarea, 파일 입력 안내, 아이콘 버튼의 접근성 문구는 화면 텍스트가 아니어도 번역 대상입니다.
+
+3. `assets/js/i18n.js`의 `pageTranslations`에 새 URL을 등록합니다.
+   - URL은 반드시 실제 배포 경로와 동일하게 씁니다. 예: `/tools/text/emoji-tool/`
+   - `title`과 `description`을 `ko`, `en`, `ja`, `zh` 모두 작성합니다.
+   - 등록하지 않으면 `?locale=en`처럼 직접 접속했을 때 문서 제목이 홈 기본값으로 떨어질 수 있습니다.
+
+4. HTML 스크립트 순서를 지킵니다.
+   - 정적 HTML 문구만 번역하면 되는 페이지:
+     ```html
+     <script defer src="../../../assets/js/i18n.js"></script>
+     <script defer src="./tool.js"></script>
+     <script defer src="../../../assets/js/recent-tools.js"></script>
+     ```
+   - `tool.js`가 초기 렌더링 때 `window.gadgetTranslate()`를 사용하거나 동적 카드를 바로 생성하는 페이지도 `i18n.js`를 먼저 로드합니다.
+   - `tool.js` 안의 초기 상태 메시지도 `message("원문")` 같은 번역 래퍼를 통해 출력합니다.
+
+5. 내부 링크는 locale query를 유지해야 합니다.
+   - 새 링크는 일반 상대경로로 작성합니다. 예: `href="../design/"`
+   - `i18n.js`가 내부 링크에 `?locale=ko|en|ja|zh`를 자동 반영하므로, JS에서 직접 링크를 만들 때도 `a.href`를 정상적인 내부 URL로 둡니다.
+
+6. SEO 등록도 다국어 동작과 함께 확인합니다.
+   - `scripts/apply-seo.js`의 `pages` 배열에 새 페이지를 추가합니다.
+   - `title`, `description`, `url`, `type`, `category`, `priority`, `changefreq`를 작성합니다.
+   - 새 카테고리라면 `breadcrumbFor()`에도 카테고리 breadcrumb를 추가합니다.
+
+7. 검증은 최소 아래 기준으로 합니다.
+   ```bash
+   npm run build
+   node --check assets/js/i18n.js
+   node --check tools/category/tool-name/tool.js
+   ```
+   브라우저에서는 아래를 직접 확인합니다.
+   - `/tools/category/tool-name/?locale=ko`
+   - `/tools/category/tool-name/?locale=en`
+   - `/tools/category/tool-name/?locale=ja`
+   - `/tools/category/tool-name/?locale=zh`
+   - 언어를 바꾼 뒤 새로고침해도 같은 언어가 유지되는지
+   - 내비게이션/카드/버튼/placeholder/동적 결과 문구에 번역 누락이 없는지
+   - 문서 `title`과 meta `description`이 홈 기본값으로 떨어지지 않는지
+
+8. 새 페이지 작성 시 피해야 할 패턴
+   - HTML에는 새 문구를 추가했지만 `textTranslations`에는 등록하지 않는 것
+   - `pageTranslations`에 URL을 빼먹는 것
+   - JS에서 `textContent = "완료"`처럼 하드코딩하고 번역 래퍼를 쓰지 않는 것
+   - `tool.js`를 `i18n.js`보다 먼저 로드해 초기 렌더링 문구가 번역되지 않는 것
+   - 콘솔 인코딩 문제로 한글이 `???` 또는 깨진 문자로 저장된 상태를 그대로 커밋하는 것
+
+### 다국어 점검 체크리스트
+
+- [ ] 새 URL이 `pageTranslations`에 등록되어 있다.
+- [ ] 화면 고정 문구가 `textTranslations`에 4개 언어로 등록되어 있다.
+- [ ] `placeholder`, `aria-label`, `title`이 `attributeTranslations`에 등록되어 있다.
+- [ ] JS 동적 문구가 `window.gadgetTranslate()` 또는 동일한 `message()` 래퍼를 사용한다.
+- [ ] `i18n.js`가 `tool.js`보다 먼저 로드된다.
+- [ ] `?locale=en`, `?locale=ja`, `?locale=zh` 직접 접속이 자연스럽다.
+- [ ] `npm run build` 후 깨진 문자인 `???`가 남아 있지 않다.
+
 
 ## 검색 등록
 
