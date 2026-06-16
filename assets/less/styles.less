@@ -322,6 +322,13 @@ main {
   padding: 18px;
 }
 
+.tool-card {
+  gap: 4px;
+  min-height: 96px;
+  align-content: start;
+  padding: 12px 14px;
+}
+
 .category-card:hover,
 .tool-card:hover,
 .category-card:focus-visible,
@@ -354,6 +361,11 @@ main {
 .stat-card span,
 .result-panel p {
   color: var(--muted);
+}
+
+.tool-card span {
+  font-weight: 400;
+  line-height: 1.45;
 }
 
 .tool-card[data-hidden="true"] {
@@ -1098,9 +1110,12 @@ main {
 
   .search-panel,
   .category-card,
-  .tool-card,
   .tool-shell {
     padding: 14px;
+  }
+
+  .tool-card {
+    padding: 12px;
   }
 
   .tool-actions {
