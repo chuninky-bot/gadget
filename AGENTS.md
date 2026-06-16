@@ -26,6 +26,8 @@ Pages without a local `tool.js` still load `site-shell.js` before `i18n.js` and 
 ## Internationalization
 
 - All user-visible fixed text must be represented in `assets/js/i18n.js`.
+- This includes headings, card titles, descriptions, breadcrumbs, labels, placeholders, button titles, status messages, generated JS text, and category/tool index copy.
+- English-source pages must still provide a Korean `ko` translation entry so `?locale=ko` does not leave English fallback text visible.
 - Add new page URLs to `pageTranslations`; otherwise `?locale=en` can fall back to home metadata.
 - Add placeholders, `aria-label`, and `title` strings to `attributeTranslations`.
 - Dynamic JS messages must use `window.gadgetTranslate()` or a local `message()` wrapper.

@@ -8,4 +8,17 @@ const effects = [
 ];
 
 const grid = document.querySelector("#art-grid");
-grid.innerHTML = effects.map((effect) => `<article class="art-card"><div class="art-demo ${effect[1]}"><span>${effect[0]}</span></div><h2>${effect[0]}</h2><pre>${effect[2]}</pre></article>`).join("");
+
+function message(key) {
+  return window.gadgetTranslate ? window.gadgetTranslate(key) : key;
+}
+
+function renderEffects() {
+  grid.innerHTML = effects.map((effect) => {
+    const title = message(effect[0]);
+    return `<article class="art-card"><div class="art-demo ${effect[1]}"><span>${title}</span></div><h2>${title}</h2><pre>${effect[2]}</pre></article>`;
+  }).join("");
+}
+
+window.addEventListener("gadget:languagechange", renderEffects);
+renderEffects();

@@ -15,13 +15,18 @@ const all = [
 ];
 let loaded = 0;
 
+function message(key) {
+  return window.gadgetTranslate ? window.gadgetTranslate(key) : key;
+}
+
 function emojiButton(emoji, keywords) {
   const button = document.createElement("button");
   button.className = "emoji-button";
   button.type = "button";
   button.textContent = emoji;
   button.dataset.keywords = keywords || "";
-  button.title = "Click to copy";
+  button.dataset.i18nTitle = "Click to copy";
+  button.title = message("Click to copy");
   button.addEventListener("click", () => navigator.clipboard?.writeText(emoji));
   return button;
 }
@@ -43,13 +48,15 @@ function filter() {
   const query = search.value.trim().toLowerCase();
   let count = 0;
   document.querySelectorAll(".emoji-button").forEach((button) => {
+    button.title = message("Click to copy");
     const show = !query || button.textContent.includes(query) || button.dataset.keywords.includes(query);
     button.hidden = !show;
     if (show) count += 1;
   });
-  status.textContent = query ? `${count} emojis found.` : "Click an emoji to copy it to the clipboard.";
+  status.textContent = query ? `${count} ${message("emojis found.")}` : message("Click an emoji to copy it to the clipboard.");
 }
 
 search.addEventListener("input", filter);
+window.addEventListener("gadget:languagechange", filter);
 renderPopular();
 loadMore();

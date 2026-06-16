@@ -22,7 +22,7 @@ const textTranslations = {
   "텍스트 정리, 개발자 작업, 랜덤 생성 같은 반복 작업을 설치 없이 빠르게 처리하세요.": { en: "Handle repetitive text cleanup, developer tasks, and random generation quickly without installing anything.", ja: "テキスト整理、開発作業、ランダム生成などの反復作業をインストール不要で素早く処理できます。", zh: "无需安装，即可快速处理文本整理、开发任务、随机生成等重复工作。" },
   "텍스트 정리, 자료형 변환 작업, 랜덤 생성 같은 반복 작업을 설치 없이 빠르게 처리하세요.": { en: "Handle repetitive text cleanup, data conversion, and value generation quickly without installing anything.", ja: "テキスト整理、データ変換、値の生成などの反復作業をインストール不要で素早く処理できます。", zh: "无需安装，即可快速处理文本整理、数据转换和值生成等重复工作。" },
   "도구 검색": { en: "Search tools", ja: "ツール検索", zh: "搜索工具" },
-  "Advertisement": { en: "Advertisement", ja: "広告", zh: "广告" },
+  "Advertisement": { ko: "광고", en: "Advertisement", ja: "広告", zh: "广告" },
   "카테고리": { en: "Categories", ja: "カテゴリー", zh: "分类" },
   "URL은 `tools/카테고리/도구이름/` 구조로 관리합니다.": { en: "URLs use the `tools/category/tool-name/` structure.", ja: "URLは `tools/category/tool-name/` 構造で管理します。", zh: "URL 使用 `tools/category/tool-name/` 结构管理。" },
   "텍스트 도구": { en: "Text tools", ja: "テキストツール", zh: "文本工具" },
@@ -101,7 +101,7 @@ const textTranslations = {
   "CSV/TSV 데이터를 Excel에 붙여넣기 좋게 정리합니다.": { en: "Clean CSV/TSV data so it is easy to paste into Excel.", ja: "CSV/TSVデータをExcelに貼り付けやすく整理します。", zh: "整理 CSV/TSV 数据，方便粘贴到 Excel。" },
   "UUID 생성기": { en: "UUID generator", ja: "UUIDジェネレーター", zh: "UUID 生成器" },
   "브라우저에서 UUID v4 값을 빠르게 생성합니다.": { en: "Quickly generate UUID v4 values in your browser.", ja: "ブラウザーでUUID v4を素早く生成します。", zh: "在浏览器中快速生成 UUID v4。" },
-  "All tools run in your browser.": { en: "All tools run in your browser.", ja: "すべてのツールはブラウザー内で動作します。", zh: "所有工具都在浏览器中运行。" },
+  "All tools run in your browser.": { ko: "모든 도구는 브라우저에서 실행됩니다.", en: "All tools run in your browser.", ja: "すべてのツールはブラウザー内で動作します。", zh: "所有工具都在浏览器中运行。" },
   "개인정보처리방침": { en: "Privacy policy", ja: "プライバシーポリシー", zh: "隐私政策" },
   "문서와 텍스트를 빠르게 다듬는 브라우저 기반 유틸 모음입니다.": { en: "Browser-based utilities for quickly refining documents and text.", ja: "文書とテキストを素早く整えるブラウザーベースのツール集です。", zh: "用于快速整理文档和文本的浏览器工具集。" },
   "브라우저 안에서 바로 계산하고 정리합니다.": { en: "Calculate and clean up directly in your browser.", ja: "ブラウザー内ですぐに計算・整理できます。", zh: "直接在浏览器中计算和整理。" },
@@ -150,13 +150,81 @@ const textTranslations = {
   "페이지를 찾을 수 없습니다": { en: "Page not found", ja: "ページが見つかりません", zh: "找不到页面" },
   "주소가 바뀌었거나 아직 만들어지지 않은 도구입니다.": { en: "The address may have changed, or this tool may not exist yet.", ja: "アドレスが変更されたか、まだ作成されていないツールです。", zh: "地址可能已更改，或该工具尚未创建。" },
   "홈으로 돌아가기": { en: "Back to home", ja: "ホームへ戻る", zh: "返回首页" },
+  "Main menu": { ko: "주요 메뉴", en: "Main menu", ja: "メインメニュー", zh: "主菜单" },
+  "Breadcrumb": { ko: "경로", en: "Breadcrumb", ja: "パンくずリスト", zh: "路径" },
+  "Home": { ko: "홈", en: "Home", ja: "ホーム", zh: "首页" },
+  "Text": { ko: "텍스트", en: "Text", ja: "テキスト", zh: "文本" },
+  "Data conversion": { ko: "자료형 변환", en: "Data conversion", ja: "データ変換", zh: "数据转换" },
+  "Compare": { ko: "비교하기", en: "Compare", ja: "比較", zh: "比较" },
+  "Privacy policy": { ko: "개인정보처리방침", en: "Privacy policy", ja: "プライバシーポリシー", zh: "隐私政策" },
+  "Design": { ko: "디자인", en: "Design", ja: "デザイン", zh: "设计" },
+  "Design Tools": { ko: "디자인 도구", en: "Design Tools", ja: "デザインツール", zh: "设计工具" },
+  "Browser tools for image filters, CSS effects, colors, and SVG generation.": { ko: "이미지 필터, CSS 효과, 색상, SVG 생성을 위한 브라우저 디자인 도구입니다.", en: "Browser tools for image filters, CSS effects, colors, and SVG generation.", ja: "画像フィルター、CSSエフェクト、色、SVG生成のためのブラウザーデザインツールです。", zh: "用于图片滤镜、CSS 效果、颜色和 SVG 生成的浏览器设计工具。" },
+  "Image Pixelate Filter": { ko: "이미지 픽셀화 필터", en: "Image Pixelate Filter", ja: "画像ピクセル化フィルター", zh: "图片像素化滤镜" },
+  "Upload an image and turn it into a retro pixel-art style.": { ko: "이미지를 업로드해 레트로 픽셀 아트 스타일로 변환합니다.", en: "Upload an image and turn it into a retro pixel-art style.", ja: "画像をアップロードしてレトロなピクセルアート風に変換します。", zh: "上传图片并转换为复古像素艺术风格。" },
+  "Box-Shadow Generator": { ko: "Box-Shadow 생성기", en: "Box-Shadow Generator", ja: "Box-Shadowジェネレーター", zh: "Box-Shadow 生成器" },
+  "Tune shadow values and copy pure CSS.": { ko: "그림자 값을 조절하고 순수 CSS를 복사합니다.", en: "Tune shadow values and copy pure CSS.", ja: "影の値を調整して純粋なCSSをコピーします。", zh: "调节阴影数值并复制纯 CSS。" },
+  "Tune shadow values and copy pure CSS box-shadow code.": { ko: "그림자 값을 조절하고 순수 CSS box-shadow 코드를 복사합니다.", en: "Tune shadow values and copy pure CSS box-shadow code.", ja: "影の値を調整して純粋なCSS box-shadowコードをコピーします。", zh: "调节阴影数值并复制纯 CSS box-shadow 代码。" },
+  "Glassmorphism Generator": { ko: "글래스모피즘 생성기", en: "Glassmorphism Generator", ja: "グラスモーフィズムジェネレーター", zh: "玻璃拟态生成器" },
+  "Create translucent glass UI CSS with blur controls.": { ko: "블러 조절로 반투명 유리 UI CSS를 만듭니다.", en: "Create translucent glass UI CSS with blur controls.", ja: "ぼかし調整で半透明のガラス風UI CSSを作成します。", zh: "通过模糊控制生成半透明玻璃 UI CSS。" },
+  "Button & Badge Maker": { ko: "버튼 & 뱃지 메이커", en: "Button & Badge Maker", ja: "ボタン＆バッジメーカー", zh: "按钮和徽章制作器" },
+  "Create button or README badge SVG code.": { ko: "버튼 또는 README 뱃지 SVG 코드를 만듭니다.", en: "Create button or README badge SVG code.", ja: "ボタンまたはREADMEバッジのSVGコードを作成します。", zh: "创建按钮或 README 徽章 SVG 代码。" },
+  "Image Palette Extractor": { ko: "이미지 주요 색상 추출기", en: "Image Palette Extractor", ja: "画像パレット抽出ツール", zh: "图片主色提取器" },
+  "Extract five dominant HEX colors from an image.": { ko: "이미지에서 주요 HEX 색상 5개를 추출합니다.", en: "Extract five dominant HEX colors from an image.", ja: "画像から主要なHEXカラーを5つ抽出します。", zh: "从图片中提取 5 个主要 HEX 颜色。" },
+  "SVG Placeholder Generator": { ko: "SVG 플레이스홀더 생성기", en: "SVG Placeholder Generator", ja: "SVGプレースホルダージェネレーター", zh: "SVG 占位图生成器" },
+  "Generate temporary SVG placeholder images.": { ko: "임시 SVG 플레이스홀더 이미지를 생성합니다.", en: "Generate temporary SVG placeholder images.", ja: "一時的なSVGプレースホルダー画像を生成します。", zh: "生成临时 SVG 占位图片。" },
+  "Gradient Generator": { ko: "그라디언트 생성기", en: "Gradient Generator", ja: "グラデーションジェネレーター", zh: "渐变生成器" },
+  "Create linear-gradient CSS from two colors and an angle.": { ko: "두 색상과 각도로 linear-gradient CSS를 만듭니다.", en: "Create linear-gradient CSS from two colors and an angle.", ja: "2色と角度からlinear-gradient CSSを作成します。", zh: "通过两种颜色和角度生成 linear-gradient CSS。" },
+  "Color Code Converter": { ko: "색상 코드 변환기", en: "Color Code Converter", ja: "カラーコード変換ツール", zh: "颜色代码转换器" },
+  "Convert HEX colors into RGB and HSL.": { ko: "HEX 색상을 RGB와 HSL로 변환합니다.", en: "Convert HEX colors into RGB and HSL.", ja: "HEXカラーをRGBとHSLに変換します。", zh: "将 HEX 颜色转换为 RGB 和 HSL。" },
+  "Pixel size": { ko: "픽셀 크기", en: "Pixel size", ja: "ピクセルサイズ", zh: "像素大小" },
+  "Choose an image to pixelate it.": { ko: "픽셀화할 이미지를 선택하세요.", en: "Choose an image to pixelate it.", ja: "ピクセル化する画像を選択してください。", zh: "请选择要像素化的图片。" },
+  "Use browser save or right-click to save the pixelated image.": { ko: "브라우저 저장 기능이나 우클릭으로 픽셀화된 이미지를 저장하세요.", en: "Use browser save or right-click to save the pixelated image.", ja: "ブラウザーの保存機能または右クリックでピクセル化した画像を保存してください。", zh: "请使用浏览器保存功能或右键保存像素化后的图片。" },
+  "Shadow": { ko: "그림자", en: "Shadow", ja: "影", zh: "阴影" },
+  "Blur": { ko: "블러", en: "Blur", ja: "ぼかし", zh: "模糊" },
+  "Spread": { ko: "퍼짐", en: "Spread", ja: "広がり", zh: "扩散" },
+  "Opacity": { ko: "투명도", en: "Opacity", ja: "不透明度", zh: "透明度" },
+  "Glass": { ko: "유리", en: "Glass", ja: "ガラス", zh: "玻璃" },
+  "Border": { ko: "테두리", en: "Border", ja: "枠線", zh: "边框" },
+  "Fill": { ko: "채우기", en: "Fill", ja: "塗り", zh: "填充" },
+  "Text color": { ko: "글자 색상", en: "Text color", ja: "文字色", zh: "文字颜色" },
+  "Radius": { ko: "둥글기", en: "Radius", ja: "角丸", zh: "圆角" },
+  "Color 1": { ko: "색상 1", en: "Color 1", ja: "色 1", zh: "颜色 1" },
+  "Color 2": { ko: "색상 2", en: "Color 2", ja: "色 2", zh: "颜色 2" },
+  "Angle": { ko: "각도", en: "Angle", ja: "角度", zh: "角度" },
+  "Width": { ko: "가로", en: "Width", ja: "幅", zh: "宽度" },
+  "Height": { ko: "세로", en: "Height", ja: "高さ", zh: "高度" },
+  "Choose an image.": { ko: "이미지를 선택하세요.", en: "Choose an image.", ja: "画像を選択してください。", zh: "请选择图片。" },
+  "CSS ART Archive": { ko: "CSS ART 아카이브", en: "CSS ART Archive", ja: "CSS ARTアーカイブ", zh: "CSS ART 档案" },
+  "An archive of copyable CSS effects such as glowing borders, wavy backgrounds, and frosted glass.": { ko: "빛나는 테두리, 일렁이는 배경, 불투명 유리 같은 복사 가능한 CSS 효과 아카이브입니다.", en: "An archive of copyable CSS effects such as glowing borders, wavy backgrounds, and frosted glass.", ja: "光るボーダー、波打つ背景、フロストガラスなど、コピーできるCSSエフェクトのアーカイブです。", zh: "可复制 CSS 效果档案，包括发光边框、波浪背景和磨砂玻璃。" },
+  "Copyable CSS effect samples with live previews.": { ko: "실시간 미리보기가 있는 복사 가능한 CSS 효과 샘플입니다.", en: "Copyable CSS effect samples with live previews.", ja: "ライブプレビュー付きのコピー可能なCSSエフェクトサンプルです。", zh: "带实时预览的可复制 CSS 效果示例。" },
+  "Copyable CSS art effect snippets with live previews.": { ko: "실시간 미리보기가 있는 복사 가능한 CSS 아트 효과 코드 조각입니다.", en: "Copyable CSS art effect snippets with live previews.", ja: "ライブプレビュー付きのコピー可能なCSSアート効果スニペットです。", zh: "带实时预览的可复制 CSS 艺术效果代码片段。" },
+  "Copyable CSS art effect snippets for glowing borders, wavy backgrounds, frosted glass, and more.": { ko: "빛나는 테두리, 일렁이는 배경, 불투명 유리 등 복사 가능한 CSS 아트 효과 코드 조각입니다.", en: "Copyable CSS art effect snippets for glowing borders, wavy backgrounds, frosted glass, and more.", ja: "光るボーダー、波打つ背景、フロストガラスなどのコピー可能なCSSアート効果スニペットです。", zh: "可复制的 CSS 艺术效果代码片段，包括发光边框、波浪背景、磨砂玻璃等。" },
+  "Glowing border": { ko: "빛나는 테두리", en: "Glowing border", ja: "光るボーダー", zh: "发光边框" },
+  "Wavy background": { ko: "일렁이는 배경", en: "Wavy background", ja: "波打つ背景", zh: "波浪背景" },
+  "Frosted glass": { ko: "불투명 유리", en: "Frosted glass", ja: "フロストガラス", zh: "磨砂玻璃" },
+  "Neon text": { ko: "네온 텍스트", en: "Neon text", ja: "ネオンテキスト", zh: "霓虹文字" },
+  "Scan lines": { ko: "스캔 라인", en: "Scan lines", ja: "スキャンライン", zh: "扫描线" },
+  "Grain card": { ko: "그레인 카드", en: "Grain card", ja: "グレインカード", zh: "颗粒卡片" },
+  "Emoji Tool": { ko: "이모지 도구", en: "Emoji Tool", ja: "絵文字ツール", zh: "表情符号工具" },
+  "Browse popular emojis first, filter by keyword, and click any emoji to copy it.": { ko: "자주 쓰이는 이모지를 먼저 보고, 키워드로 필터링한 뒤 클릭해서 복사합니다.", en: "Browse popular emojis first, filter by keyword, and click any emoji to copy it.", ja: "よく使う絵文字を先に表示し、キーワードで絞り込み、クリックしてコピーできます。", zh: "先浏览常用表情符号，按关键词筛选，然后点击即可复制。" },
+  "Search keywords: smile, heart, food, flag": { ko: "검색 키워드: 웃음, 하트, 음식, 깃발", en: "Search keywords: smile, heart, food, flag", ja: "検索キーワード: smile, heart, food, flag", zh: "搜索关键词：smile、heart、food、flag" },
+  "Click an emoji to copy it.": { ko: "이모지를 클릭하면 복사됩니다.", en: "Click an emoji to copy it.", ja: "絵文字をクリックするとコピーされます。", zh: "点击表情符号即可复制。" },
+  "Click an emoji to copy it to the clipboard.": { ko: "이모지를 클릭하면 클립보드에 복사됩니다.", en: "Click an emoji to copy it to the clipboard.", ja: "絵文字をクリックするとクリップボードにコピーされます。", zh: "点击表情符号即可复制到剪贴板。" },
+  "Click to copy": { ko: "클릭해서 복사", en: "Click to copy", ja: "クリックしてコピー", zh: "点击复制" },
+  "Popular emojis": { ko: "자주 쓰이는 이모지", en: "Popular emojis", ja: "よく使う絵文字", zh: "常用表情符号" },
+  "All emojis": { ko: "전체 이모지", en: "All emojis", ja: "すべての絵文字", zh: "全部表情符号" },
+  "emojis found.": { ko: "개의 이모지를 찾았습니다.", en: "emojis found.", ja: "件の絵文字が見つかりました。", zh: "个表情符号。" },
 };
 
 const attributeTranslations = {
   "Web-Tool.Shop 홈": { en: "Web-Tool.Shop home", ja: "Web-Tool.Shopホーム", zh: "Web-Tool.Shop 首页" },
   "주요 메뉴": textTranslations["주요 메뉴"],
+  "Main menu": textTranslations["Main menu"],
+  "Breadcrumb": textTranslations["Breadcrumb"],
   "도구 검색": textTranslations["도구 검색"],
   "광고 영역": { en: "Ad area", ja: "広告エリア", zh: "广告区域" },
+  "Ad area": { ko: "광고 영역", en: "Ad area", ja: "広告エリア", zh: "广告区域" },
   "예: 글자 수, JSON, UUID": { en: "e.g. word count, JSON, UUID", ja: "例: 文字数、JSON、UUID", zh: "例如：字数、JSON、UUID" },
   "여기에 텍스트를 붙여넣으세요.": { en: "Paste text here.", ja: "ここにテキストを貼り付けてください。", zh: "在此粘贴文本。" },
   "Web-Tool.Shop 인코딩 테스트": textTranslations["Web-Tool.Shop 인코딩 테스트"],
@@ -164,6 +232,8 @@ const attributeTranslations = {
   "비교할 첫 번째 내용을 붙여넣으세요.": { en: "Paste the first content to compare.", ja: "比較する1つ目の内容を貼り付けてください。", zh: "粘贴要比较的第一段内容。" },
   "비교할 두 번째 내용을 붙여넣으세요.": { en: "Paste the second content to compare.", ja: "比較する2つ目の内容を貼り付けてください。", zh: "粘贴要比较的第二段内容。" },
   "경로": { en: "Breadcrumb", ja: "パンくずリスト", zh: "路径" },
+  "Search keywords: smile, heart, food, flag": textTranslations["Search keywords: smile, heart, food, flag"],
+  "Click to copy": textTranslations["Click to copy"],
 };
 
 const pageTranslations = {
@@ -192,52 +262,52 @@ const pageTranslations = {
     description: { ko: "일반 텍스트와 URL 인코딩 문자열을 브라우저에서 서로 변환하는 무료 URL encode decode 도구입니다.", en: "A free browser URL encode decode tool for converting between plain text and URL-encoded strings.", ja: "通常テキストとURLエンコード文字列をブラウザーで相互変換できる無料のURL encode decodeツールです。", zh: "免费浏览器 URL encode decode 工具，可在普通文本和 URL 编码字符串之间相互转换。" },
   },
   "/tools/text/emoji-tool/": {
-    title: { ko: "Emoji Tool - Web-Tool.Shop", en: "Emoji Tool - Web-Tool.Shop", ja: "Emoji Tool - Web-Tool.Shop", zh: "Emoji Tool - Web-Tool.Shop" },
-    description: { ko: "Browse popular emojis first, filter by keyword, and click any emoji to copy it.", en: "Browse popular emojis first, filter by keyword, and click any emoji to copy it.", ja: "Browse popular emojis first, filter by keyword, and click any emoji to copy it.", zh: "Browse popular emojis first, filter by keyword, and click any emoji to copy it." },
+    title: { ko: "이모지 도구 - Web-Tool.Shop", en: "Emoji Tool - Web-Tool.Shop", ja: "絵文字ツール - Web-Tool.Shop", zh: "表情符号工具 - Web-Tool.Shop" },
+    description: { ko: "자주 쓰이는 이모지를 먼저 보고, 키워드로 필터링한 뒤 클릭해서 복사하는 무료 브라우저 도구입니다.", en: "Browse popular emojis first, filter by keyword, and click any emoji to copy it.", ja: "よく使う絵文字を先に表示し、キーワードで絞り込み、クリックしてコピーできる無料ブラウザーツールです。", zh: "免费浏览器工具，可先浏览常用表情符号，按关键词筛选，然后点击复制。" },
   },
   "/tools/design/": {
-    title: { ko: "Design Tools - Web-Tool.Shop", en: "Design Tools - Web-Tool.Shop", ja: "Design Tools - Web-Tool.Shop", zh: "Design Tools - Web-Tool.Shop" },
-    description: { ko: "Browser tools for image filters, CSS effects, colors, and SVG generation.", en: "Browser tools for image filters, CSS effects, colors, and SVG generation.", ja: "Browser tools for image filters, CSS effects, colors, and SVG generation.", zh: "Browser tools for image filters, CSS effects, colors, and SVG generation." },
+    title: { ko: "디자인 도구 - Web-Tool.Shop", en: "Design Tools - Web-Tool.Shop", ja: "デザインツール - Web-Tool.Shop", zh: "设计工具 - Web-Tool.Shop" },
+    description: { ko: "이미지 필터, CSS 효과, 색상, SVG 생성을 위한 무료 브라우저 디자인 도구 모음입니다.", en: "Browser tools for image filters, CSS effects, colors, and SVG generation.", ja: "画像フィルター、CSSエフェクト、色、SVG生成のための無料ブラウザーデザインツール集です。", zh: "免费的浏览器设计工具集合，用于图片滤镜、CSS 效果、颜色和 SVG 生成。" },
   },
   "/tools/design/pixelate/": {
-    title: { ko: "Image Pixelate Filter - Web-Tool.Shop", en: "Image Pixelate Filter - Web-Tool.Shop", ja: "Image Pixelate Filter - Web-Tool.Shop", zh: "Image Pixelate Filter - Web-Tool.Shop" },
-    description: { ko: "A browser-based design utility from Web-Tool.Shop.", en: "A browser-based design utility from Web-Tool.Shop.", ja: "A browser-based design utility from Web-Tool.Shop.", zh: "A browser-based design utility from Web-Tool.Shop." },
+    title: { ko: "이미지 픽셀화 필터 - Web-Tool.Shop", en: "Image Pixelate Filter - Web-Tool.Shop", ja: "画像ピクセル化フィルター - Web-Tool.Shop", zh: "图片像素化滤镜 - Web-Tool.Shop" },
+    description: { ko: "이미지를 업로드해 레트로 8비트 게임 스타일의 픽셀 아트 이미지로 변환합니다.", en: "Upload an image and turn it into a retro pixel-art style.", ja: "画像をアップロードしてレトロな8ビットゲーム風ピクセルアートに変換します。", zh: "上传图片并转换为复古 8 位游戏风格的像素艺术图片。" },
   },
   "/tools/design/box-shadow/": {
-    title: { ko: "Box-Shadow Generator - Web-Tool.Shop", en: "Box-Shadow Generator - Web-Tool.Shop", ja: "Box-Shadow Generator - Web-Tool.Shop", zh: "Box-Shadow Generator - Web-Tool.Shop" },
-    description: { ko: "A browser-based design utility from Web-Tool.Shop.", en: "A browser-based design utility from Web-Tool.Shop.", ja: "A browser-based design utility from Web-Tool.Shop.", zh: "A browser-based design utility from Web-Tool.Shop." },
+    title: { ko: "Box-Shadow 생성기 - Web-Tool.Shop", en: "Box-Shadow Generator - Web-Tool.Shop", ja: "Box-Shadowジェネレーター - Web-Tool.Shop", zh: "Box-Shadow 生成器 - Web-Tool.Shop" },
+    description: { ko: "X축, Y축, 블러, 퍼짐, 투명도를 조절하고 순수 CSS box-shadow 코드를 복사합니다.", en: "Tune shadow values and copy pure CSS box-shadow code.", ja: "X軸、Y軸、ぼかし、広がり、不透明度を調整して純粋なCSS box-shadowコードをコピーします。", zh: "调节 X 轴、Y 轴、模糊、扩散和透明度，并复制纯 CSS box-shadow 代码。" },
   },
   "/tools/design/glassmorphism/": {
-    title: { ko: "Glassmorphism Generator - Web-Tool.Shop", en: "Glassmorphism Generator - Web-Tool.Shop", ja: "Glassmorphism Generator - Web-Tool.Shop", zh: "Glassmorphism Generator - Web-Tool.Shop" },
-    description: { ko: "A browser-based design utility from Web-Tool.Shop.", en: "A browser-based design utility from Web-Tool.Shop.", ja: "A browser-based design utility from Web-Tool.Shop.", zh: "A browser-based design utility from Web-Tool.Shop." },
+    title: { ko: "글래스모피즘 생성기 - Web-Tool.Shop", en: "Glassmorphism Generator - Web-Tool.Shop", ja: "グラスモーフィズムジェネレーター - Web-Tool.Shop", zh: "玻璃拟态生成器 - Web-Tool.Shop" },
+    description: { ko: "블러와 투명도를 조절해 반투명 유리 질감 UI CSS를 생성합니다.", en: "Create translucent glass UI CSS with blur controls.", ja: "ぼかしと透明度を調整して半透明のガラス風UI CSSを生成します。", zh: "调节模糊和透明度，生成半透明玻璃质感 UI CSS。" },
   },
   "/tools/design/button-badge/": {
-    title: { ko: "Button & Badge Maker - Web-Tool.Shop", en: "Button & Badge Maker - Web-Tool.Shop", ja: "Button & Badge Maker - Web-Tool.Shop", zh: "Button & Badge Maker - Web-Tool.Shop" },
-    description: { ko: "A browser-based design utility from Web-Tool.Shop.", en: "A browser-based design utility from Web-Tool.Shop.", ja: "A browser-based design utility from Web-Tool.Shop.", zh: "A browser-based design utility from Web-Tool.Shop." },
+    title: { ko: "버튼 & 뱃지 메이커 - Web-Tool.Shop", en: "Button & Badge Maker - Web-Tool.Shop", ja: "ボタン＆バッジメーカー - Web-Tool.Shop", zh: "按钮和徽章制作器 - Web-Tool.Shop" },
+    description: { ko: "텍스트, 색상, 둥글기를 조절해 버튼이나 README 뱃지용 SVG 코드를 만듭니다.", en: "Create button or README badge SVG code.", ja: "テキスト、色、角丸を調整してボタンやREADMEバッジ用SVGコードを作成します。", zh: "调节文本、颜色和圆角，创建按钮或 README 徽章 SVG 代码。" },
   },
   "/tools/design/palette-extractor/": {
-    title: { ko: "Image Palette Extractor - Web-Tool.Shop", en: "Image Palette Extractor - Web-Tool.Shop", ja: "Image Palette Extractor - Web-Tool.Shop", zh: "Image Palette Extractor - Web-Tool.Shop" },
-    description: { ko: "A browser-based design utility from Web-Tool.Shop.", en: "A browser-based design utility from Web-Tool.Shop.", ja: "A browser-based design utility from Web-Tool.Shop.", zh: "A browser-based design utility from Web-Tool.Shop." },
+    title: { ko: "이미지 주요 색상 추출기 - Web-Tool.Shop", en: "Image Palette Extractor - Web-Tool.Shop", ja: "画像パレット抽出ツール - Web-Tool.Shop", zh: "图片主色提取器 - Web-Tool.Shop" },
+    description: { ko: "이미지에서 가장 많이 쓰인 핵심 색상 5가지를 HEX 팔레트로 추출합니다.", en: "Extract five dominant HEX colors from an image.", ja: "画像で多く使われている主要カラー5色をHEXパレットとして抽出します。", zh: "从图片中提取最常用的 5 个核心颜色并显示为 HEX 调色板。" },
   },
   "/tools/design/svg-placeholder/": {
-    title: { ko: "SVG Placeholder Generator - Web-Tool.Shop", en: "SVG Placeholder Generator - Web-Tool.Shop", ja: "SVG Placeholder Generator - Web-Tool.Shop", zh: "SVG Placeholder Generator - Web-Tool.Shop" },
-    description: { ko: "A browser-based design utility from Web-Tool.Shop.", en: "A browser-based design utility from Web-Tool.Shop.", ja: "A browser-based design utility from Web-Tool.Shop.", zh: "A browser-based design utility from Web-Tool.Shop." },
+    title: { ko: "SVG 플레이스홀더 생성기 - Web-Tool.Shop", en: "SVG Placeholder Generator - Web-Tool.Shop", ja: "SVGプレースホルダージェネレーター - Web-Tool.Shop", zh: "SVG 占位图生成器 - Web-Tool.Shop" },
+    description: { ko: "가로, 세로, 텍스트를 입력해 웹 개발용 임시 SVG 플레이스홀더 이미지를 생성합니다.", en: "Generate temporary SVG placeholder images.", ja: "幅、高さ、テキストを入力してWeb開発用の一時的なSVGプレースホルダー画像を生成します。", zh: "输入宽度、高度和文本，生成网页开发用临时 SVG 占位图片。" },
   },
   "/tools/design/gradient-generator/": {
-    title: { ko: "Gradient Generator - Web-Tool.Shop", en: "Gradient Generator - Web-Tool.Shop", ja: "Gradient Generator - Web-Tool.Shop", zh: "Gradient Generator - Web-Tool.Shop" },
-    description: { ko: "A browser-based design utility from Web-Tool.Shop.", en: "A browser-based design utility from Web-Tool.Shop.", ja: "A browser-based design utility from Web-Tool.Shop.", zh: "A browser-based design utility from Web-Tool.Shop." },
+    title: { ko: "그라디언트 생성기 - Web-Tool.Shop", en: "Gradient Generator - Web-Tool.Shop", ja: "グラデーションジェネレーター - Web-Tool.Shop", zh: "渐变生成器 - Web-Tool.Shop" },
+    description: { ko: "두 가지 색상과 각도를 조절해 배경용 CSS linear-gradient 코드를 만듭니다.", en: "Create linear-gradient CSS from two colors and an angle.", ja: "2色と角度を調整して背景用CSS linear-gradientコードを作成します。", zh: "调节两种颜色和角度，生成背景用 CSS linear-gradient 代码。" },
   },
   "/tools/design/color-converter/": {
-    title: { ko: "Color Code Converter - Web-Tool.Shop", en: "Color Code Converter - Web-Tool.Shop", ja: "Color Code Converter - Web-Tool.Shop", zh: "Color Code Converter - Web-Tool.Shop" },
-    description: { ko: "A browser-based design utility from Web-Tool.Shop.", en: "A browser-based design utility from Web-Tool.Shop.", ja: "A browser-based design utility from Web-Tool.Shop.", zh: "A browser-based design utility from Web-Tool.Shop." },
+    title: { ko: "색상 코드 변환기 - Web-Tool.Shop", en: "Color Code Converter - Web-Tool.Shop", ja: "カラーコード変換ツール - Web-Tool.Shop", zh: "颜色代码转换器 - Web-Tool.Shop" },
+    description: { ko: "HEX 색상 코드를 RGB와 HSL 값으로 변환하고 색상 미리보기를 보여줍니다.", en: "Convert HEX colors into RGB and HSL.", ja: "HEXカラーコードをRGBとHSLの値に変換し、色のプレビューを表示します。", zh: "将 HEX 颜色代码转换为 RGB 和 HSL，并显示颜色预览。" },
   },
   "/tools/css-art/": {
     title: { ko: "CSS-ART - Web-Tool.Shop", en: "CSS-ART - Web-Tool.Shop", ja: "CSS-ART - Web-Tool.Shop", zh: "CSS-ART - Web-Tool.Shop" },
-    description: { ko: "An archive of copyable CSS effects.", en: "An archive of copyable CSS effects.", ja: "An archive of copyable CSS effects.", zh: "An archive of copyable CSS effects." },
+    description: { ko: "빛나는 테두리, 일렁이는 배경, 불투명 유리 같은 복사 가능한 CSS 효과 아카이브입니다.", en: "An archive of copyable CSS effects such as glowing borders, wavy backgrounds, and frosted glass.", ja: "光るボーダー、波打つ背景、フロストガラスなど、コピーできるCSSエフェクトのアーカイブです。", zh: "可复制 CSS 效果档案，包括发光边框、波浪背景和磨砂玻璃。" },
   },
   "/tools/css-art/art-gallery/": {
-    title: { ko: "CSS ART Archive - Web-Tool.Shop", en: "CSS ART Archive - Web-Tool.Shop", ja: "CSS ART Archive - Web-Tool.Shop", zh: "CSS ART Archive - Web-Tool.Shop" },
-    description: { ko: "Copyable CSS art effect snippets with live previews.", en: "Copyable CSS art effect snippets with live previews.", ja: "Copyable CSS art effect snippets with live previews.", zh: "Copyable CSS art effect snippets with live previews." },
+    title: { ko: "CSS ART 아카이브 - Web-Tool.Shop", en: "CSS ART Archive - Web-Tool.Shop", ja: "CSS ARTアーカイブ - Web-Tool.Shop", zh: "CSS ART 档案 - Web-Tool.Shop" },
+    description: { ko: "빛나는 테두리, 일렁이는 배경, 불투명 유리 등 실시간 미리보기가 있는 CSS 아트 효과 코드 조각입니다.", en: "Copyable CSS art effect snippets with live previews.", ja: "ライブプレビュー付きのコピー可能なCSSアート効果スニペットです。", zh: "带实时预览的可复制 CSS 艺术效果代码片段。" },
   },
   "/tools/converter/": {
     title: { ko: "자료형 변환 - Web-Tool.Shop", en: "Data conversion - Web-Tool.Shop", ja: "データ変換 - Web-Tool.Shop", zh: "数据转换 - Web-Tool.Shop" },
@@ -315,8 +385,10 @@ function getInitialLanguage() {
 }
 
 function translate(key, language) {
-  if (language === "ko") return key;
-  return textTranslations[key]?.[language] || key;
+  const entry = textTranslations[key];
+  if (!entry) return key;
+  if (language === "ko") return entry.ko || key;
+  return entry[language] || entry.ko || key;
 }
 
 function normalizePath() {
@@ -353,14 +425,15 @@ function translateTextNodes(language) {
 }
 
 function translateAttributes(language) {
-  for (const element of document.querySelectorAll("[placeholder], [aria-label]")) {
-    for (const attr of ["placeholder", "aria-label"]) {
+  for (const element of document.querySelectorAll("[placeholder], [aria-label], [title]")) {
+    for (const attr of ["placeholder", "aria-label", "title"]) {
       if (!element.hasAttribute(attr)) continue;
       const storeKey = `i18n${attr.replace("-", "")}`;
       const key = element.dataset[storeKey] || element.getAttribute(attr);
       if (!attributeTranslations[key]) continue;
       element.dataset[storeKey] = key;
-      element.setAttribute(attr, language === "ko" ? key : attributeTranslations[key][language] || key);
+      const entry = attributeTranslations[key];
+      element.setAttribute(attr, language === "ko" ? entry.ko || key : entry[language] || entry.ko || key);
     }
   }
 }
@@ -456,6 +529,7 @@ function applyLanguage(language) {
   const select = document.querySelector("#language-select");
   if (select) select.value = language;
   window.gadgetLanguage = language;
+  window.dispatchEvent(new CustomEvent("gadget:languagechange", { detail: { language } }));
 }
 
 const initialLanguage = getInitialLanguage();
