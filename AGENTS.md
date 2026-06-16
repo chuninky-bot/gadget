@@ -2,6 +2,15 @@
 
 This file is for AI/code-generation agents working on Web-Tool.Shop. User-facing project documentation stays in `README.md`; implementation rules for future coding work belong here.
 
+## Context Discipline
+
+- Read and edit the smallest file set that can solve the request.
+- Prefer targeted `rg` searches over broad repository scans.
+- Do not re-open files already inspected in the current turn unless they may have changed or exact lines are needed.
+- Keep long reference material out of this file; add focused helper docs only when agents can read them on demand.
+- For long-running conversations, ask the user to use `/compact` before continuing the same project and `/clear` before switching to an unrelated task.
+- Treat `.claudeignore` as the default exclusion list for AI exploration; do not inspect generated or dependency folders unless the task specifically requires it.
+
 ## Shared Shell
 
 - Do not hand-maintain duplicated header or footer markup page by page.

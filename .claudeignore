@@ -1,0 +1,33 @@
+# Dependencies and package caches
+node_modules/
+.npm/
+.yarn/
+.pnpm-store/
+
+# Generated build artifacts
+dist/
+build/
+.next/
+out/
+coverage/
+
+# Generated/static outputs that are rarely useful for code reasoning
+assets/css/styles.css
+assets/js/emoji-data.js
+ads.txt
+sitemap.xml
+
+# Local environment and logs
+.env
+.env.*
+*.log
+*.err
+.dev-server-*.log
+.dev-server-*.err
+
+# VCS and editor noise
+.git/
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db

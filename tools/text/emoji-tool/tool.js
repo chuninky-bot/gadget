@@ -5,10 +5,13 @@ const status = document.querySelector("#emoji-status");
 
 const popular = ["😀", "😂", "😍", "🥰", "😊", "👍", "🙏", "👏", "🔥", "✨", "🎉", "❤️", "💙", "✅", "⭐", "🚀", "💡", "📌", "⚠️", "❌", "🌈", "☕", "🎨", "💻"];
 const emojiEntries = window.emojiToolData?.entries || [];
-const pageSize = 320;
+const pageSize = 160;
+const emojiByGlyph = new Map(emojiEntries.map((entry) => [entry.emoji, entry]));
+
 let loaded = 0;
 let visibleEntries = emojiEntries;
 let renderToken = 0;
+let filterTimer = 0;
 
 function message(key) {
   return window.gadgetTranslate ? window.gadgetTranslate(key) : key;
@@ -19,12 +22,16 @@ function normalizeSearchText(value) {
     .toLowerCase()
     .normalize("NFKC")
     .replace(/[_-]+/g, " ")
+    .replace(/\s+/g, " ")
     .trim();
 }
 
-function entrySearchText(entry) {
-  if (entry.searchText) return entry.searchText;
-  entry.searchText = normalizeSearchText([
+function uniqueWords(...parts) {
+  return [...new Set(parts.join(" ").split(/\s+/).filter(Boolean))].join(" ");
+}
+
+function createSearchText(entry) {
+  return normalizeSearchText(uniqueWords(
     entry.emoji,
     entry.name,
     entry.group,
@@ -33,12 +40,16 @@ function entrySearchText(entry) {
     entry.keywords?.en,
     entry.keywords?.ja,
     entry.keywords?.zh,
-  ].filter(Boolean).join(" "));
-  return entry.searchText;
+  ));
 }
 
+const indexedEntries = emojiEntries.map((entry) => ({
+  ...entry,
+  searchText: createSearchText(entry),
+}));
+
 function findEntry(emoji) {
-  return emojiEntries.find((entry) => entry.emoji === emoji);
+  return emojiByGlyph.get(emoji);
 }
 
 function emojiButton(entry) {
@@ -46,19 +57,35 @@ function emojiButton(entry) {
   button.className = "emoji-button";
   button.type = "button";
   button.textContent = entry.emoji;
+  button.dataset.emoji = entry.emoji;
   button.dataset.i18nTitle = "Click to copy";
   button.title = message("Click to copy");
   button.setAttribute("aria-label", `${entry.emoji} ${entry.name}`);
-  button.addEventListener("click", async () => {
-    await navigator.clipboard?.writeText(entry.emoji);
-    status.textContent = `${entry.emoji} ${message("Copied to clipboard.")}`;
-  });
   return button;
+}
+
+async function copyEmoji(emoji) {
+  await navigator.clipboard?.writeText(emoji);
+  status.textContent = `${emoji} ${message("Copied to clipboard.")}`;
+}
+
+function handleEmojiClick(event) {
+  const button = event.target.closest(".emoji-button");
+  if (!button) return;
+  copyEmoji(button.dataset.emoji);
 }
 
 function renderPopular() {
   const entries = popular.map(findEntry).filter(Boolean);
   popularGrid.replaceChildren(...entries.map(emojiButton));
+}
+
+function scheduleChunk(callback) {
+  if ("requestIdleCallback" in window) {
+    window.requestIdleCallback(callback, { timeout: 120 });
+    return;
+  }
+  requestAnimationFrame(callback);
 }
 
 function renderNextChunk(token) {
@@ -71,7 +98,7 @@ function renderNextChunk(token) {
   loaded += next.length;
 
   if (loaded < visibleEntries.length) {
-    requestAnimationFrame(() => renderNextChunk(token));
+    scheduleChunk(() => renderNextChunk(token));
   } else {
     updateStatus();
   }
@@ -93,14 +120,21 @@ function renderVisibleEntries() {
   renderNextChunk(renderToken);
 }
 
-function filter() {
-  const query = normalizeSearchText(search.value);
-  visibleEntries = query ? emojiEntries.filter((entry) => entry.emoji.includes(query) || entrySearchText(entry).includes(query)) : emojiEntries;
+function matchesQuery(entry, tokens) {
+  if (!tokens.length) return true;
+  return tokens.every((token) => entry.emoji.includes(token) || entry.searchText.includes(token));
+}
 
-  document.querySelectorAll(".emoji-button").forEach((button) => {
-    button.title = message("Click to copy");
-  });
+function applyFilter() {
+  const query = normalizeSearchText(search.value);
+  const tokens = query ? query.split(" ") : [];
+  visibleEntries = tokens.length ? indexedEntries.filter((entry) => matchesQuery(entry, tokens)) : indexedEntries;
   renderVisibleEntries();
+}
+
+function scheduleFilter() {
+  window.clearTimeout(filterTimer);
+  filterTimer = window.setTimeout(applyFilter, 90);
 }
 
 function syncLanguageText() {
@@ -110,8 +144,10 @@ function syncLanguageText() {
   updateStatus();
 }
 
-search.addEventListener("input", filter);
+popularGrid.addEventListener("click", handleEmojiClick);
+grid.addEventListener("click", handleEmojiClick);
+search.addEventListener("input", scheduleFilter);
 window.addEventListener("gadget:languagechange", syncLanguageText);
 
 renderPopular();
-filter();
+applyFilter();
