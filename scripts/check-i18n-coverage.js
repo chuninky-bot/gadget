@@ -114,6 +114,7 @@ function isIgnorableText(text) {
 function textCandidates(html) {
   const body = html.match(/<body[^>]*>([\s\S]*?)<\/body>/i)?.[1] || "";
   const stripped = body
+    .replace(/<!-- TOOL_GUIDE_START -->[\s\S]*?<!-- TOOL_GUIDE_END -->/g, "")
     .replace(/<script[\s\S]*?<\/script>/gi, "")
     .replace(/<style[\s\S]*?<\/style>/gi, "")
     .replace(/<!--[\s\S]*?-->/g, "")

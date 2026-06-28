@@ -120,6 +120,19 @@ const textTranslations = {
   "JSON을 보기 좋게 정리하고 오류 위치를 확인합니다.": { en: "Format JSON for readability and check parsing errors.", ja: "JSONを読みやすく整形し、エラーを確認します。", zh: "美化 JSON 并检查解析错误。" },
   "JSON을 정리하고 파싱 오류를 확인합니다.": { en: "Clean JSON and check parsing errors.", ja: "JSONを整形し、解析エラーを確認します。", zh: "整理 JSON 并检查解析错误。" },
   "누락된 따옴표, 닫는 괄호, 후행 쉼표를 가능한 범위에서 자동 복구합니다.": { en: "Automatically repair missing quotes, closing brackets, and trailing commas where possible.", ja: "不足した引用符、閉じ括弧、末尾のカンマを可能な範囲で自動修復します。", zh: "尽可能自动修复缺失的引号、结束括号和尾随逗号。" },
+  "JSON formatting guide": { ko: "JSON 포맷팅 가이드", en: "JSON formatting guide", ja: "JSON整形ガイド", zh: "JSON 格式化指南" },
+  "JSON 포맷터 사용 가이드": { en: "How to use the JSON formatter", ja: "JSONフォーマッターの使い方", zh: "JSON 格式化工具使用指南" },
+  "JSON 포맷터는 API 응답, 설정 파일, 로그에 섞인 JSON 문자열을 읽기 쉬운 구조로 정리하는 브라우저 도구입니다.": { en: "The JSON formatter is a browser tool for turning JSON strings from API responses, config files, and logs into a readable structure.", ja: "JSONフォーマッターは、APIレスポンス、設定ファイル、ログに含まれるJSON文字列を読みやすい構造に整えるブラウザーツールです。", zh: "JSON 格式化工具是在浏览器中将 API 响应、配置文件和日志中的 JSON 字符串整理为易读结构的工具。" },
+  "언제 사용하면 좋나요?": { en: "When should I use it?", ja: "いつ使うと便利ですか？", zh: "什么时候适合使用？" },
+  "압축된 JSON, 줄바꿈 없는 API 응답, 복사 중 일부 따옴표나 괄호가 빠진 데이터를 빠르게 확인할 때 적합합니다.": { en: "It is useful when checking minified JSON, API responses without line breaks, or data that lost some quotes or brackets while being copied.", ja: "圧縮されたJSON、改行のないAPIレスポンス、コピー中に引用符や括弧の一部が欠けたデータを素早く確認したいときに適しています。", zh: "适合快速检查压缩 JSON、没有换行的 API 响应，或复制时丢失部分引号和括号的数据。" },
+  "사용 방법": { en: "How to use", ja: "使い方", zh: "使用方法" },
+  "입력란에 JSON 문자열을 붙여넣습니다.": { en: "Paste a JSON string into the input box.", ja: "入力欄にJSON文字列を貼り付けます。", zh: "将 JSON 字符串粘贴到输入框中。" },
+  "결과는 입력과 동시에 자동으로 정리됩니다.": { en: "The result is formatted automatically as you type.", ja: "入力と同時に結果が自動で整形されます。", zh: "输入时结果会自动格式化。" },
+  "결과 박스 오른쪽 위 복사 아이콘으로 정리된 JSON을 복사합니다.": { en: "Use the copy icon at the top right of the result box to copy the formatted JSON.", ja: "結果ボックス右上のコピーアイコンで整形済みJSONをコピーします。", zh: "使用结果框右上角的复制图标复制格式化后的 JSON。" },
+  "자동 복구 범위": { en: "Auto repair coverage", ja: "自動修復の範囲", zh: "自动修复范围" },
+  "누락된 키 따옴표, 닫히지 않은 중괄호나 대괄호, 마지막 쉼표처럼 흔한 실수는 가능한 범위에서 보정합니다.": { en: "Common mistakes such as missing key quotes, unclosed braces or brackets, and trailing commas are repaired where possible.", ja: "キーの引用符不足、閉じていない中括弧や角括弧、末尾のカンマなど、よくあるミスを可能な範囲で補正します。", zh: "可尽可能修复缺失键名引号、未闭合的大括号或中括号、尾随逗号等常见错误。" },
+  "주의할 점": { en: "Things to check", ja: "注意点", zh: "注意事项" },
+  "자동 복구는 원본 의도를 추정합니다. 중요한 설정 파일이나 배포 데이터는 결과를 저장하기 전에 값과 배열 구조를 다시 확인하세요.": { en: "Auto repair guesses the original intent. For important config files or production data, review values and array structure before saving the result.", ja: "自動修復は元の意図を推測します。重要な設定ファイルや本番データでは、結果を保存する前に値と配列構造を再確認してください。", zh: "自动修复会推测原始意图。对于重要配置文件或生产数据，请在保存结果前再次确认值和数组结构。" },
   "XML 포맷터": { en: "XML formatter", ja: "XMLフォーマッター", zh: "XML 格式化工具" },
   "XML을 정리하고 닫는 태그를 보정합니다.": { en: "Format XML and fix closing tags.", ja: "XMLを整形し、終了タグを補正します。", zh: "格式化 XML 并修复结束标签。" },
   "XML을 정리하고 누락된 닫는 태그를 자동 보정합니다.": { en: "Format XML and automatically fix missing closing tags.", ja: "XMLを整形し、不足している終了タグを自動補正します。", zh: "格式化 XML 并自动修复缺失的结束标签。" },
@@ -480,6 +493,14 @@ function translateAttributes(language) {
   }
 }
 
+function translateGuideNodes(language) {
+  const suffix = language.charAt(0).toUpperCase() + language.slice(1);
+  for (const element of document.querySelectorAll("[data-guide-i18n]")) {
+    const translated = element.dataset[`guide${suffix}`] || element.dataset.guideKo;
+    if (translated) element.textContent = translated;
+  }
+}
+
 function translatePageMeta(language) {
   const page = pageTranslations[normalizePath()] || pageTranslations["/"];
   document.documentElement.lang = language === "zh" ? "zh-CN" : language;
@@ -567,6 +588,7 @@ function applyLanguage(language) {
   translatePageMeta(language);
   translateTextNodes(language);
   translateAttributes(language);
+  translateGuideNodes(language);
   updateInternalLinks(language);
   const select = document.querySelector("#language-select");
   if (select) select.value = language;
