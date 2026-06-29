@@ -324,27 +324,34 @@ const effects = [
     title: "Rotating CSS cube",
     className: "css-cube-demo",
     tags: ["3d", "motion"],
-    demoHtml: `<div class="css-cube"><i></i><i></i><i></i><i></i></div>`,
+    demoHtml: `<div class="css-cube"><i></i><i></i><i></i><i></i><i></i><i></i></div>`,
     code: `.css-cube-demo {
-  perspective: 720px;
-  background: radial-gradient(circle, #1e3a8a, #020617 72%);
+  perspective: 820px;
+  background: radial-gradient(circle at 50% 42%, #2563eb, #020617 72%);
 }
 .css-cube {
-  width: 70px;
+  width: 78px;
   aspect-ratio: 1;
   position: relative;
   transform-style: preserve-3d;
-  animation: cubeSpin 5s linear infinite;
+  animation: cubeSpin 6s linear infinite;
 }
 .css-cube i {
   position: absolute;
   inset: 0;
   border: 1px solid rgba(255,255,255,.44);
-  background: rgba(56,189,248,.22);
-  box-shadow: inset 0 0 22px rgba(255,255,255,.18);
+  background: linear-gradient(135deg, rgba(34,211,238,.62), rgba(99,102,241,.28));
+  box-shadow: inset 0 0 22px rgba(255,255,255,.2), 0 0 18px rgba(34,211,238,.18);
 }
+.css-cube i:nth-child(1) { transform: translateZ(39px); }
+.css-cube i:nth-child(2) { transform: rotateY(90deg) translateZ(39px); background: rgba(14,165,233,.34); }
+.css-cube i:nth-child(3) { transform: rotateY(180deg) translateZ(39px); background: rgba(99,102,241,.28); }
+.css-cube i:nth-child(4) { transform: rotateY(-90deg) translateZ(39px); background: rgba(45,212,191,.28); }
+.css-cube i:nth-child(5) { transform: rotateX(90deg) translateZ(39px); background: rgba(255,255,255,.18); }
+.css-cube i:nth-child(6) { transform: rotateX(-90deg) translateZ(39px); background: rgba(15,23,42,.34); }
 @keyframes cubeSpin {
-  to { transform: rotateX(1turn) rotateY(1turn); }
+  from { transform: rotateX(-18deg) rotateY(32deg); }
+  to { transform: rotateX(342deg) rotateY(392deg); }
 }`,
   },
   {
@@ -451,6 +458,100 @@ const effects = [
   box-shadow: 0 20px 36px rgba(15,23,42,.36);
 }`,
   },
+  {
+    category: "Interactive accents",
+    title: "Spotlight hover card",
+    className: "spotlight-card",
+    tags: ["interaction", "hover"],
+    code: `.spotlight-card {
+  background: #111827;
+}
+.spotlight-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(34,211,238,.52), transparent 34%);
+  opacity: .36;
+  transition: opacity .24s ease, transform .24s ease;
+}
+.spotlight-card:hover::before {
+  opacity: .86;
+  transform: scale(1.25);
+}`,
+  },
+  {
+    category: "Interactive accents",
+    title: "Liquid fill button",
+    className: "liquid-fill-button",
+    tags: ["interaction", "hover", "motion"],
+    code: `.liquid-fill-button {
+  background: linear-gradient(135deg, #0f172a, #164e63);
+}
+.liquid-fill-button span {
+  isolation: isolate;
+  padding: 14px 26px;
+  border: 1px solid rgba(255,255,255,.5);
+  border-radius: 999px;
+  overflow: hidden;
+  color: #fff;
+}
+.liquid-fill-button span::before {
+  content: "";
+  position: absolute;
+  inset: auto -20% -120% -20%;
+  z-index: -1;
+  height: 120%;
+  border-radius: 45%;
+  background: #22d3ee;
+  transition: transform .48s ease;
+}
+.liquid-fill-button:hover span::before {
+  transform: translateY(-82%);
+}`,
+  },
+  {
+    category: "Interactive accents",
+    title: "Corner peel reveal",
+    className: "corner-peel",
+    tags: ["interaction", "hover"],
+    code: `.corner-peel {
+  background: linear-gradient(135deg, #334155, #0f172a);
+}
+.corner-peel::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+  border-style: solid;
+  border-width: 0 0 0 0;
+  border-color: transparent #f8fafc transparent transparent;
+  transition: border-width .26s ease;
+}
+.corner-peel:hover::after {
+  border-width: 0 58px 58px 0;
+}`,
+  },
+  {
+    category: "Interactive accents",
+    title: "Press depth button",
+    className: "press-depth-button",
+    tags: ["interaction", "hover"],
+    code: `.press-depth-button {
+  background: linear-gradient(135deg, #7c2d12, #111827);
+}
+.press-depth-button span {
+  padding: 15px 25px;
+  border-radius: 12px;
+  background: #facc15;
+  color: #111827;
+  box-shadow: 0 8px 0 #92400e, 0 18px 28px rgba(15,23,42,.32);
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+.press-depth-button:hover span {
+  transform: translateY(5px);
+  box-shadow: 0 3px 0 #92400e, 0 10px 18px rgba(15,23,42,.24);
+}`,
+  },
 ];
 
 const grid = document.querySelector("#art-grid");
@@ -502,13 +603,43 @@ function polygonPath(sides) {
   return points.join(", ");
 }
 
+function cssForEffect(effect, card) {
+  if (effect.className !== "polygon-morph") return effect.code;
+
+  const path = card
+    ?.querySelector(".polygon-morph")
+    ?.style
+    .getPropertyValue("--poly-path")
+    .trim();
+
+  if (!path) return effect.code;
+  return effect.code.replace(/--poly-path:[^;]+;/, `--poly-path: ${path};`);
+}
+
+function copyText(value) {
+  if (navigator.clipboard?.writeText) {
+    navigator.clipboard.writeText(value);
+    return;
+  }
+
+  const textarea = document.createElement("textarea");
+  textarea.value = value;
+  textarea.setAttribute("readonly", "");
+  textarea.style.position = "fixed";
+  textarea.style.opacity = "0";
+  document.body.append(textarea);
+  textarea.select();
+  document.execCommand("copy");
+  textarea.remove();
+}
+
 function renderCard(effect) {
   const title = message(effect.title);
   const demo = effect.demoHtml || `<span>${escapeHtml(title)}</span>`;
   const control = effect.control
     ? `<label class="art-control">${escapeHtml(message(effect.control.label))}<input type="range" min="${effect.control.min}" max="${effect.control.max}" value="${effect.control.value}" data-art-control="${effect.className}"><output>${effect.control.value}</output></label>`
     : "";
-  return `<article class="art-card"><div class="art-demo ${effect.className}">${demo}</div>${control}<h3>${escapeHtml(title)}</h3><pre>${escapeHtml(effect.code)}</pre></article>`;
+  return `<article class="art-card"><div class="art-demo ${effect.className}">${demo}</div>${control}<div class="art-card-header"><h3>${escapeHtml(title)}</h3><button class="art-copy-button" type="button" data-copy-css="${escapeHtml(effect.className)}" aria-label="${escapeHtml(message("Copy CSS"))}" title="${escapeHtml(message("Copy CSS"))}"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 8h10v12H8z"></path><path d="M6 16H4V4h12v2"></path></svg></button></div></article>`;
 }
 
 function renderFilters() {
@@ -541,6 +672,14 @@ function bindInteractions() {
     button.addEventListener("click", () => {
       activeFilter = button.dataset.filter;
       renderEffects();
+    });
+  });
+
+  grid.querySelectorAll("[data-copy-css]").forEach((button) => {
+    button.addEventListener("click", () => {
+      const effect = effects.find((item) => item.className === button.dataset.copyCss);
+      if (!effect) return;
+      copyText(cssForEffect(effect, button.closest(".art-card")));
     });
   });
 

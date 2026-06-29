@@ -672,17 +672,49 @@ main {
   background: var(--surface);
   padding: 14px;
 }
-.art-card h3 {
+.art-card-header {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 0;
+}
+.art-card-header h3 {
+  min-width: 0;
   margin: 0;
   font-size: 1rem;
 }
-.art-card pre {
-  max-height: 190px;
-  margin: 0;
-  overflow: auto;
-  white-space: pre-wrap;
-  font-family: Consolas, "Courier New", monospace;
-  font-size: 0.82rem;
+.art-copy-button {
+  display: inline-grid;
+  flex: 0 0 auto;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface-strong);
+  color: var(--muted);
+  cursor: pointer;
+  transition: border-color 0.18s ease, color 0.18s ease, transform 0.18s ease, background 0.18s ease;
+}
+.art-copy-button:hover,
+.art-copy-button:focus-visible {
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 10%, var(--surface));
+  color: var(--accent-strong);
+  transform: translateY(-1px);
+}
+.art-copy-button:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--accent) 34%, transparent);
+  outline-offset: 2px;
+}
+.art-copy-button svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linejoin: round;
 }
 .art-control {
   display: grid;
@@ -956,38 +988,53 @@ main {
   transform: rotateX(-8deg) rotateY(16deg) translateY(-4px);
 }
 .css-cube-demo {
-  perspective: 720px;
-  background: radial-gradient(circle, #1e3a8a, #020617 72%);
+  perspective: 820px;
+  background: radial-gradient(circle at 50% 42%, #2563eb, #020617 72%);
 }
 .css-cube {
   position: relative;
-  width: 70px;
+  width: 78px;
   aspect-ratio: 1;
   transform-style: preserve-3d;
-  animation: cubeSpin 5s linear infinite;
+  animation: cubeSpin 6s linear infinite;
 }
 .css-cube i {
   position: absolute;
   inset: 0;
   border: 1px solid rgba(255, 255, 255, 0.44);
-  background: rgba(56, 189, 248, 0.22);
-  box-shadow: inset 0 0 22px rgba(255, 255, 255, 0.18);
+  background: linear-gradient(135deg, rgba(34, 211, 238, 0.62), rgba(99, 102, 241, 0.28));
+  box-shadow: inset 0 0 22px rgba(255, 255, 255, 0.2), 0 0 18px rgba(34, 211, 238, 0.18);
+  backface-visibility: visible;
 }
 .css-cube i:nth-child(1) {
-  transform: rotateY(0deg) translateZ(35px);
+  transform: translateZ(39px);
 }
 .css-cube i:nth-child(2) {
-  transform: rotateY(90deg) translateZ(35px);
+  transform: rotateY(90deg) translateZ(39px);
+  background: rgba(14, 165, 233, 0.34);
 }
 .css-cube i:nth-child(3) {
-  transform: rotateX(90deg) translateZ(35px);
+  transform: rotateY(180deg) translateZ(39px);
+  background: rgba(99, 102, 241, 0.28);
 }
 .css-cube i:nth-child(4) {
-  transform: rotateX(0deg) translateZ(-35px);
+  transform: rotateY(-90deg) translateZ(39px);
+  background: rgba(45, 212, 191, 0.28);
+}
+.css-cube i:nth-child(5) {
+  transform: rotateX(90deg) translateZ(39px);
+  background: rgba(255, 255, 255, 0.18);
+}
+.css-cube i:nth-child(6) {
+  transform: rotateX(-90deg) translateZ(39px);
+  background: rgba(15, 23, 42, 0.34);
 }
 @keyframes cubeSpin {
+  from {
+    transform: rotateX(-18deg) rotateY(32deg);
+  }
   to {
-    transform: rotateX(1turn) rotateY(1turn);
+    transform: rotateX(342deg) rotateY(392deg);
   }
 }
 .flip-panel-3d {
@@ -1055,6 +1102,76 @@ main {
 .layered-prisms::after {
   background: rgba(244, 114, 182, 0.58);
   transform: translate(24px, 16px) rotateX(58deg) rotateZ(28deg);
+}
+.spotlight-card {
+  background: #111827;
+}
+.spotlight-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(34, 211, 238, 0.52), transparent 34%);
+  opacity: 0.36;
+  transition: opacity 0.24s ease, transform 0.24s ease;
+}
+.spotlight-card:hover::before {
+  opacity: 0.86;
+  transform: scale(1.25);
+}
+.liquid-fill-button {
+  background: linear-gradient(135deg, #0f172a, #164e63);
+}
+.liquid-fill-button span {
+  isolation: isolate;
+  padding: 14px 26px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 999px;
+  overflow: hidden;
+  color: #fff;
+}
+.liquid-fill-button span::before {
+  content: "";
+  position: absolute;
+  inset: auto -20% -120% -20%;
+  z-index: -1;
+  height: 120%;
+  border-radius: 45%;
+  background: #22d3ee;
+  transition: transform 0.48s ease;
+}
+.liquid-fill-button:hover span::before {
+  transform: translateY(-82%);
+}
+.corner-peel {
+  background: linear-gradient(135deg, #334155, #0f172a);
+}
+.corner-peel::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+  border-style: solid;
+  border-width: 0;
+  border-color: transparent #f8fafc transparent transparent;
+  transition: border-width 0.26s ease;
+}
+.corner-peel:hover::after {
+  border-width: 0 58px 58px 0;
+}
+.press-depth-button {
+  background: linear-gradient(135deg, #7c2d12, #111827);
+}
+.press-depth-button span {
+  padding: 15px 25px;
+  border-radius: 12px;
+  background: #facc15;
+  color: #111827;
+  box-shadow: 0 8px 0 #92400e, 0 18px 28px rgba(15, 23, 42, 0.32);
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+.press-depth-button:hover span {
+  transform: translateY(5px);
+  box-shadow: 0 3px 0 #92400e, 0 10px 18px rgba(15, 23, 42, 0.24);
 }
 .compare-grid {
   display: grid;
