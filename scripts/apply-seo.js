@@ -300,6 +300,7 @@ const pages = [
 
 const pageByFile = new Map(pages.map((page) => [page.file.replace(/\\/g, "/"), page]));
 const today = new Date().toISOString().slice(0, 10);
+const buildDate = new Date();
 
 function absoluteUrl(url) {
   return `${baseUrl}${url}`;
@@ -307,6 +308,10 @@ function absoluteUrl(url) {
 
 function escapeHtml(value) {
   return value.replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+}
+
+function escapeXml(value) {
+  return value.replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/'/g, "&apos;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 }
 
 function stripManagedSeo(head) {
@@ -386,6 +391,7 @@ function seoMetaFor(page) {
     "    <!-- SEO_META_START -->",
     `    <meta name="robots" content="index, follow">`,
     `    <link rel="canonical" href="${absoluteUrl(page.url)}">`,
+    `    <link rel="alternate" type="application/rss+xml" title="${siteName} RSS" href="${absoluteUrl("/rss.xml")}">`,
     `    <meta property="og:site_name" content="${siteName}">`,
     `    <meta property="og:title" content="${escapeHtml(page.title)}">`,
     `    <meta property="og:description" content="${escapeHtml(page.description)}">`,
@@ -447,6 +453,34 @@ const sitemap = [
 ].join('\n');
 fs.writeFileSync(path.join(root, "sitemap.xml"), sitemap);
 
+const rssItems = pages
+  .filter((page) => page.url !== "/privacy.html")
+  .map((page) => [
+    '    <item>',
+    `      <title>${escapeXml(page.title)}</title>`,
+    `      <link>${absoluteUrl(page.url)}</link>`,
+    `      <guid isPermaLink="true">${absoluteUrl(page.url)}</guid>`,
+    `      <description>${escapeXml(page.description)}</description>`,
+    `      <pubDate>${buildDate.toUTCString()}</pubDate>`,
+    '    </item>',
+  ].join('\n'));
+
+const rss = [
+  '<?xml version="1.0" encoding="UTF-8"?>',
+  '<rss version="2.0">',
+  '  <channel>',
+  `    <title>${escapeXml(siteName)}</title>`,
+  `    <link>${baseUrl}/</link>`,
+  `    <description>${escapeXml("Web-Tool.Shop의 브라우저 기반 무료 웹 유틸리티 업데이트 피드입니다.")}</description>`,
+  '    <language>ko-KR</language>',
+  `    <lastBuildDate>${buildDate.toUTCString()}</lastBuildDate>`,
+  ...rssItems,
+  '  </channel>',
+  '</rss>',
+  '',
+].join('\n');
+fs.writeFileSync(path.join(root, "rss.xml"), rss);
+
 const robots = [
   'User-agent: *',
   'Allow: /',
@@ -458,6 +492,7 @@ const robots = [
   'Allow: /',
   '',
   `Sitemap: ${baseUrl}/sitemap.xml`,
+  `Sitemap: ${baseUrl}/rss.xml`,
   '',
 ].join('\n');
 fs.writeFileSync(path.join(root, "robots.txt"), robots);

@@ -8,6 +8,7 @@ const ignoreDirectories = new Set([".git", "node_modules", "dist", "build", ".ne
 const ignoredText = new Set([
   "",
   "Web-Tool.Shop",
+  "Web-Tool.Shop RSS",
   "CSS-ART",
   "JSON",
   "XML",

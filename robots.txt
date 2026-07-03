@@ -8,3 +8,4 @@ User-agent: Yeti
 Allow: /
 
 Sitemap: https://web-tool.shop/sitemap.xml
+Sitemap: https://web-tool.shop/rss.xml
