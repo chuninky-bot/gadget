@@ -168,19 +168,10 @@ const pages = [
     changefreq: "monthly",
   },
   {
-    file: "tools/diff/index.html",
-    url: "/tools/diff/",
-    title: "비교하기 - Web-Tool.Shop",
-    description: "텍스트, JSON, XML 내용을 브라우저에서 나란히 비교하는 무료 DIFF 도구 모음입니다.",
-    type: "CollectionPage",
-    priority: "0.7",
-    changefreq: "monthly",
-  },
-  {
     file: "tools/diff/compare/index.html",
     url: "/tools/diff/compare/",
-    title: "DIFF 비교 도구 - Web-Tool.Shop",
-    description: "텍스트, JSON, XML 두 값을 브라우저에서 비교하고 추가, 삭제, 변경 라인을 확인하는 무료 DIFF 도구입니다.",
+    title: "DIFF 도구 - Web-Tool.Shop",
+    description: "텍스트, JSON, XML 두 값을 compare diff 방식으로 비교하고 추가, 삭제, 변경 라인을 확인하는 무료 DIFF 도구입니다.",
     type: "SoftwareApplication",
     category: "DeveloperApplication",
     priority: "0.8",
@@ -335,7 +326,6 @@ function breadcrumbFor(page) {
   const parts = [{ name: siteName, item: absoluteUrl("/") }];
   if (page.url.startsWith("/tools/text/")) parts.push({ name: "텍스트 도구", item: absoluteUrl("/tools/text/") });
   if (page.url.startsWith("/tools/converter/")) parts.push({ name: "자료형 변환", item: absoluteUrl("/tools/converter/") });
-  if (page.url.startsWith("/tools/diff/")) parts.push({ name: "비교하기", item: absoluteUrl("/tools/diff/") });
   parts.push({ name: page.title.replace(` - ${siteName}`, ""), item: absoluteUrl(page.url) });
 
   return {

@@ -2,7 +2,7 @@
   const navItems = [
     { href: "/tools/text/", label: "텍스트" },
     { href: "/tools/converter/", label: "자료형 변환" },
-    { href: "/tools/diff/", label: "비교하기" },
+    { href: "/tools/diff/compare/", label: "DIFF 도구" },
     { href: "/tools/design/", label: "디자인" },
     { href: "/tools/css-art/", label: "CSS-ART" },
   ];

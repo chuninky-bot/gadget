@@ -1,4 +1,4 @@
-const modeSelect = document.querySelector("#compare-mode");
+const modeButtons = document.querySelectorAll("[data-mode]");
 const leftInput = document.querySelector("#left-input");
 const rightInput = document.querySelector("#right-input");
 const output = document.querySelector("#compare-output");
@@ -6,10 +6,7 @@ const status = document.querySelector("#compare-status");
 const sampleButton = document.querySelector("#sample");
 const swapButton = document.querySelector("#swap");
 const clearButton = document.querySelector("#clear");
-const base64DecodeBeforeCompare = document.querySelector("#base64-decode-before-compare");
-const base64EncodingOptions = document.querySelector("#base64-encoding-options");
-const leftEncoding = document.querySelector("#left-encoding");
-const rightEncoding = document.querySelector("#right-encoding");
+let currentMode = "text";
 
 function message(key) {
   return window.gadgetTranslate ? window.gadgetTranslate(key) : key;
@@ -58,31 +55,6 @@ function normalizeJson(value) {
 function normalizeXml(value) {
   const result = window.formatUtils.formatXml(value);
   return { text: result.output || result.repaired || value, error: result.error };
-}
-
-function decodeBase64Bytes(value) {
-  const normalized = value.trim().replace(/\s+/g, "");
-  if (!normalized) return null;
-  try {
-    const binary = atob(normalized);
-    return Uint8Array.from(binary, (char) => char.charCodeAt(0));
-  } catch (_) {
-    return null;
-  }
-}
-
-function decodeBytes(bytes, encoding) {
-  try {
-    return new TextDecoder(encoding, { fatal: false }).decode(bytes);
-  } catch (_) {
-    return "";
-  }
-}
-
-function decodeBase64Input(value, encoding) {
-  const bytes = decodeBase64Bytes(value);
-  if (!bytes) return { text: value, error: "Invalid Base64 input" };
-  return { text: decodeBytes(bytes, encoding), error: null };
 }
 
 function normalize(value, mode) {
@@ -152,16 +124,14 @@ function renderChanges(changes) {
 }
 
 function compare() {
-  const mode = modeSelect.value;
-  const leftSource = base64DecodeBeforeCompare.checked ? decodeBase64Input(leftInput.value, leftEncoding.value) : { text: leftInput.value, error: null };
-  const rightSource = base64DecodeBeforeCompare.checked ? decodeBase64Input(rightInput.value, rightEncoding.value) : { text: rightInput.value, error: null };
-  const left = normalize(leftSource.text, mode);
-  const right = normalize(rightSource.text, mode);
+  const mode = currentMode;
+  const left = normalize(leftInput.value, mode);
+  const right = normalize(rightInput.value, mode);
   const changes = diffLines(left.text, right.text);
   const changedCount = changes.filter((change) => change.type !== "same").length;
 
   renderChanges(changes);
-  const errors = [leftSource.error, rightSource.error, left.error, right.error].filter(Boolean);
+  const errors = [left.error, right.error].filter(Boolean);
   if (errors.length) {
     status.textContent = errors.join(" / ");
     return;
@@ -170,7 +140,7 @@ function compare() {
 }
 
 function fillSample() {
-  const mode = modeSelect.value;
+  const mode = currentMode;
   const [left, right] = localizedSample(samples[mode] || samples.text);
   leftInput.value = left;
   rightInput.value = right;
@@ -178,22 +148,23 @@ function fillSample() {
 }
 
 sampleButton.addEventListener("click", fillSample);
-modeSelect.addEventListener("change", fillSample);
+modeButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    currentMode = button.dataset.mode || "text";
+    modeButtons.forEach((item) => {
+      const selected = item === button;
+      item.classList.toggle("is-active", selected);
+      item.setAttribute("aria-pressed", selected ? "true" : "false");
+    });
+    fillSample();
+  });
+});
 leftInput.addEventListener("input", compare);
 rightInput.addEventListener("input", compare);
-base64DecodeBeforeCompare.addEventListener("change", () => {
-  base64EncodingOptions.hidden = !base64DecodeBeforeCompare.checked;
-  compare();
-});
-leftEncoding.addEventListener("change", compare);
-rightEncoding.addEventListener("change", compare);
 swapButton.addEventListener("click", () => {
   const left = leftInput.value;
-  const encoding = leftEncoding.value;
   leftInput.value = rightInput.value;
   rightInput.value = left;
-  leftEncoding.value = rightEncoding.value;
-  rightEncoding.value = encoding;
   compare();
 });
 clearButton.addEventListener("click", () => {

@@ -6,7 +6,7 @@
     text: "텍스트",
     converter: "자료형 변환",
     developer: "자료형 변환",
-    diff: "비교하기",
+    diff: "DIFF 도구",
     generator: "생성기",
   };
   const labels = {
