@@ -397,7 +397,7 @@ function seoMetaFor(page) {
     `    <meta name="twitter:description" content="${escapeHtml(page.description)}">`,
   ];
   if (googleVerification) lines.push(`    <meta name="google-site-verification" content="${escapeHtml(googleVerification)}">`);
-  if (naverVerification) lines.push(`    <meta name="naver-site-verification" content="${escapeHtml(naverVerification)}">`);
+  if (naverVerification) lines.push(`    <meta name="naver-site-verification" content="${escapeHtml(naverVerification)}" />`);
   lines.push("    <!-- SEO_META_END -->");
   return lines.join("\n");
 }
