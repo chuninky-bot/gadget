@@ -79,6 +79,16 @@ const pages = [
     changefreq: "monthly",
   },
   {
+    file: "tools/converter/base64-encoding/index.html",
+    url: "/tools/converter/base64-encoding/",
+    title: "Base64 인코딩 변환기 - Web-Tool.Shop",
+    description: "입력값을 여러 문자 인코딩 기준의 Base64와 바이트 값으로 변환하고, Base64 값이면 인코딩별 디코딩 결과를 함께 확인하는 무료 도구입니다.",
+    type: "SoftwareApplication",
+    category: "DeveloperApplication",
+    priority: "0.8",
+    changefreq: "monthly",
+  },
+  {
     file: "tools/text/url-encoder/index.html",
     url: "/tools/text/url-encoder/",
     title: "URL 인코딩 변환기 - Web-Tool.Shop",

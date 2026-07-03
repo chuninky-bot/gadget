@@ -7,6 +7,9 @@
     <meta name="description" content="텍스트, JSON, XML 두 값을 브라우저에서 비교하고 추가, 삭제, 변경 라인을 확인하는 무료 DIFF 도구입니다.">
     <link rel="stylesheet" href="../../../assets/css/styles.css">
     <script defer src="../../../assets/js/format-utils.js"></script>
+    <script>window.NativeTextEncoder = window.TextEncoder; window.TextEncoder = undefined;</script>
+    <script defer src="../../../assets/vendor/encoding-indexes.js"></script>
+    <script defer src="../../../assets/vendor/text-encoding.min.js"></script>
     <script defer src="../../../assets/js/site-shell.js"></script>
     <script defer src="../../../assets/js/i18n.js"></script>
     <script defer src="./tool.js"></script>
@@ -55,6 +58,30 @@
             <option value="json">JSON</option>
             <option value="xml">XML</option>
           </select>
+          <label class="check-row">
+            <input id="base64-decode-before-compare" type="checkbox">
+            <span>Decode Base64 before compare</span>
+          </label>
+          <div class="compare-grid" id="base64-encoding-options" hidden>
+            <label class="field-label">
+              <span>Left Base64 encoding</span>
+              <select id="left-encoding" class="tool-select">
+                <option value="utf-8">UTF-8</option>
+                <option value="euc-kr">EUC-KR</option>
+                <option value="shift-jis">Shift_JIS</option>
+                <option value="iso-8859-1">ISO-8859-1</option>
+              </select>
+            </label>
+            <label class="field-label">
+              <span>Right Base64 encoding</span>
+              <select id="right-encoding" class="tool-select">
+                <option value="utf-8">UTF-8</option>
+                <option value="euc-kr">EUC-KR</option>
+                <option value="shift-jis">Shift_JIS</option>
+                <option value="iso-8859-1">ISO-8859-1</option>
+              </select>
+            </label>
+          </div>
           <div class="compare-grid">
             <label>
               <span>왼쪽 원본</span>
