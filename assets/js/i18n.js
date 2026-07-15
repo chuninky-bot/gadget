@@ -172,6 +172,46 @@ const textTranslations = {
   "브라우저에서 UUID v4 값을 빠르게 생성합니다.": { en: "Quickly generate UUID v4 values in your browser.", ja: "ブラウザーでUUID v4を素早く生成します。", zh: "在浏览器中快速生成 UUID v4。" },
   "All tools run in your browser.": { ko: "모든 도구는 브라우저에서 실행됩니다.", en: "All tools run in your browser.", ja: "すべてのツールはブラウザー内で動作します。", zh: "所有工具都在浏览器中运行。" },
   "개인정보처리방침": { en: "Privacy policy", ja: "プライバシーポリシー", zh: "隐私政策" },
+  "소개": { en: "About", ja: "紹介", zh: "关于" },
+  "문의": { en: "Contact", ja: "お問い合わせ", zh: "联系" },
+  "사이트 정보": { en: "Site information", ja: "サイト情報", zh: "站点信息" },
+  "Web-Tool.Shop 소개": { en: "About Web-Tool.Shop", ja: "Web-Tool.Shopについて", zh: "关于 Web-Tool.Shop" },
+  "Web-Tool.Shop은 설치 없이 브라우저에서 바로 사용할 수 있는 작은 웹 유틸리티 모음입니다.": { en: "Web-Tool.Shop is a collection of small web utilities you can use directly in your browser without installation.", ja: "Web-Tool.Shopは、インストール不要でブラウザーからすぐに使える小さなWebユーティリティ集です。", zh: "Web-Tool.Shop 是一个无需安装、可直接在浏览器中使用的小型网页工具集合。" },
+  "반복 작업을 빠르게 끝내는 도구": { en: "Tools for finishing repeated tasks quickly", ja: "反復作業をすばやく終えるためのツール", zh: "用于快速完成重复任务的工具" },
+  "JSON 정리, XML 포맷팅, SQL 읽기 좋게 만들기, 글자 수 확인, URL 인코딩처럼 짧지만 자주 반복되는 작업을 한 페이지에서 처리할 수 있도록 구성했습니다.": { en: "It is built for short but frequent tasks such as cleaning JSON, formatting XML, making SQL easier to read, checking text length, and converting URL encoding.", ja: "JSONの整理、XMLの整形、SQLの読みやすさ調整、文字数確認、URLエンコード変換など、短いけれど頻繁に繰り返す作業を1ページで処理できるように構成しています。", zh: "它面向 JSON 整理、XML 格式化、SQL 可读化、字数检查、URL 编码转换等简短但经常重复的任务。" },
+  "브라우저 안에서 처리하는 원칙": { en: "A browser-first processing principle", ja: "ブラウザー内処理を基本にする方針", zh: "以浏览器内处理为原则" },
+  "대부분의 도구는 입력한 값을 서버로 보내지 않고 사용자의 브라우저 안에서 계산합니다. 민감한 설정값이나 문서 내용을 다룰 때도 결과를 직접 확인한 뒤 복사할 수 있도록 설계했습니다.": { en: "Most tools calculate inside your browser without sending your input to a server. They are designed so you can review results before copying, even when working with sensitive settings or document text.", ja: "ほとんどのツールは入力値をサーバーへ送信せず、ユーザーのブラウザー内で計算します。重要な設定値や文書内容を扱う場合でも、結果を自分で確認してからコピーできるように設計しています。", zh: "大多数工具不会把输入发送到服务器，而是在用户浏览器内计算。即使处理敏感设置或文档内容，也可以先自行确认结果再复制。" },
+  "운영 방향": { en: "How the site is maintained", ja: "運営方針", zh: "运营方向" },
+  "새 도구는 검색 수요가 있고 실제 작업 흐름에서 자주 쓰이는 기능부터 추가합니다. 각 도구는 모바일 화면에서도 사용할 수 있어야 하며, 가능한 경우 테스트 예문과 복사 기능을 함께 제공합니다.": { en: "New tools are added first when they match real search demand and common work flows. Each tool should work on mobile screens and, where possible, include a sample input and copy action.", ja: "新しいツールは、検索需要があり実際の作業フローでよく使われる機能から追加します。各ツールはモバイル画面でも使える必要があり、可能な場合はテスト例文とコピー機能を一緒に提供します。", zh: "新增工具会优先选择有搜索需求、且在实际工作流程中常用的功能。每个工具都应可在移动端使用，并尽可能提供测试示例和复制功能。" },
+  "현재 제공하는 주요 영역": { en: "Main areas currently available", ja: "現在提供している主な領域", zh: "当前提供的主要区域" },
+  "텍스트 계산과 인코딩 변환": { en: "Text calculation and encoding conversion", ja: "テキスト計算とエンコード変換", zh: "文本计算和编码转换" },
+  "JSON, XML, SQL, CSV 같은 자료형 정리": { en: "Data cleanup for JSON, XML, SQL, and CSV", ja: "JSON、XML、SQL、CSVなどのデータ整理", zh: "JSON、XML、SQL、CSV 等数据整理" },
+  "DIFF 비교와 디자인 보조 도구": { en: "DIFF comparison and design helper tools", ja: "DIFF比較とデザイン補助ツール", zh: "DIFF 比较和设计辅助工具" },
+  "CSS 효과와 복사 가능한 코드 조각": { en: "CSS effects and copyable code snippets", ja: "CSS効果とコピー可能なコード片", zh: "CSS 效果和可复制代码片段" },
+  "문의하기": { en: "Contact us", ja: "お問い合わせ", zh: "联系我们" },
+  "오류 제보, 기능 제안, 개인정보 문의는 아래 이메일로 보내주세요.": { en: "Send bug reports, feature suggestions, and privacy questions to the email address below.", ja: "不具合報告、機能提案、プライバシーに関するお問い合わせは、下記メールアドレスまでお送りください。", zh: "错误反馈、功能建议和隐私相关咨询可发送到以下邮箱。" },
+  "문의 가능한 내용": { en: "What you can contact us about", ja: "お問い合わせできる内容", zh: "可咨询的内容" },
+  "도구의 계산 결과가 예상과 다를 때": { en: "When a tool result is different from what you expected", ja: "ツールの計算結果が想定と異なる場合", zh: "工具计算结果与预期不同时" },
+  "새로운 웹 유틸리티 기능을 제안하고 싶을 때": { en: "When you want to suggest a new web utility feature", ja: "新しいWebユーティリティ機能を提案したい場合", zh: "想建议新的网页工具功能时" },
+  "광고, 쿠키, 개인정보 처리에 대해 문의할 때": { en: "When you have questions about ads, cookies, or privacy handling", ja: "広告、Cookie、個人情報の取り扱いについて質問がある場合", zh: "咨询广告、Cookie 或个人信息处理时" },
+  "응답 안내": { en: "Response guide", ja: "返信について", zh: "回复说明" },
+  "사이트는 개인이 운영하는 무료 도구 모음이므로 모든 문의에 즉시 답변하지 못할 수 있습니다. 오류 제보를 보낼 때는 사용한 URL, 브라우저, 입력 예시, 기대한 결과를 함께 적어주시면 확인이 빠릅니다.": { en: "This is a free tool collection operated individually, so not every message can receive an immediate reply. For bug reports, include the URL, browser, sample input, and expected result so the issue can be checked faster.", ja: "このサイトは個人で運営する無料ツール集のため、すべてのお問い合わせにすぐ返信できない場合があります。不具合報告では、使用したURL、ブラウザー、入力例、期待した結果を一緒に記載すると確認が早くなります。", zh: "本站是个人运营的免费工具集合，因此可能无法立即回复所有咨询。反馈错误时，请附上使用的 URL、浏览器、输入示例和期望结果，以便更快确认。" },
+  "광고와 제휴": { en: "Advertising and partnerships", ja: "広告と提携", zh: "广告与合作" },
+  "광고는 사이트 운영 비용을 보조하기 위해 사용될 수 있습니다. 광고 배치나 제휴 제안은 사용자 경험을 해치지 않는 범위에서만 검토합니다.": { en: "Advertising may be used to support site operating costs. Ad placement or partnership proposals are reviewed only when they do not harm the user experience.", ja: "広告はサイト運営費を補助するために使用されることがあります。広告配置や提携提案は、ユーザー体験を損なわない範囲でのみ検討します。", zh: "广告可能用于补贴网站运营成本。广告展示或合作提案仅会在不损害用户体验的范围内考虑。" },
+  "개인정보처리방침 안내": { en: "Privacy policy notice", ja: "プライバシーポリシーのご案内", zh: "隐私政策说明" },
+  "최종 업데이트: 2026-07-03": { en: "Last updated: 2026-07-03", ja: "最終更新: 2026-07-03", zh: "最后更新：2026-07-03" },
+  "Web-Tool.Shop은 브라우저 기반 웹 유틸리티를 제공하며, 사용자가 도구에 입력한 내용은 기본적으로 서버로 전송하지 않습니다.": { en: "Web-Tool.Shop provides browser-based web utilities, and the content users enter into tools is not sent to a server by default.", ja: "Web-Tool.ShopはブラウザーベースのWebユーティリティを提供しており、ユーザーがツールに入力した内容は原則としてサーバーへ送信しません。", zh: "Web-Tool.Shop 提供基于浏览器的网页工具，用户输入到工具中的内容默认不会发送到服务器。" },
+  "수집하거나 처리할 수 있는 정보": { en: "Information that may be collected or processed", ja: "収集または処理される可能性のある情報", zh: "可能收集或处理的信息" },
+  "도구 입력값은 브라우저 안에서 처리되며 사이트 운영자가 별도로 저장하지 않습니다.": { en: "Tool input is processed inside the browser and is not separately stored by the site operator.", ja: "ツールの入力値はブラウザー内で処理され、サイト運営者が別途保存することはありません。", zh: "工具输入内容在浏览器内处理，网站运营者不会另行保存。" },
+  "광고 또는 보안 목적의 제3자 서비스는 쿠키, 기기 정보, 방문 기록 일부를 처리할 수 있습니다.": { en: "Third-party services used for advertising or security may process cookies, device information, and parts of visit history.", ja: "広告またはセキュリティ目的の第三者サービスは、Cookie、端末情報、訪問履歴の一部を処理することがあります。", zh: "用于广告或安全目的的第三方服务可能会处理 Cookie、设备信息和部分访问记录。" },
+  "문의 이메일을 보내는 경우 이메일 주소와 메시지 내용이 답변을 위해 처리됩니다.": { en: "If you send an email inquiry, your email address and message content are processed for the purpose of replying.", ja: "メールでお問い合わせいただく場合、返信のためにメールアドレスとメッセージ内容を処理します。", zh: "如果发送邮件咨询，邮箱地址和消息内容会用于回复处理。" },
+  "Google AdSense 및 쿠키": { en: "Google AdSense and cookies", ja: "Google AdSenseとCookie", zh: "Google AdSense 和 Cookie" },
+  "이 사이트는 Google AdSense 광고를 사용할 수 있습니다. Google 및 파트너는 광고 제공, 광고 측정, 부정 이용 방지를 위해 쿠키 또는 유사 기술을 사용할 수 있습니다.": { en: "This site may use Google AdSense ads. Google and its partners may use cookies or similar technologies to serve ads, measure ads, and prevent abuse.", ja: "このサイトではGoogle AdSense広告を使用することがあります。Googleおよびパートナーは、広告配信、広告測定、不正利用防止のためにCookieまたは類似技術を使用することがあります。", zh: "本站可能使用 Google AdSense 广告。Google 及其合作伙伴可能使用 Cookie 或类似技术来投放广告、衡量广告效果并防止滥用。" },
+  "사용자는 브라우저 설정에서 쿠키를 제한하거나 삭제할 수 있으며, 광고 개인 최적화 설정은 Google 광고 설정에서 관리할 수 있습니다.": { en: "Users can restrict or delete cookies in browser settings, and ad personalization can be managed in Google ad settings.", ja: "ユーザーはブラウザー設定でCookieを制限または削除でき、広告のパーソナライズ設定はGoogle広告設定で管理できます。", zh: "用户可以在浏览器设置中限制或删除 Cookie，也可以在 Google 广告设置中管理广告个性化。" },
+  "외부 링크": { en: "External links", ja: "外部リンク", zh: "外部链接" },
+  "사이트에는 Google, GitHub, 검색엔진 도구와 같은 외부 사이트로 이동하는 링크가 포함될 수 있습니다. 외부 사이트의 개인정보 처리 방식은 각 사이트의 정책을 따릅니다.": { en: "The site may include links to external sites such as Google, GitHub, or search engine tools. Privacy handling on external sites follows each site's own policy.", ja: "サイトにはGoogle、GitHub、検索エンジンツールなど外部サイトへのリンクが含まれる場合があります。外部サイトの個人情報の取り扱いは、それぞれのサイトのポリシーに従います。", zh: "本站可能包含指向 Google、GitHub 或搜索引擎工具等外部网站的链接。外部网站的隐私处理遵循各自政策。" },
+  "문의와 변경": { en: "Contact and changes", ja: "お問い合わせと変更", zh: "联系与变更" },
+  "개인정보 관련 문의는 문의 페이지의 이메일로 보낼 수 있습니다. 정책이 변경되면 이 페이지의 최종 업데이트 날짜를 갱신합니다.": { en: "Privacy-related questions can be sent to the email address on the contact page. When this policy changes, the last updated date on this page will be updated.", ja: "個人情報に関するお問い合わせは、お問い合わせページのメールアドレスへ送ることができます。ポリシーを変更した場合、このページの最終更新日を更新します。", zh: "隐私相关问题可发送至联系页面中的邮箱。政策变更时，本页面的最后更新日期会随之更新。" },
   "자료형 변환으로 이동": { en: "Go to data conversion", ja: "データ変換へ移動", zh: "前往数据转换" },
   "JSON 포맷터로 이동": { en: "Go to JSON formatter", ja: "JSONフォーマッターへ移動", zh: "前往 JSON 格式化工具" },
   "XML 포맷터로 이동": { en: "Go to XML formatter", ja: "XMLフォーマッターへ移動", zh: "前往 XML 格式化工具" },
@@ -336,6 +376,21 @@ const textTranslations = {
   "All emojis": { ko: "전체 이모지", en: "All emojis", ja: "すべての絵文字", zh: "全部表情符号" },
   "emojis found.": { ko: "개의 이모지를 찾았습니다.", en: "emojis found.", ja: "件の絵文字が見つかりました。", zh: "个表情符号。" },
   "emojis loaded.": { ko: "개의 이모지를 불러왔습니다.", en: "emojis loaded.", ja: "件の絵文字を読み込みました。", zh: "个表情符号已加载。" },
+  "Glitch text": { ko: "글리치 텍스트", en: "Glitch text", ja: "グリッチテキスト", zh: "故障文字" },
+  "Outline pop text": { ko: "아웃라인 팝 텍스트", en: "Outline pop text", ja: "アウトラインポップテキスト", zh: "描边显现文字" },
+  "Marquee scroll text": { ko: "흐르는 텍스트", en: "Marquee scroll text", ja: "マーキースクロールテキスト", zh: "跑马灯滚动文字" },
+  "Diagonal stripes background": { ko: "대각선 스트라이프 배경", en: "Diagonal stripes background", ja: "斜めストライプ背景", zh: "斜纹背景" },
+  "Bubble float background": { ko: "떠오르는 버블 배경", en: "Bubble float background", ja: "浮遊するバブル背景", zh: "气泡上浮背景" },
+  "Starfield background": { ko: "별빛 배경", en: "Starfield background", ja: "星空背景", zh: "星空背景" },
+  "Isometric cube stack": { ko: "아이소메트릭 큐브", en: "Isometric cube stack", ja: "アイソメトリックキューブ", zh: "等距立方体" },
+  "Book page flip": { ko: "책장 넘김 효과", en: "Book page flip", ja: "本のページめくり", zh: "书页翻转" },
+  "Coin flip loop": { ko: "동전 회전 효과", en: "Coin flip loop", ja: "コイン回転ループ", zh: "硬币翻转循环" },
+  "Neumorphic button": { ko: "뉴모피즘 버튼", en: "Neumorphic button", ja: "ニューモーフィズムボタン", zh: "新拟态按钮" },
+  "Torn paper edge card": { ko: "찢어진 종이 카드", en: "Torn paper edge card", ja: "破れた紙のカード", zh: "撕纸边缘卡片" },
+  "Gradient border card": { ko: "그라디언트 테두리 카드", en: "Gradient border card", ja: "グラデーションボーダーカード", zh: "渐变边框卡片" },
+  "Ripple hover button": { ko: "리플 호버 버튼", en: "Ripple hover button", ja: "リップルホバーボタン", zh: "波纹悬停按钮" },
+  "Underline draw hover": { ko: "밑줄 드로잉 호버", en: "Underline draw hover", ja: "下線描画ホバー", zh: "下划线绘制悬停" },
+  "Shake hover button": { ko: "흔들림 호버 버튼", en: "Shake hover button", ja: "シェイクホバーボタン", zh: "抖动悬停按钮" },
 };
 
 const attributeTranslations = {
@@ -469,8 +524,16 @@ const pageTranslations = {
     description: { ko: "텍스트, JSON, XML 두 값을 compare diff 방식으로 비교하고 추가, 삭제, 변경 라인을 확인하는 무료 DIFF 도구입니다.", en: "A free DIFF tool for comparing two text, JSON, or XML values with a compare diff view and checking added, removed, and changed lines.", ja: "2つのText、JSON、XMLをcompare diff形式で比較し、追加、削除、変更行を確認できる無料DIFFツールです。", zh: "免费的 DIFF 工具，可用 compare diff 视图比较两段文本、JSON 或 XML，并查看新增、删除和变更行。" },
   },
   "/privacy.html": {
-    title: { ko: "개인정보처리방침 - Web-Tool.Shop", en: "Privacy policy - Web-Tool.Shop", ja: "プライバシーポリシー - Web-Tool.Shop", zh: "隐私政策 - Web-Tool.Shop" },
-    description: { ko: "Web-Tool.Shop 개인정보처리방침입니다.", en: "Web-Tool.Shop privacy policy.", ja: "Web-Tool.Shopのプライバシーポリシーです。", zh: "Web-Tool.Shop 隐私政策。" },
+    title: { ko: "개인정보처리방침 안내 - Web-Tool.Shop", en: "Privacy policy - Web-Tool.Shop", ja: "プライバシーポリシー - Web-Tool.Shop", zh: "隐私政策 - Web-Tool.Shop" },
+    description: { ko: "Web-Tool.Shop의 브라우저 기반 도구, 광고, 쿠키, 문의 처리와 관련된 개인정보처리방침입니다.", en: "Privacy policy for Web-Tool.Shop browser-based tools, advertising, cookies, and contact handling.", ja: "Web-Tool.Shopのブラウザーベースツール、広告、Cookie、お問い合わせ対応に関するプライバシーポリシーです。", zh: "Web-Tool.Shop 关于浏览器工具、广告、Cookie 和联系处理的隐私政策。" },
+  },
+  "/about.html": {
+    title: { ko: "Web-Tool.Shop 소개", en: "About Web-Tool.Shop", ja: "Web-Tool.Shopについて", zh: "关于 Web-Tool.Shop" },
+    description: { ko: "Web-Tool.Shop의 운영 방향과 브라우저 기반 웹 유틸리티 제공 원칙을 안내합니다.", en: "Learn how Web-Tool.Shop is maintained and how its browser-based web utilities are provided.", ja: "Web-Tool.Shopの運営方針とブラウザーベースWebユーティリティの提供原則を紹介します。", zh: "了解 Web-Tool.Shop 的运营方向和基于浏览器的网页工具提供原则。" },
+  },
+  "/contact.html": {
+    title: { ko: "문의하기 - Web-Tool.Shop", en: "Contact - Web-Tool.Shop", ja: "お問い合わせ - Web-Tool.Shop", zh: "联系 - Web-Tool.Shop" },
+    description: { ko: "Web-Tool.Shop 오류 제보, 기능 제안, 개인정보 문의를 보낼 수 있는 연락처 안내입니다.", en: "Contact information for Web-Tool.Shop bug reports, feature suggestions, and privacy questions.", ja: "Web-Tool.Shopの不具合報告、機能提案、プライバシーに関するお問い合わせ先です。", zh: "Web-Tool.Shop 错误反馈、功能建议和隐私咨询的联系方式。" },
   },
   "/404.html": {
     title: { ko: "페이지를 찾을 수 없습니다 - Web-Tool.Shop", en: "Page not found - Web-Tool.Shop", ja: "ページが見つかりません - Web-Tool.Shop", zh: "找不到页面 - Web-Tool.Shop" },
@@ -522,6 +585,8 @@ function normalizePath() {
   let path = window.location.pathname.replace(/\/index\.html$/, "/");
   const toolsIndex = path.indexOf("/tools/");
   if (toolsIndex >= 0) return path.slice(toolsIndex);
+  if (path.endsWith("/about.html")) return "/about.html";
+  if (path.endsWith("/contact.html")) return "/contact.html";
   if (path.endsWith("/privacy.html")) return "/privacy.html";
   if (path.endsWith("/404.html")) return "/404.html";
   return "/";

@@ -9,6 +9,7 @@ const ignoredText = new Set([
   "",
   "Web-Tool.Shop",
   "Web-Tool.Shop RSS",
+  "chun.inky@gmail.com",
   "CSS-ART",
   "JSON",
   "XML",

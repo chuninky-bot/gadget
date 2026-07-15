@@ -6,6 +6,7 @@ const root = process.cwd();
 const startMarker = "<!-- TOOL_GUIDE_START -->";
 const endMarker = "<!-- TOOL_GUIDE_END -->";
 const languages = ["ko", "en", "ja", "zh"];
+const overrides = require("./guide-content.js");
 
 function escapeHtml(value) {
   return String(value)
@@ -152,7 +153,35 @@ function translatable(tag, values, attributes = "") {
   return `<${tag} data-guide-i18n ${localizedAttrs(values)}${attributes ? ` ${attributes}` : ""}>${escapeHtml(values.ko)}</${tag}>`;
 }
 
+function renderFaq(id, faqItems) {
+  const heading = {
+    ko: "자주 묻는 질문",
+    en: "Frequently asked questions",
+    ja: "よくある質問",
+    zh: "常见问题",
+  };
+
+  const items = faqItems.map((item) => `<article>${translatable("h3", item.q)}${translatable("p", item.a)}</article>`).join("");
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqItems.map((item) => ({
+      "@type": "Question",
+      name: item.q.ko,
+      acceptedAnswer: { "@type": "Answer", text: item.a.ko },
+    })),
+  };
+
+  return [
+    `        ${translatable("h2", heading, "class=\"guide-faq-title\"")}`,
+    `        <div class="guide-grid guide-faq">${items}</div>`,
+    `        <script type="application/ld+json">${JSON.stringify(faqSchema)}</script>`,
+  ].join("\n");
+}
+
 function renderGuide(url, page) {
+  const override = overrides[url] || null;
   const title = {};
   const description = {};
   const guideTitle = {};
@@ -161,11 +190,12 @@ function renderGuide(url, page) {
     title[language] = plainTitle(page.title[language] || page.title.ko);
     description[language] = page.description[language] || page.description.ko;
     guideTitle[language] = copy.guideTitle[language](title[language]);
-    intro[language] = copy.intro[language](title[language], description[language]);
+    intro[language] = override?.intro?.[language] || copy.intro[language](title[language], description[language]);
   }
 
   const id = `guide-${url.replace(/^\/|\/$/g, "").replace(/[^a-z0-9]+/gi, "-").toLowerCase()}`;
-  const articles = copy.sections.map((section) => {
+  const sections = override?.sections || copy.sections;
+  const articles = sections.map((section) => {
     const heading = section.heading;
     const body = languages.reduce((values, language) => {
       const bodyText = section.body?.[language];
@@ -188,6 +218,8 @@ function renderGuide(url, page) {
     return `<article>${translatable("h3", heading)}${content}</article>`;
   }).join("");
 
+  const faqBlock = override?.faq ? `\n${renderFaq(id, override.faq)}` : "";
+
   return [
     startMarker,
     `      <section class="tool-guide" aria-labelledby="${id}">`,
@@ -196,7 +228,7 @@ function renderGuide(url, page) {
     `          ${translatable("h2", guideTitle, `id="${id}"`)}`,
     `          ${translatable("p", intro)}`,
     "        </div>",
-    `        <div class="guide-grid">${articles}</div>`,
+    `        <div class="guide-grid">${articles}</div>${faqBlock}`,
     "      </section>",
     endMarker,
   ].join("\n");

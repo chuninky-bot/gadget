@@ -46,14 +46,28 @@
     const footer = document.createElement("footer");
     footer.className = "site-footer";
 
+    const links = document.createElement("nav");
+    links.className = "footer-links";
+    links.setAttribute("aria-label", "사이트 정보");
+
+    const about = document.createElement("a");
+    about.href = withLocale("/about.html");
+    about.textContent = "소개";
+
+    const contact = document.createElement("a");
+    contact.href = withLocale("/contact.html");
+    contact.textContent = "문의";
+
     const privacy = document.createElement("a");
     privacy.href = withLocale("/privacy.html");
     privacy.textContent = "개인정보처리방침";
 
+    links.append(about, contact, privacy);
+
     const note = document.createElement("span");
     note.textContent = "All tools run in your browser.";
 
-    footer.append(privacy, note);
+    footer.append(links, note);
     return footer;
   }
 

@@ -180,8 +180,8 @@ const pages = [
   {
     file: "tools/design/index.html",
     url: "/tools/design/",
-    title: "Design Tools - Web-Tool.Shop",
-    description: "Browser tools for image filters, CSS effects, colors, and SVG generation.",
+    title: "디자인 도구 - Web-Tool.Shop",
+    description: "이미지 필터, CSS 효과, 색상, SVG 생성을 위한 무료 브라우저 디자인 도구 모음입니다.",
     type: "CollectionPage",
     category: "DesignApplication",
     priority: "0.7",
@@ -190,8 +190,8 @@ const pages = [
   {
     file: "tools/design/pixelate/index.html",
     url: "/tools/design/pixelate/",
-    title: "Image Pixelate Filter - Web-Tool.Shop",
-    description: "Upload an image and turn it into a retro pixel-art style.",
+    title: "이미지 픽셀화 필터 - Web-Tool.Shop",
+    description: "이미지를 업로드해 레트로 8비트 게임 스타일의 픽셀 아트 이미지로 변환합니다.",
     type: "SoftwareApplication",
     category: "DesignApplication",
     priority: "0.8",
@@ -200,8 +200,8 @@ const pages = [
   {
     file: "tools/design/box-shadow/index.html",
     url: "/tools/design/box-shadow/",
-    title: "Box-Shadow Generator - Web-Tool.Shop",
-    description: "Tune shadow values and copy pure CSS box-shadow code.",
+    title: "Box-Shadow 생성기 - Web-Tool.Shop",
+    description: "X축, Y축, 블러, 퍼짐, 투명도를 조절하고 순수 CSS box-shadow 코드를 복사합니다.",
     type: "SoftwareApplication",
     category: "DesignApplication",
     priority: "0.8",
@@ -210,8 +210,8 @@ const pages = [
   {
     file: "tools/design/glassmorphism/index.html",
     url: "/tools/design/glassmorphism/",
-    title: "Glassmorphism Generator - Web-Tool.Shop",
-    description: "Create translucent glass UI CSS with blur controls.",
+    title: "글래스모피즘 생성기 - Web-Tool.Shop",
+    description: "블러와 투명도를 조절해 반투명 유리 질감 UI CSS를 생성합니다.",
     type: "SoftwareApplication",
     category: "DesignApplication",
     priority: "0.8",
@@ -220,8 +220,8 @@ const pages = [
   {
     file: "tools/design/button-badge/index.html",
     url: "/tools/design/button-badge/",
-    title: "Button & Badge Maker - Web-Tool.Shop",
-    description: "Create button or README badge SVG code.",
+    title: "버튼 & 뱃지 메이커 - Web-Tool.Shop",
+    description: "텍스트, 색상, 둥글기를 조절해 버튼이나 README 뱃지용 SVG 코드를 만듭니다.",
     type: "SoftwareApplication",
     category: "DesignApplication",
     priority: "0.8",
@@ -230,8 +230,8 @@ const pages = [
   {
     file: "tools/design/palette-extractor/index.html",
     url: "/tools/design/palette-extractor/",
-    title: "Image Palette Extractor - Web-Tool.Shop",
-    description: "Extract five dominant HEX colors from an image.",
+    title: "이미지 주요 색상 추출기 - Web-Tool.Shop",
+    description: "이미지에서 가장 많이 쓰인 핵심 색상 5가지를 HEX 팔레트로 추출합니다.",
     type: "SoftwareApplication",
     category: "DesignApplication",
     priority: "0.8",
@@ -240,8 +240,8 @@ const pages = [
   {
     file: "tools/design/svg-placeholder/index.html",
     url: "/tools/design/svg-placeholder/",
-    title: "SVG Placeholder Generator - Web-Tool.Shop",
-    description: "Generate temporary SVG placeholder images.",
+    title: "SVG 플레이스홀더 생성기 - Web-Tool.Shop",
+    description: "가로, 세로, 텍스트를 입력해 웹 개발용 임시 SVG 플레이스홀더 이미지를 생성합니다.",
     type: "SoftwareApplication",
     category: "DesignApplication",
     priority: "0.8",
@@ -250,8 +250,8 @@ const pages = [
   {
     file: "tools/design/gradient-generator/index.html",
     url: "/tools/design/gradient-generator/",
-    title: "Gradient Generator - Web-Tool.Shop",
-    description: "Create linear-gradient CSS from two colors and an angle.",
+    title: "그라디언트 생성기 - Web-Tool.Shop",
+    description: "두 가지 색상과 각도를 조절해 배경용 CSS linear-gradient 코드를 만듭니다.",
     type: "SoftwareApplication",
     category: "DesignApplication",
     priority: "0.8",
@@ -260,8 +260,8 @@ const pages = [
   {
     file: "tools/design/color-converter/index.html",
     url: "/tools/design/color-converter/",
-    title: "Color Code Converter - Web-Tool.Shop",
-    description: "Convert HEX colors into RGB and HSL.",
+    title: "색상 코드 변환기 - Web-Tool.Shop",
+    description: "HEX 색상 코드를 RGB와 HSL 값으로 변환하고 색상 미리보기를 보여줍니다.",
     type: "SoftwareApplication",
     category: "DesignApplication",
     priority: "0.8",
@@ -271,7 +271,7 @@ const pages = [
     file: "tools/css-art/index.html",
     url: "/tools/css-art/",
     title: "CSS-ART - Web-Tool.Shop",
-    description: "An archive of copyable CSS effects such as glowing borders, wavy backgrounds, and frosted glass.",
+    description: "빛나는 테두리, 일렁이는 배경, 불투명 유리 같은 복사 가능한 CSS 효과 아카이브입니다.",
     type: "CollectionPage",
     category: "DesignApplication",
     priority: "0.7",
@@ -280,18 +280,36 @@ const pages = [
   {
     file: "tools/css-art/art-gallery/index.html",
     url: "/tools/css-art/art-gallery/",
-    title: "CSS ART Archive - Web-Tool.Shop",
-    description: "Copyable CSS art effect snippets with live previews.",
+    title: "CSS ART 아카이브 - Web-Tool.Shop",
+    description: "빛나는 테두리, 일렁이는 배경, 불투명 유리 등 실시간 미리보기가 있는 CSS 아트 효과 코드 조각입니다.",
     type: "SoftwareApplication",
     category: "DesignApplication",
     priority: "0.8",
     changefreq: "monthly",
   },
   {
+    file: "about.html",
+    url: "/about.html",
+    title: "Web-Tool.Shop 소개",
+    description: "Web-Tool.Shop의 운영 방향과 브라우저 기반 웹 유틸리티 제공 원칙을 안내합니다.",
+    type: "AboutPage",
+    priority: "0.4",
+    changefreq: "yearly",
+  },
+  {
+    file: "contact.html",
+    url: "/contact.html",
+    title: "문의하기 - Web-Tool.Shop",
+    description: "Web-Tool.Shop 오류 제보, 기능 제안, 개인정보 문의를 보낼 수 있는 연락처 안내입니다.",
+    type: "ContactPage",
+    priority: "0.4",
+    changefreq: "yearly",
+  },
+  {
     file: "privacy.html",
     url: "/privacy.html",
-    title: "개인정보처리방침 - Web-Tool.Shop",
-    description: "Web-Tool.Shop의 개인정보처리방침과 브라우저 기반 도구의 데이터 처리 방식을 안내합니다.",
+    title: "개인정보처리방침 안내 - Web-Tool.Shop",
+    description: "Web-Tool.Shop의 브라우저 기반 도구, 광고, 쿠키, 문의 처리와 관련된 개인정보처리방침입니다.",
     type: "WebPage",
     priority: "0.3",
     changefreq: "yearly",
@@ -420,6 +438,7 @@ for (const page of pages) {
   const filePath = path.join(root, page.file);
   if (!fs.existsSync(filePath)) continue;
   let html = fs.readFileSync(filePath, "utf8");
+  html = html.replace(/<html lang="[^"]*">/i, '<html lang="ko">');
   html = html.replace(/<title>[\s\S]*?<\/title>/i, `<title>${escapeHtml(page.title)}</title>`);
   html = html.replace(/<meta name="description" content="[^"]*">/i, `<meta name="description" content="${escapeHtml(page.description)}">`);
   html = html.replace(/<head>([\s\S]*?)<\/head>/i, (_, head) => {

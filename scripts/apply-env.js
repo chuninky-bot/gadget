@@ -55,7 +55,7 @@ function walk(directory) {
 
 function applyAutoAds(source) {
   source = source.replace(/\n?\s*<!-- ADSENSE_AUTO_ADS_START -->[\s\S]*?<!-- ADSENSE_AUTO_ADS_END -->/g, "");
-  if (!adsenseClient) return source;
+  if (!adsenseClient || /<meta\s+name="robots"\s+content="[^"]*noindex/i.test(source)) return source;
 
   const snippet = `
     <!-- ADSENSE_AUTO_ADS_START -->

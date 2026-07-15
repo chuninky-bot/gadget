@@ -552,6 +552,327 @@ const effects = [
   box-shadow: 0 3px 0 #92400e, 0 10px 18px rgba(15,23,42,.24);
 }`,
   },
+  {
+    category: "Text effects",
+    title: "Glitch text",
+    className: "glitch-text",
+    code: `.glitch-text span {
+  color: #f8fafc;
+  text-shadow: 2px 0 #f472b6, -2px 0 #22d3ee;
+  animation: glitchShift 1.8s infinite steps(2, jump-none);
+}
+@keyframes glitchShift {
+  0%, 100% { text-shadow: 2px 0 #f472b6, -2px 0 #22d3ee; transform: translate(0, 0); }
+  45% { text-shadow: -3px 1px #f472b6, 3px -1px #22d3ee; transform: translate(-1px, 1px); }
+  55% { text-shadow: 3px -1px #f472b6, -3px 1px #22d3ee; transform: translate(1px, -1px); }
+}`,
+  },
+  {
+    category: "Text effects",
+    title: "Outline pop text",
+    className: "outline-pop-text",
+    tags: ["hover"],
+    code: `.outline-pop-text span {
+  color: transparent;
+  -webkit-text-stroke: 1.5px #f8fafc;
+  transition: color .24s ease, -webkit-text-stroke-color .24s ease;
+}
+.outline-pop-text:hover span {
+  color: #facc15;
+  -webkit-text-stroke-color: #facc15;
+}`,
+  },
+  {
+    category: "Text effects",
+    title: "Marquee scroll text",
+    className: "marquee-text",
+    code: `.marquee-text span {
+  display: inline-block;
+  white-space: nowrap;
+  animation: marqueeSlide 5s linear infinite;
+}
+@keyframes marqueeSlide {
+  from { transform: translateX(100%); }
+  to { transform: translateX(-100%); }
+}`,
+  },
+  {
+    category: "Background effects",
+    title: "Diagonal stripes background",
+    className: "stripe-bg",
+    code: `.stripe-bg {
+  background: repeating-linear-gradient(45deg, #1e293b 0 18px, #0f172a 18px 36px);
+}`,
+  },
+  {
+    category: "Background effects",
+    title: "Bubble float background",
+    className: "bubble-float-bg",
+    code: `.bubble-float-bg {
+  background: linear-gradient(160deg, #0c4a6e, #082f49);
+}
+.bubble-float-bg::before,
+.bubble-float-bg::after {
+  content: "";
+  position: absolute;
+  width: 46px;
+  aspect-ratio: 1;
+  border-radius: 999px;
+  background: rgba(255,255,255,.28);
+  animation: bubbleRise 4.5s ease-in infinite;
+}
+.bubble-float-bg::before { left: 24%; bottom: -20%; animation-delay: 0s; }
+.bubble-float-bg::after { left: 62%; width: 30px; bottom: -30%; animation-delay: 1.6s; }
+@keyframes bubbleRise {
+  0% { transform: translateY(0) scale(.9); opacity: 0; }
+  15% { opacity: .9; }
+  100% { transform: translateY(-160px) scale(1.1); opacity: 0; }
+}`,
+  },
+  {
+    category: "Background effects",
+    title: "Starfield background",
+    className: "starfield-bg",
+    code: `.starfield-bg {
+  background:
+    radial-gradient(1.5px 1.5px at 20% 30%, #fff, transparent),
+    radial-gradient(1.5px 1.5px at 70% 60%, #fff, transparent),
+    radial-gradient(1px 1px at 40% 80%, #fff, transparent),
+    radial-gradient(1px 1px at 85% 20%, #fff, transparent),
+    radial-gradient(1.5px 1.5px at 55% 45%, #fff, transparent),
+    #020617;
+  background-size: 140px 140px;
+  animation: starDrift 12s linear infinite;
+}
+@keyframes starDrift {
+  from { background-position: 0 0; }
+  to { background-position: -140px 140px; }
+}`,
+  },
+  {
+    category: "3D and shape effects",
+    title: "Isometric cube stack",
+    className: "isometric-cubes",
+    tags: ["3d", "polygon"],
+    demoHtml: `<div class="iso-cube"><i class="iso-top"></i><i class="iso-left"></i><i class="iso-right"></i></div>`,
+    code: `.isometric-cubes {
+  background: linear-gradient(160deg, #111827, #1e293b);
+}
+.isometric-cubes .iso-cube {
+  position: relative;
+  width: 70px;
+  height: 80px;
+}
+.isometric-cubes .iso-top,
+.isometric-cubes .iso-left,
+.isometric-cubes .iso-right {
+  position: absolute;
+}
+.isometric-cubes .iso-top {
+  top: 0;
+  left: 0;
+  width: 70px;
+  height: 40px;
+  background: #38bdf8;
+  clip-path: polygon(50% 0, 100% 25%, 50% 50%, 0 25%);
+}
+.isometric-cubes .iso-left {
+  top: 25px;
+  left: 0;
+  width: 35px;
+  height: 55px;
+  background: #0ea5e9;
+  clip-path: polygon(0 0, 50% 25%, 50% 75%, 0 100%);
+}
+.isometric-cubes .iso-right {
+  top: 25px;
+  left: 35px;
+  width: 35px;
+  height: 55px;
+  background: #0284c7;
+  clip-path: polygon(50% 0, 100% 0, 100% 100%, 50% 75%);
+}`,
+  },
+  {
+    category: "3D and shape effects",
+    title: "Book page flip",
+    className: "page-flip-3d",
+    tags: ["3d", "interaction", "hover"],
+    demoHtml: `<div class="page"></div>`,
+    code: `.page-flip-3d {
+  perspective: 800px;
+  background: linear-gradient(135deg, #1e1b4b, #0f172a);
+}
+.page-flip-3d .page {
+  width: 90px;
+  height: 70px;
+  background: #f8fafc;
+  border-radius: 2px 8px 8px 2px;
+  transform-origin: left center;
+  transform-style: preserve-3d;
+  transition: transform .5s ease;
+  box-shadow: 0 10px 24px rgba(15,23,42,.4);
+}
+.page-flip-3d:hover .page {
+  transform: rotateY(-140deg);
+}`,
+  },
+  {
+    category: "3D and shape effects",
+    title: "Coin flip loop",
+    className: "coin-flip-3d",
+    tags: ["3d", "motion"],
+    demoHtml: `<div class="coin">$</div>`,
+    code: `.coin-flip-3d {
+  perspective: 700px;
+  background: linear-gradient(135deg, #78350f, #111827);
+}
+.coin-flip-3d .coin {
+  width: 64px;
+  aspect-ratio: 1;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #facc15, #f59e0b);
+  display: grid;
+  place-items: center;
+  color: #78350f;
+  font-weight: 800;
+  animation: coinSpin 2.6s linear infinite;
+}
+@keyframes coinSpin {
+  to { transform: rotateY(360deg); }
+}`,
+  },
+  {
+    category: "Card and surface effects",
+    title: "Neumorphic button",
+    className: "neumorphic-button",
+    code: `.neumorphic-button {
+  background: #e5e9f0;
+}
+.neumorphic-button span {
+  padding: 14px 26px;
+  border-radius: 14px;
+  background: #e5e9f0;
+  color: #1e293b;
+  box-shadow: 8px 8px 16px rgba(163,177,198,.6), -8px -8px 16px rgba(255,255,255,.9);
+}`,
+  },
+  {
+    category: "Card and surface effects",
+    title: "Torn paper edge card",
+    className: "torn-paper-card",
+    code: `.torn-paper-card {
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+}
+.torn-paper-card::before {
+  content: "";
+  position: absolute;
+  inset: 14px;
+  background: #fef9c3;
+  clip-path: polygon(0% 4%, 6% 0%, 14% 3%, 22% 0%, 30% 4%, 38% 1%, 46% 4%, 54% 0%, 62% 3%, 70% 0%, 78% 4%, 86% 1%, 94% 3%, 100% 0%, 100% 100%, 0% 100%);
+}
+.torn-paper-card span {
+  color: #78350f;
+}`,
+  },
+  {
+    category: "Card and surface effects",
+    title: "Gradient border card",
+    className: "gradient-border-card",
+    code: `.gradient-border-card {
+  background: #0f172a;
+}
+.gradient-border-card span {
+  position: relative;
+  padding: 16px 26px;
+  border-radius: 12px;
+  background: #0f172a;
+}
+.gradient-border-card span::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  z-index: -1;
+  border-radius: 14px;
+  background: linear-gradient(120deg, #22d3ee, #a78bfa, #f472b6);
+}`,
+  },
+  {
+    category: "Interactive accents",
+    title: "Ripple hover button",
+    className: "ripple-hover-button",
+    tags: ["interaction", "hover"],
+    code: `.ripple-hover-button {
+  background: linear-gradient(135deg, #1e293b, #0f172a);
+}
+.ripple-hover-button span {
+  position: relative;
+  padding: 14px 26px;
+  border-radius: 999px;
+  background: #6366f1;
+  overflow: hidden;
+}
+.ripple-hover-button span::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(circle, rgba(255,255,255,.55) 0%, transparent 60%);
+  transform: scale(0);
+  opacity: 0;
+  transition: transform .5s ease, opacity .5s ease;
+}
+.ripple-hover-button:hover span::after {
+  transform: scale(2.4);
+  opacity: 1;
+}`,
+  },
+  {
+    category: "Interactive accents",
+    title: "Underline draw hover",
+    className: "underline-draw-hover",
+    tags: ["interaction", "hover"],
+    code: `.underline-draw-hover span {
+  position: relative;
+  padding-bottom: 4px;
+}
+.underline-draw-hover span::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background: #22d3ee;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .3s ease;
+}
+.underline-draw-hover:hover span::after {
+  transform: scaleX(1);
+}`,
+  },
+  {
+    category: "Interactive accents",
+    title: "Shake hover button",
+    className: "shake-hover-button",
+    tags: ["interaction", "hover"],
+    code: `.shake-hover-button span {
+  padding: 14px 26px;
+  border-radius: 10px;
+  background: #ef4444;
+}
+.shake-hover-button:hover span {
+  animation: shakeButton .42s ease;
+}
+@keyframes shakeButton {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-6px) rotate(-2deg); }
+  40% { transform: translateX(5px) rotate(2deg); }
+  60% { transform: translateX(-4px) rotate(-1deg); }
+  80% { transform: translateX(3px) rotate(1deg); }
+}`,
+  },
 ];
 
 const grid = document.querySelector("#art-grid");
