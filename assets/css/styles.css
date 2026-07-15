@@ -479,6 +479,10 @@ main {
   font-size: 1.15rem;
   line-height: 1.3;
 }
+.guide-related-link {
+  margin: 4px 0 0;
+  font-weight: 600;
+}
 .tool-actions {
   display: flex;
   flex-wrap: wrap;

@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>UTF-8과 EUC-KR, 한글이 깨지는 이유 - Web-Tool.Shop</title>
+    <meta name="description" content="문자 인코딩이 무엇인지, UTF-8과 EUC-KR의 차이, 한글이 깨져 보일 때 인코딩 변환 도구로 원인을 찾는 방법을 설명합니다.">
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <script defer src="../../assets/js/site-shell.js"></script>
+    <script defer src="../../assets/js/i18n.js"></script>
+    <script defer src="../../assets/js/recent-tools.js"></script>
+    <!-- ADSENSE_AUTO_ADS_START -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4090506341453745" crossorigin="anonymous"></script>
+    <!-- ADSENSE_AUTO_ADS_END -->
+  
+    <!-- SEO_META_START -->
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://web-tool.shop/guides/utf8-euckr-encoding/">
+    <link rel="alternate" type="application/rss+xml" title="Web-Tool.Shop RSS" href="https://web-tool.shop/rss.xml">
+    <meta property="og:site_name" content="Web-Tool.Shop">
+    <meta property="og:title" content="UTF-8과 EUC-KR, 한글이 깨지는 이유 - Web-Tool.Shop">
+    <meta property="og:description" content="문자 인코딩이 무엇인지, UTF-8과 EUC-KR의 차이, 한글이 깨져 보일 때 인코딩 변환 도구로 원인을 찾는 방법을 설명합니다.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://web-tool.shop/guides/utf8-euckr-encoding/">
+    <meta property="og:locale" content="ko_KR">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="UTF-8과 EUC-KR, 한글이 깨지는 이유 - Web-Tool.Shop">
+    <meta name="twitter:description" content="문자 인코딩이 무엇인지, UTF-8과 EUC-KR의 차이, 한글이 깨져 보일 때 인코딩 변환 도구로 원인을 찾는 방법을 설명합니다.">
+    <meta name="google-site-verification" content="MsQNBQo4_XDzQPkjILgSE4J0OFXplRSH04f45AGVT7Q">
+    <meta name="naver-site-verification" content="515af50036d733e32f8cb5b5f85a91db00ea3b07" />
+    <!-- SEO_META_END -->
+    <!-- STRUCTURED_DATA_START -->
+    <script type="application/ld+json">[{"@context":"https://schema.org","@type":"Organization","name":"Web-Tool.Shop","url":"https://web-tool.shop"},{"@context":"https://schema.org","@type":"Article","name":"UTF-8과 EUC-KR, 한글이 깨지는 이유 - Web-Tool.Shop","url":"https://web-tool.shop/guides/utf8-euckr-encoding/","description":"문자 인코딩이 무엇인지, UTF-8과 EUC-KR의 차이, 한글이 깨져 보일 때 인코딩 변환 도구로 원인을 찾는 방법을 설명합니다.","inLanguage":"ko-KR"},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Web-Tool.Shop","item":"https://web-tool.shop/"},{"@type":"ListItem","position":2,"name":"가이드","item":"https://web-tool.shop/guides/"},{"@type":"ListItem","position":3,"name":"UTF-8과 EUC-KR, 한글이 깨지는 이유","item":"https://web-tool.shop/guides/utf8-euckr-encoding/"}]}]</script>
+    <!-- STRUCTURED_DATA_END -->
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="../../">Web-Tool.Shop</a>
+      <nav class="nav" aria-label="주요 메뉴">
+        <a href="../../tools/text/">텍스트</a>
+        <a href="../../tools/converter/">자료형 변환</a>
+        <a href="../../tools/diff/compare/">DIFF 도구</a>
+        <a href="../../tools/design/">디자인</a>
+        <a href="../../tools/css-art/">CSS-ART</a>
+        <a href="../">가이드</a>
+      </nav>
+    </header>
+    <main>
+      <nav class="breadcrumb" aria-label="경로"><a href="../../">홈</a><span>/</span><a href="../">가이드</a><span>/</span><span>UTF-8과 EUC-KR, 한글이 깨지는 이유</span></nav>
+      <section class="section">
+        <div class="section-heading">
+          <h1>UTF-8과 EUC-KR, 한글이 깨지는 이유</h1>
+          <p>파일을 열었더니 한글이 이상하게 보인다면, 원인은 대부분 인코딩입니다.</p>
+        </div>
+<!-- ARTICLE_START -->
+        <div class="tool-shell prose-panel">
+          <article>
+            <p data-guide-i18n data-guide-ko="문자 인코딩은 컴퓨터가 0과 1로 이루어진 바이트를 어떤 글자로 해석할지 정한 규칙입니다. 같은 바이트라도 어떤 인코딩 규칙을 적용하느냐에 따라 완전히 다른 글자로 읽히기 때문에, 파일을 저장할 때 쓴 인코딩과 읽을 때 가정하는 인코딩이 다르면 글자가 깨져 보입니다." data-guide-en="Character encoding is the rule a computer uses to decide which characters a sequence of bytes represents. The same bytes can be read as completely different characters depending on which encoding rule is applied, so if the encoding used to save a file differs from the one assumed when reading it, the text looks garbled." data-guide-ja="文字エンコーディングとは、コンピューターが0と1で構成されたバイト列をどの文字として解釈するかを定めたルールです。同じバイト列でも適用するエンコーディングルールによってまったく異なる文字として読まれるため、ファイルを保存したときのエンコーディングと読み込むときに想定するエンコーディングが異なると文字化けが起こります。" data-guide-zh="字符编码是计算机决定如何把由 0 和 1 组成的字节解读为字符的规则。同一段字节在不同编码规则下会被解读成完全不同的字符，因此如果保存文件时使用的编码与读取时假设的编码不一致，文本就会显示为乱码。">문자 인코딩은 컴퓨터가 0과 1로 이루어진 바이트를 어떤 글자로 해석할지 정한 규칙입니다. 같은 바이트라도 어떤 인코딩 규칙을 적용하느냐에 따라 완전히 다른 글자로 읽히기 때문에, 파일을 저장할 때 쓴 인코딩과 읽을 때 가정하는 인코딩이 다르면 글자가 깨져 보입니다.</p>
+          </article>
+          <article>
+            <h2 data-guide-i18n data-guide-ko="UTF-8과 EUC-KR의 차이" data-guide-en="The difference between UTF-8 and EUC-KR" data-guide-ja="UTF-8とEUC-KRの違い" data-guide-zh="UTF-8 与 EUC-KR 的区别">UTF-8과 EUC-KR의 차이</h2>
+            <p data-guide-i18n data-guide-ko="UTF-8은 전 세계 거의 모든 문자를 표현할 수 있는 유니코드 기반 인코딩으로, 문자에 따라 1~4바이트를 가변적으로 사용하며 오늘날 웹과 대부분의 시스템에서 기본값으로 씁니다. EUC-KR은 한글만을 위해 만들어진 오래된 2바이트 인코딩으로, 예전 한국 시스템이나 문서, 일부 레거시 데이터베이스에서 여전히 발견됩니다." data-guide-en="UTF-8 is a Unicode-based encoding that can represent almost every character in the world, using a variable 1 to 4 bytes per character, and it's the default for the web and most modern systems today. EUC-KR is an older 2-byte encoding built only for Korean, and it still turns up in older Korean systems, documents, and some legacy databases." data-guide-ja="UTF-8は世界中のほぼすべての文字を表現できるUnicodeベースのエンコーディングで、文字に応じて1〜4バイトを可変で使用し、今日のWebやほとんどのシステムでデフォルトとして使われています。EUC-KRはハングルだけのために作られた古い2バイトエンコーディングで、以前の韓国のシステムや文書、一部のレガシーデータベースに今も残っています。" data-guide-zh="UTF-8 是一种基于 Unicode 的编码，几乎可以表示世界上所有的字符，每个字符使用 1 到 4 个可变字节，是当今 Web 和大多数系统的默认编码。EUC-KR 是一种仅为韩文设计的较旧的双字节编码，仍然出现在一些较旧的韩国系统、文档和部分遗留数据库中。">UTF-8은 전 세계 거의 모든 문자를 표현할 수 있는 유니코드 기반 인코딩으로, 문자에 따라 1~4바이트를 가변적으로 사용하며 오늘날 웹과 대부분의 시스템에서 기본값으로 씁니다. EUC-KR은 한글만을 위해 만들어진 오래된 2바이트 인코딩으로, 예전 한국 시스템이나 문서, 일부 레거시 데이터베이스에서 여전히 발견됩니다.</p>
+          </article>
+          <article>
+            <h2 data-guide-i18n data-guide-ko="왜 한글이 깨질까요?" data-guide-en="Why does Korean text get garbled?" data-guide-ja="なぜハングルが文字化けするのか" data-guide-zh="为什么中文/韩文会变成乱码？">왜 한글이 깨질까요?</h2>
+            <p data-guide-i18n data-guide-ko="가장 흔한 경우는 EUC-KR로 저장된 파일을 UTF-8로 읽거나, 반대로 UTF-8 파일을 EUC-KR로 읽을 때입니다. 두 인코딩은 같은 바이트를 서로 다른 문자로 해석하므로, 프로그램이 잘못된 인코딩을 가정하면 한글 대신 물음표나 알아볼 수 없는 기호가 나타납니다." data-guide-en="The most common case is reading a file saved in EUC-KR as if it were UTF-8, or the reverse. The two encodings map the same bytes to different characters, so when a program assumes the wrong encoding, Korean text turns into question marks or unreadable symbols." data-guide-ja="最もよくあるのは、EUC-KRで保存されたファイルをUTF-8として読み込む場合や、逆にUTF-8のファイルをEUC-KRとして読み込む場合です。この2つのエンコーディングは同じバイト列を異なる文字として解釈するため、プログラムが誤ったエンコーディングを想定すると、ハングルの代わりにクエスチョンマークや読めない記号が表示されます。" data-guide-zh="最常见的情况是把用 EUC-KR 保存的文件当作 UTF-8 读取，或者反过来。这两种编码会把相同的字节解读为不同的字符，因此当程序假设了错误的编码时，文字就会变成问号或无法辨认的符号。">가장 흔한 경우는 EUC-KR로 저장된 파일을 UTF-8로 읽거나, 반대로 UTF-8 파일을 EUC-KR로 읽을 때입니다. 두 인코딩은 같은 바이트를 서로 다른 문자로 해석하므로, 프로그램이 잘못된 인코딩을 가정하면 한글 대신 물음표나 알아볼 수 없는 기호가 나타납니다.</p>
+          </article>
+          <article>
+            <h2 data-guide-i18n data-guide-ko="인코딩 변환 도구가 도움이 되는 이유" data-guide-en="Why an encoding converter helps" data-guide-ja="エンコード変換ツールが役立つ理由" data-guide-zh="编码转换工具为何有用">인코딩 변환 도구가 도움이 되는 이유</h2>
+            <p data-guide-i18n data-guide-ko="깨진 문자열을 보고 원래 인코딩을 바로 알아내기는 어렵습니다. 인코딩 변환 도구는 같은 값을 UTF-8, EUC-KR 등 여러 인코딩으로 동시에 해석해 보여주므로, 그중 실제로 읽히는 문장이 있는 후보를 찾아 원래 인코딩을 추정할 수 있습니다." data-guide-en="It's hard to tell the original encoding just by looking at garbled text. An encoding converter interprets the same value under several encodings at once, such as UTF-8 and EUC-KR, so you can find the candidate that actually reads correctly and infer the original encoding." data-guide-ja="文字化けした文字列を見ただけで元のエンコーディングを判断するのは困難です。エンコード変換ツールは同じ値をUTF-8、EUC-KRなど複数のエンコーディングで同時に解釈して表示するため、実際に読める文章になっている候補を見つけて元のエンコーディングを推測できます。" data-guide-zh="仅凭乱码很难判断原始编码是什么。编码转换工具会同时按 UTF-8、EUC-KR 等多种编码解析同一个值，你可以从中找到能正确阅读的那个候选结果，从而推断出原始编码。">깨진 문자열을 보고 원래 인코딩을 바로 알아내기는 어렵습니다. 인코딩 변환 도구는 같은 값을 UTF-8, EUC-KR 등 여러 인코딩으로 동시에 해석해 보여주므로, 그중 실제로 읽히는 문장이 있는 후보를 찾아 원래 인코딩을 추정할 수 있습니다.</p>
+          </article>
+          <h2 class="guide-faq-title" data-guide-i18n data-guide-ko="자주 묻는 질문" data-guide-en="Frequently asked questions" data-guide-ja="よくある質問" data-guide-zh="常见问题">자주 묻는 질문</h2>
+          <div class="guide-grid guide-faq">
+            <article>
+              <h3 data-guide-i18n data-guide-ko="인코딩을 모르는 파일의 원래 인코딩을 확실히 알 수 있나요?" data-guide-en="Can I be 100% certain of a file's original encoding?" data-guide-ja="エンコーディング不明のファイルの元のエンコーディングを確実に知ることはできますか？" data-guide-zh="能百分之百确定未知文件的原始编码吗？">인코딩을 모르는 파일의 원래 인코딩을 확실히 알 수 있나요?</h3>
+              <p data-guide-i18n data-guide-ko="100% 보장하기는 어렵습니다. 다만 여러 인코딩으로 해석한 결과를 나란히 비교해, 실제로 자연스러운 문장이 되는 후보를 찾는 방식으로 상당히 신뢰도 높게 추정할 수 있습니다." data-guide-en="It's hard to guarantee 100%. But comparing the results interpreted under several encodings side by side, and picking the one that reads as natural text, gives a fairly reliable estimate." data-guide-ja="100%保証するのは難しいです。ただし、複数のエンコーディングで解釈した結果を並べて比較し、実際に自然な文章になっている候補を見つけることで、かなり高い信頼度で推測できます。" data-guide-zh="很难做到百分之百确定。不过，通过并排比较多种编码解析后的结果，找出读起来自然通顺的那个候选，可以得到相当可靠的推断。">100% 보장하기는 어렵습니다. 다만 여러 인코딩으로 해석한 결과를 나란히 비교해, 실제로 자연스러운 문장이 되는 후보를 찾는 방식으로 상당히 신뢰도 높게 추정할 수 있습니다.</p>
+            </article>
+            <article>
+              <h3 data-guide-i18n data-guide-ko="UTF-8만 쓰면 인코딩 문제를 완전히 피할 수 있나요?" data-guide-en="If I only use UTF-8, can I fully avoid encoding problems?" data-guide-ja="UTF-8だけを使えばエンコーディング問題を完全に避けられますか？" data-guide-zh="只使用 UTF-8 就能完全避免编码问题吗？">UTF-8만 쓰면 인코딩 문제를 완전히 피할 수 있나요?</h3>
+              <p data-guide-i18n data-guide-ko="새로 만드는 파일이나 시스템이라면 UTF-8로 일관되게 통일하는 것만으로 대부분의 문제를 피할 수 있습니다. 다만 이미 EUC-KR 등 다른 인코딩으로 저장된 기존 데이터를 다룰 때는 여전히 변환 과정이 필요합니다." data-guide-en="For new files or systems, consistently using UTF-8 throughout avoids most problems. But when working with existing data already saved in another encoding like EUC-KR, a conversion step is still needed." data-guide-ja="新しく作るファイルやシステムであれば、UTF-8に統一するだけでほとんどの問題を回避できます。ただし、すでにEUC-KRなど別のエンコーディングで保存されている既存データを扱う場合は、依然として変換作業が必要です。" data-guide-zh="对于新建的文件或系统，只要统一使用 UTF-8，就能避免大多数问题。但在处理已经用 EUC-KR 等其他编码保存的现有数据时，仍然需要经过转换步骤。">새로 만드는 파일이나 시스템이라면 UTF-8로 일관되게 통일하는 것만으로 대부분의 문제를 피할 수 있습니다. 다만 이미 EUC-KR 등 다른 인코딩으로 저장된 기존 데이터를 다룰 때는 여전히 변환 과정이 필요합니다.</p>
+            </article>
+          </div>
+          <p class="guide-related-link"><a href="../../tools/text/encoding-converter/" data-guide-i18n data-guide-ko="인코딩 변환 도구로 직접 확인해보기" data-guide-en="Try it yourself in the encoding converter" data-guide-ja="エンコード変換ツールで実際に確認する" data-guide-zh="在编码转换工具中亲自试试">인코딩 변환 도구로 직접 확인해보기</a></p>
+        </div>
+<!-- ARTICLE_END -->
+      </section>
+      <aside class="ad-slot" aria-label="광고 영역"><span>Advertisement</span></aside>
+    </main>
+    <footer class="site-footer">
+      <nav class="footer-links" aria-label="사이트 정보">
+        <a href="../../about.html">소개</a>
+        <a href="../../guides/">가이드</a>
+        <a href="../../contact.html">문의</a>
+        <a href="../../privacy.html">개인정보처리방침</a>
+      </nav>
+      <span>All tools run in your browser.</span>
+    </footer>
+    <script type="application/ld+json">[{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"인코딩을 모르는 파일의 원래 인코딩을 확실히 알 수 있나요?","acceptedAnswer":{"@type":"Answer","text":"100% 보장하기는 어렵습니다. 다만 여러 인코딩으로 해석한 결과를 나란히 비교해, 실제로 자연스러운 문장이 되는 후보를 찾는 방식으로 상당히 신뢰도 높게 추정할 수 있습니다."}},{"@type":"Question","name":"UTF-8만 쓰면 인코딩 문제를 완전히 피할 수 있나요?","acceptedAnswer":{"@type":"Answer","text":"새로 만드는 파일이나 시스템이라면 UTF-8로 일관되게 통일하는 것만으로 대부분의 문제를 피할 수 있습니다. 다만 이미 EUC-KR 등 다른 인코딩으로 저장된 기존 데이터를 다룰 때는 여전히 변환 과정이 필요합니다."}}]}]</script>
+  </body>
+</html>

@@ -5,6 +5,7 @@
     { href: "/tools/diff/compare/", label: "DIFF 도구" },
     { href: "/tools/design/", label: "디자인" },
     { href: "/tools/css-art/", label: "CSS-ART" },
+    { href: "/guides/", label: "가이드" },
   ];
 
   function withLocale(href) {
@@ -54,6 +55,10 @@
     about.href = withLocale("/about.html");
     about.textContent = "소개";
 
+    const guides = document.createElement("a");
+    guides.href = withLocale("/guides/");
+    guides.textContent = "가이드";
+
     const contact = document.createElement("a");
     contact.href = withLocale("/contact.html");
     contact.textContent = "문의";
@@ -62,7 +67,7 @@
     privacy.href = withLocale("/privacy.html");
     privacy.textContent = "개인정보처리방침";
 
-    links.append(about, contact, privacy);
+    links.append(about, guides, contact, privacy);
 
     const note = document.createElement("span");
     note.textContent = "All tools run in your browser.";

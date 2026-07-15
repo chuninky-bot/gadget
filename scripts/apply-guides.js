@@ -219,6 +219,9 @@ function renderGuide(url, page) {
   }).join("");
 
   const faqBlock = override?.faq ? `\n${renderFaq(id, override.faq)}` : "";
+  const relatedGuideBlock = override?.relatedGuide
+    ? `\n        <p class="guide-related-link">${translatable("a", override.relatedGuide.label, `href="${override.relatedGuide.href}"`)}</p>`
+    : "";
 
   return [
     startMarker,
@@ -228,7 +231,7 @@ function renderGuide(url, page) {
     `          ${translatable("h2", guideTitle, `id="${id}"`)}`,
     `          ${translatable("p", intro)}`,
     "        </div>",
-    `        <div class="guide-grid">${articles}</div>${faqBlock}`,
+    `        <div class="guide-grid">${articles}</div>${faqBlock}${relatedGuideBlock}`,
     "      </section>",
     endMarker,
   ].join("\n");

@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>UUID란 무엇이고 왜 필요한가 - Web-Tool.Shop</title>
+    <meta name="description" content="UUID가 무엇인지, 자동 증가 ID 대신 UUID를 쓰는 이유, UUID v4가 무작위로 생성되는 원리를 설명합니다.">
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <script defer src="../../assets/js/site-shell.js"></script>
+    <script defer src="../../assets/js/i18n.js"></script>
+    <script defer src="../../assets/js/recent-tools.js"></script>
+    <!-- ADSENSE_AUTO_ADS_START -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4090506341453745" crossorigin="anonymous"></script>
+    <!-- ADSENSE_AUTO_ADS_END -->
+  
+    <!-- SEO_META_START -->
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://web-tool.shop/guides/what-is-uuid/">
+    <link rel="alternate" type="application/rss+xml" title="Web-Tool.Shop RSS" href="https://web-tool.shop/rss.xml">
+    <meta property="og:site_name" content="Web-Tool.Shop">
+    <meta property="og:title" content="UUID란 무엇이고 왜 필요한가 - Web-Tool.Shop">
+    <meta property="og:description" content="UUID가 무엇인지, 자동 증가 ID 대신 UUID를 쓰는 이유, UUID v4가 무작위로 생성되는 원리를 설명합니다.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://web-tool.shop/guides/what-is-uuid/">
+    <meta property="og:locale" content="ko_KR">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="UUID란 무엇이고 왜 필요한가 - Web-Tool.Shop">
+    <meta name="twitter:description" content="UUID가 무엇인지, 자동 증가 ID 대신 UUID를 쓰는 이유, UUID v4가 무작위로 생성되는 원리를 설명합니다.">
+    <meta name="google-site-verification" content="MsQNBQo4_XDzQPkjILgSE4J0OFXplRSH04f45AGVT7Q">
+    <meta name="naver-site-verification" content="515af50036d733e32f8cb5b5f85a91db00ea3b07" />
+    <!-- SEO_META_END -->
+    <!-- STRUCTURED_DATA_START -->
+    <script type="application/ld+json">[{"@context":"https://schema.org","@type":"Organization","name":"Web-Tool.Shop","url":"https://web-tool.shop"},{"@context":"https://schema.org","@type":"Article","name":"UUID란 무엇이고 왜 필요한가 - Web-Tool.Shop","url":"https://web-tool.shop/guides/what-is-uuid/","description":"UUID가 무엇인지, 자동 증가 ID 대신 UUID를 쓰는 이유, UUID v4가 무작위로 생성되는 원리를 설명합니다.","inLanguage":"ko-KR"},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Web-Tool.Shop","item":"https://web-tool.shop/"},{"@type":"ListItem","position":2,"name":"가이드","item":"https://web-tool.shop/guides/"},{"@type":"ListItem","position":3,"name":"UUID란 무엇이고 왜 필요한가","item":"https://web-tool.shop/guides/what-is-uuid/"}]}]</script>
+    <!-- STRUCTURED_DATA_END -->
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="../../">Web-Tool.Shop</a>
+      <nav class="nav" aria-label="주요 메뉴">
+        <a href="../../tools/text/">텍스트</a>
+        <a href="../../tools/converter/">자료형 변환</a>
+        <a href="../../tools/diff/compare/">DIFF 도구</a>
+        <a href="../../tools/design/">디자인</a>
+        <a href="../../tools/css-art/">CSS-ART</a>
+        <a href="../">가이드</a>
+      </nav>
+    </header>
+    <main>
+      <nav class="breadcrumb" aria-label="경로"><a href="../../">홈</a><span>/</span><a href="../">가이드</a><span>/</span><span>UUID란 무엇이고 왜 필요한가</span></nav>
+      <section class="section">
+        <div class="section-heading">
+          <h1>UUID란 무엇이고 왜 필요한가</h1>
+          <p>1, 2, 3 대신 무작위 문자열을 ID로 쓰는 이유를 설명합니다.</p>
+        </div>
+<!-- ARTICLE_START -->
+        <div class="tool-shell prose-panel">
+          <article>
+            <p data-guide-i18n data-guide-ko="UUID(Universally Unique Identifier)는 128비트로 이루어진 식별자로, 보통 32자리 16진수를 8-4-4-4-12자리로 나눠 하이픈으로 이어 적습니다. 서로 다른 곳에서 각자 생성해도 값이 겹칠 확률이 극히 낮도록 설계되어 있어, 하나의 중앙 저장소 없이도 고유한 값을 만들 수 있습니다." data-guide-en="A UUID (Universally Unique Identifier) is a 128-bit identifier, usually written as 32 hexadecimal digits split into groups of 8-4-4-4-12 and joined with hyphens. It's designed so that values generated independently in different places are extremely unlikely to collide, making it possible to create unique values without a central registry." data-guide-ja="UUID（Universally Unique Identifier）は128ビットで構成される識別子で、通常32桁の16進数を8-4-4-4-12桁に分けてハイフンでつないで表記します。異なる場所でそれぞれ生成しても値が重複する確率が極めて低くなるよう設計されており、単一の中央管理なしでも一意の値を作ることができます。" data-guide-zh="UUID（通用唯一标识符）是一个 128 位的标识符，通常写作 32 位十六进制数字，按 8-4-4-4-12 分组并用连字符连接。它的设计使得在不同地方各自独立生成的值发生冲突的概率极低，因此无需中央注册中心也能创建唯一的值。">UUID(Universally Unique Identifier)는 128비트로 이루어진 식별자로, 보통 32자리 16진수를 8-4-4-4-12자리로 나눠 하이픈으로 이어 적습니다. 서로 다른 곳에서 각자 생성해도 값이 겹칠 확률이 극히 낮도록 설계되어 있어, 하나의 중앙 저장소 없이도 고유한 값을 만들 수 있습니다.</p>
+          </article>
+          <article>
+            <h2 data-guide-i18n data-guide-ko="자동 증가 ID와 무엇이 다른가" data-guide-en="How it differs from auto-increment IDs" data-guide-ja="自動採番IDとの違い" data-guide-zh="与自增 ID 有何不同">자동 증가 ID와 무엇이 다른가</h2>
+            <p data-guide-i18n data-guide-ko="1, 2, 3처럼 순서대로 늘어나는 자동 증가 ID는 중복을 막으려면 하나의 중앙 카운터(대개 데이터베이스)가 반드시 필요합니다. 반면 UUID는 서버, 클라이언트, 오프라인 상태의 기기가 서로 조율하지 않고도 각자 독립적으로 생성할 수 있어, 여러 시스템의 데이터를 나중에 합칠 때도 충돌 걱정이 적습니다." data-guide-en="Sequential auto-increment IDs like 1, 2, 3 need a single central counter, usually a database, to prevent duplicates. UUIDs, by contrast, can be generated independently by servers, clients, or offline devices without coordinating with each other, which means far less risk of collisions when merging data from multiple systems later." data-guide-ja="1, 2, 3のように順番に増えていく自動採番IDは、重複を防ぐために単一の中央カウンター（通常はデータベース）が必ず必要です。一方UUIDは、サーバー、クライアント、オフライン状態の機器がお互いに調整することなくそれぞれ独立して生成でき、複数のシステムのデータを後で統合する際も衝突の心配が少なくなります。" data-guide-zh="像 1、2、3 这样依次递增的自增 ID，需要一个中央计数器（通常是数据库）来防止重复。相比之下，UUID 可以由服务器、客户端或离线设备各自独立生成，无需相互协调，因此以后合并多个系统的数据时冲突的风险要小得多。">1, 2, 3처럼 순서대로 늘어나는 자동 증가 ID는 중복을 막으려면 하나의 중앙 카운터(대개 데이터베이스)가 반드시 필요합니다. 반면 UUID는 서버, 클라이언트, 오프라인 상태의 기기가 서로 조율하지 않고도 각자 독립적으로 생성할 수 있어, 여러 시스템의 데이터를 나중에 합칠 때도 충돌 걱정이 적습니다.</p>
+          </article>
+          <article>
+            <h2 data-guide-i18n data-guide-ko="예측 가능한 ID가 문제 되는 경우" data-guide-en="When predictable IDs become a problem" data-guide-ja="予測可能なIDが問題になる場合" data-guide-zh="可预测 ID 会带来的问题">예측 가능한 ID가 문제 되는 경우</h2>
+            <p data-guide-i18n data-guide-ko="순번 ID는 정보를 노출시킬 수 있습니다. 예를 들어 주문 번호가 1042라면 지금까지 대략 몇 건의 주문이 있었는지 짐작할 수 있고, 다음 번호인 1043을 추측해 접근을 시도할 수도 있습니다. 또한 서로 다른 시스템에서 각자 1번부터 채번한 데이터를 합치면 번호가 그대로 충돌합니다." data-guide-en="Sequential IDs can leak information. If an order number is 1042, someone can roughly guess how many orders exist so far, and might try guessing the next number, 1043, to access it. Merging data from separate systems that each numbered their records starting from 1 also causes immediate collisions." data-guide-ja="連番IDは情報を漏らすことがあります。例えば注文番号が1042であれば、これまでにおおよそ何件の注文があったか推測でき、次の番号である1043を推測してアクセスを試みることもできます。また、別々のシステムでそれぞれ1番から採番したデータを統合すると、番号がそのまま衝突します。" data-guide-zh="连续编号的 ID 可能会泄露信息。例如订单号是 1042，就能大致推测出目前有多少笔订单，也可能有人尝试猜测下一个号码 1043 来访问。此外，把各自从 1 号开始编号的多个独立系统的数据合并在一起时，编号会直接发生冲突。">순번 ID는 정보를 노출시킬 수 있습니다. 예를 들어 주문 번호가 1042라면 지금까지 대략 몇 건의 주문이 있었는지 짐작할 수 있고, 다음 번호인 1043을 추측해 접근을 시도할 수도 있습니다. 또한 서로 다른 시스템에서 각자 1번부터 채번한 데이터를 합치면 번호가 그대로 충돌합니다.</p>
+          </article>
+          <article>
+            <h2 data-guide-i18n data-guide-ko="UUID v4는 어떻게 만들어지나" data-guide-en="How a UUID v4 is generated" data-guide-ja="UUID v4はどう生成されるか" data-guide-zh="UUID v4 是如何生成的">UUID v4는 어떻게 만들어지나</h2>
+            <p data-guide-i18n data-guide-ko="UUID v4는 대부분의 비트를 난수로 채우고, 버전과 형식을 나타내는 몇 개의 고정 비트만 규격에 맞춰 끼워 넣는 방식으로 만들어집니다. 브라우저에서는 crypto API가 제공하는 암호학적으로 안전한 난수를 사용하므로, 단순한 Math.random()보다 예측하기 훨씬 어려운 값이 나옵니다." data-guide-en="A UUID v4 is generated by filling most of its bits with random data and inserting just a few fixed bits that mark the version and format according to the spec. In browsers, this uses the cryptographically secure random numbers provided by the crypto API, which are far harder to predict than a simple Math.random() call." data-guide-ja="UUID v4は、ほとんどのビットを乱数で埋め、バージョンと形式を示すいくつかの固定ビットだけを規格に沿って組み込むことで作られます。ブラウザーではcrypto APIが提供する暗号論的に安全な乱数を使用するため、単純なMath.random()よりもはるかに予測しにくい値になります。" data-guide-zh="UUID v4 的生成方式是：大部分位用随机数据填充，只有少数几位按规范固定下来，用于标记版本和格式。在浏览器中，这会使用 crypto API 提供的加密安全随机数，比简单的 Math.random() 更难以预测。">UUID v4는 대부분의 비트를 난수로 채우고, 버전과 형식을 나타내는 몇 개의 고정 비트만 규격에 맞춰 끼워 넣는 방식으로 만들어집니다. 브라우저에서는 crypto API가 제공하는 암호학적으로 안전한 난수를 사용하므로, 단순한 Math.random()보다 예측하기 훨씬 어려운 값이 나옵니다.</p>
+          </article>
+          <h2 class="guide-faq-title" data-guide-i18n data-guide-ko="자주 묻는 질문" data-guide-en="Frequently asked questions" data-guide-ja="よくある質問" data-guide-zh="常见问题">자주 묻는 질문</h2>
+          <div class="guide-grid guide-faq">
+            <article>
+              <h3 data-guide-i18n data-guide-ko="UUID는 절대로 겹치지 않는다고 보장할 수 있나요?" data-guide-en="Is it guaranteed that a UUID will never collide?" data-guide-ja="UUIDは絶対に重複しないと保証できますか？" data-guide-zh="能保证 UUID 绝对不会重复吗？">UUID는 절대로 겹치지 않는다고 보장할 수 있나요?</h3>
+              <p data-guide-i18n data-guide-ko="이론적으로 100%는 아닙니다. 다만 UUID v4가 우연히 중복될 확률은 실무에서 무시해도 될 만큼 극히 낮아서, 대부분의 시스템에서 고유값으로 안전하게 사용됩니다." data-guide-en="Not 100% in theory. But the probability of a UUID v4 accidentally colliding is so vanishingly small in practice that it's treated as safe for use as a unique value in most systems." data-guide-ja="理論上は100%ではありません。ただしUUID v4が偶然重複する確率は実務上無視できるほど極めて低いため、ほとんどのシステムで一意の値として安全に使用されています。" data-guide-zh="理论上并非百分之百。但 UUID v4 偶然发生冲突的概率在实践中低到可以忽略不计，因此在大多数系统中都被当作安全的唯一值使用。">이론적으로 100%는 아닙니다. 다만 UUID v4가 우연히 중복될 확률은 실무에서 무시해도 될 만큼 극히 낮아서, 대부분의 시스템에서 고유값으로 안전하게 사용됩니다.</p>
+            </article>
+            <article>
+              <h3 data-guide-i18n data-guide-ko="UUID를 데이터베이스 기본 키로 써도 되나요?" data-guide-en="Can I use a UUID as a database primary key?" data-guide-ja="UUIDをデータベースの主キーとして使ってもよいですか？" data-guide-zh="可以把 UUID 用作数据库主键吗？">UUID를 데이터베이스 기본 키로 써도 되나요?</h3>
+              <p data-guide-i18n data-guide-ko="가능합니다. 다만 자동 증가 정수보다 저장 공간을 더 차지하고 인덱스 성능에 영향을 줄 수 있으므로, 여러 시스템을 나중에 합쳐야 하는지 등 상황에 따라 트레이드오프를 고려해 선택하는 것이 좋습니다." data-guide-en="Yes, that's fine. Keep in mind it takes up more storage than an auto-increment integer and can affect index performance, so it's worth weighing that trade-off against your situation, such as whether you'll need to merge data from multiple systems later." data-guide-ja="可能です。ただし自動採番の整数より保存領域を多く使い、インデックス性能に影響を与えることがあるため、複数のシステムを後で統合する必要があるかなど、状況に応じてトレードオフを考慮して選ぶとよいでしょう。" data-guide-zh="可以。不过它比自增整数占用更多存储空间，也可能影响索引性能，因此建议根据实际情况（例如以后是否需要合并多个系统的数据）权衡利弊后再做选择。">가능합니다. 다만 자동 증가 정수보다 저장 공간을 더 차지하고 인덱스 성능에 영향을 줄 수 있으므로, 여러 시스템을 나중에 합쳐야 하는지 등 상황에 따라 트레이드오프를 고려해 선택하는 것이 좋습니다.</p>
+            </article>
+          </div>
+          <p class="guide-related-link"><a href="../../tools/converter/uuid-generator/" data-guide-i18n data-guide-ko="UUID 생성기로 직접 만들어보기" data-guide-en="Try it yourself in the UUID generator" data-guide-ja="UUIDジェネレーターで実際に作ってみる" data-guide-zh="在 UUID 生成器中亲自试试">UUID 생성기로 직접 만들어보기</a></p>
+        </div>
+<!-- ARTICLE_END -->
+      </section>
+      <aside class="ad-slot" aria-label="광고 영역"><span>Advertisement</span></aside>
+    </main>
+    <footer class="site-footer">
+      <nav class="footer-links" aria-label="사이트 정보">
+        <a href="../../about.html">소개</a>
+        <a href="../../guides/">가이드</a>
+        <a href="../../contact.html">문의</a>
+        <a href="../../privacy.html">개인정보처리방침</a>
+      </nav>
+      <span>All tools run in your browser.</span>
+    </footer>
+    <script type="application/ld+json">[{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"UUID는 절대로 겹치지 않는다고 보장할 수 있나요?","acceptedAnswer":{"@type":"Answer","text":"이론적으로 100%는 아닙니다. 다만 UUID v4가 우연히 중복될 확률은 실무에서 무시해도 될 만큼 극히 낮아서, 대부분의 시스템에서 고유값으로 안전하게 사용됩니다."}},{"@type":"Question","name":"UUID를 데이터베이스 기본 키로 써도 되나요?","acceptedAnswer":{"@type":"Answer","text":"가능합니다. 다만 자동 증가 정수보다 저장 공간을 더 차지하고 인덱스 성능에 영향을 줄 수 있으므로, 여러 시스템을 나중에 합쳐야 하는지 등 상황에 따라 트레이드오프를 고려해 선택하는 것이 좋습니다."}}]}]</script>
+  </body>
+</html>

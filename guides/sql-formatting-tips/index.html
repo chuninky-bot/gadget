@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SQL을 보기 좋게 정리해야 하는 이유 - Web-Tool.Shop</title>
+    <meta name="description" content="압축된 SQL 쿼리가 읽기 어려운 이유와 키워드 대문자화, 줄바꿈 정리가 코드 리뷰에 도움이 되는 이유를 설명합니다.">
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <script defer src="../../assets/js/site-shell.js"></script>
+    <script defer src="../../assets/js/i18n.js"></script>
+    <script defer src="../../assets/js/recent-tools.js"></script>
+    <!-- ADSENSE_AUTO_ADS_START -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4090506341453745" crossorigin="anonymous"></script>
+    <!-- ADSENSE_AUTO_ADS_END -->
+  
+    <!-- SEO_META_START -->
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://web-tool.shop/guides/sql-formatting-tips/">
+    <link rel="alternate" type="application/rss+xml" title="Web-Tool.Shop RSS" href="https://web-tool.shop/rss.xml">
+    <meta property="og:site_name" content="Web-Tool.Shop">
+    <meta property="og:title" content="SQL을 보기 좋게 정리해야 하는 이유 - Web-Tool.Shop">
+    <meta property="og:description" content="압축된 SQL 쿼리가 읽기 어려운 이유와 키워드 대문자화, 줄바꿈 정리가 코드 리뷰에 도움이 되는 이유를 설명합니다.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://web-tool.shop/guides/sql-formatting-tips/">
+    <meta property="og:locale" content="ko_KR">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="SQL을 보기 좋게 정리해야 하는 이유 - Web-Tool.Shop">
+    <meta name="twitter:description" content="압축된 SQL 쿼리가 읽기 어려운 이유와 키워드 대문자화, 줄바꿈 정리가 코드 리뷰에 도움이 되는 이유를 설명합니다.">
+    <meta name="google-site-verification" content="MsQNBQo4_XDzQPkjILgSE4J0OFXplRSH04f45AGVT7Q">
+    <meta name="naver-site-verification" content="515af50036d733e32f8cb5b5f85a91db00ea3b07" />
+    <!-- SEO_META_END -->
+    <!-- STRUCTURED_DATA_START -->
+    <script type="application/ld+json">[{"@context":"https://schema.org","@type":"Organization","name":"Web-Tool.Shop","url":"https://web-tool.shop"},{"@context":"https://schema.org","@type":"Article","name":"SQL을 보기 좋게 정리해야 하는 이유 - Web-Tool.Shop","url":"https://web-tool.shop/guides/sql-formatting-tips/","description":"압축된 SQL 쿼리가 읽기 어려운 이유와 키워드 대문자화, 줄바꿈 정리가 코드 리뷰에 도움이 되는 이유를 설명합니다.","inLanguage":"ko-KR"},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Web-Tool.Shop","item":"https://web-tool.shop/"},{"@type":"ListItem","position":2,"name":"가이드","item":"https://web-tool.shop/guides/"},{"@type":"ListItem","position":3,"name":"SQL을 보기 좋게 정리해야 하는 이유","item":"https://web-tool.shop/guides/sql-formatting-tips/"}]}]</script>
+    <!-- STRUCTURED_DATA_END -->
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="../../">Web-Tool.Shop</a>
+      <nav class="nav" aria-label="주요 메뉴">
+        <a href="../../tools/text/">텍스트</a>
+        <a href="../../tools/converter/">자료형 변환</a>
+        <a href="../../tools/diff/compare/">DIFF 도구</a>
+        <a href="../../tools/design/">디자인</a>
+        <a href="../../tools/css-art/">CSS-ART</a>
+        <a href="../">가이드</a>
+      </nav>
+    </header>
+    <main>
+      <nav class="breadcrumb" aria-label="경로"><a href="../../">홈</a><span>/</span><a href="../">가이드</a><span>/</span><span>SQL을 보기 좋게 정리해야 하는 이유</span></nav>
+      <section class="section">
+        <div class="section-heading">
+          <h1>SQL을 보기 좋게 정리해야 하는 이유</h1>
+          <p>압축된 쿼리 한 줄, 리뷰할 때마다 눈이 아팠다면 이 글이 도움이 됩니다.</p>
+        </div>
+<!-- ARTICLE_START -->
+        <div class="tool-shell prose-panel">
+          <article>
+            <p data-guide-i18n data-guide-ko="ORM이나 데이터베이스 도구, 로그는 SQL 쿼리를 사람이 읽기 좋은 형태가 아니라 한 줄로 압축해 출력하는 경우가 많습니다. SELECT, FROM, WHERE, JOIN 같은 절이 공백 하나만으로 이어져 있으면, 쿼리가 정확히 어떤 조건으로 어떤 테이블을 조회하는지 한눈에 파악하기 어렵습니다." data-guide-en="ORMs, database tools, and logs often print SQL queries minified into a single line rather than in a human-readable form. When clauses like SELECT, FROM, WHERE, and JOIN are separated only by a single space, it's hard to tell at a glance which tables are being queried under which conditions." data-guide-ja="ORMやデータベースツール、ログは、SQLクエリを人が読みやすい形ではなく1行に圧縮して出力することがよくあります。SELECT、FROM、WHERE、JOINのような句がスペース一つだけでつながっていると、どのテーブルをどの条件で問い合わせているのかを一目で把握するのが難しくなります。" data-guide-zh="ORM、数据库工具和日志经常把 SQL 查询压缩成一行输出，而不是以易读的形式呈现。当 SELECT、FROM、WHERE、JOIN 等子句只用一个空格连接时，很难一眼看出查询到底在用什么条件查询哪些表。">ORM이나 데이터베이스 도구, 로그는 SQL 쿼리를 사람이 읽기 좋은 형태가 아니라 한 줄로 압축해 출력하는 경우가 많습니다. SELECT, FROM, WHERE, JOIN 같은 절이 공백 하나만으로 이어져 있으면, 쿼리가 정확히 어떤 조건으로 어떤 테이블을 조회하는지 한눈에 파악하기 어렵습니다.</p>
+          </article>
+          <article>
+            <h2 data-guide-i18n data-guide-ko="키워드 대문자화와 줄바꿈의 역할" data-guide-en="What keyword casing and line breaks do" data-guide-ja="キーワードの大文字化と改行の役割" data-guide-zh="关键字大写和换行的作用">키워드 대문자화와 줄바꿈의 역할</h2>
+            <p data-guide-i18n data-guide-ko="SELECT, FROM, WHERE 같은 SQL 키워드를 대문자로 쓰는 것은 흔한 관례입니다. 키워드가 대문자이면 테이블명이나 컬럼명 같은 실제 데이터와 시각적으로 구분되어 눈이 훨씬 빠르게 구조를 따라갈 수 있습니다. 또한 절마다 줄을 바꾸면 쿼리의 논리적 흐름이 코드처럼 한눈에 보입니다." data-guide-en="Writing SQL keywords like SELECT, FROM, and WHERE in uppercase is a common convention. When keywords are capitalized, they stand out visually from actual data like table and column names, letting your eyes follow the structure much faster. Breaking each clause onto its own line also makes the query's logical flow readable like code." data-guide-ja="SELECT、FROM、WHEREのようなSQLキーワードを大文字で書くのはよくある慣習です。キーワードが大文字であれば、テーブル名やカラム名のような実際のデータと視覚的に区別され、目がずっと速く構造を追えるようになります。また、句ごとに改行すると、クエリの論理的な流れがコードのように一目でわかります。" data-guide-zh="将 SELECT、FROM、WHERE 等 SQL 关键字写成大写是一种常见惯例。关键字大写后能在视觉上与表名、列名等实际数据区分开，让眼睛更快跟上结构。此外，每个子句单独换行也能让查询的逻辑流程像代码一样一目了然。">SELECT, FROM, WHERE 같은 SQL 키워드를 대문자로 쓰는 것은 흔한 관례입니다. 키워드가 대문자이면 테이블명이나 컬럼명 같은 실제 데이터와 시각적으로 구분되어 눈이 훨씬 빠르게 구조를 따라갈 수 있습니다. 또한 절마다 줄을 바꾸면 쿼리의 논리적 흐름이 코드처럼 한눈에 보입니다.</p>
+          </article>
+          <article>
+            <h2 data-guide-i18n data-guide-ko="정리할 때 흔히 놓치는 것" data-guide-en="What people commonly miss when cleaning up SQL" data-guide-ja="整理する際によく見落とすこと" data-guide-zh="整理时常被忽略的地方">정리할 때 흔히 놓치는 것</h2>
+            <p data-guide-i18n data-guide-ko="쿼리 끝의 세미콜론, 짝이 맞는 따옴표와 괄호, 서브쿼리의 들여쓰기는 손으로 직접 정리할 때 가장 놓치기 쉬운 부분입니다. 특히 조건절 안에 서브쿼리가 여러 겹 있으면 괄호 개수를 맞추는 것만으로도 시간이 오래 걸립니다." data-guide-en="A trailing semicolon, matching quotes and parentheses, and indentation for subqueries are the details people miss most often when cleaning up SQL by hand. When a condition has several nested subqueries, just matching the number of parentheses can take a long time on its own." data-guide-ja="クエリ末尾のセミコロン、対応する引用符と括弧、サブクエリのインデントは、手作業で整理する際に最も見落としやすい部分です。特に条件句の中にサブクエリが何重にもある場合、括弧の数を合わせるだけでも時間がかかります。" data-guide-zh="查询末尾的分号、成对的引号和括号，以及子查询的缩进，是手动整理 SQL 时最容易漏掉的地方。尤其当条件子句中嵌套了多层子查询时，仅仅对齐括号数量就可能耗费不少时间。">쿼리 끝의 세미콜론, 짝이 맞는 따옴표와 괄호, 서브쿼리의 들여쓰기는 손으로 직접 정리할 때 가장 놓치기 쉬운 부분입니다. 특히 조건절 안에 서브쿼리가 여러 겹 있으면 괄호 개수를 맞추는 것만으로도 시간이 오래 걸립니다.</p>
+          </article>
+          <article>
+            <h2 data-guide-i18n data-guide-ko="포맷터가 도움이 되는 이유" data-guide-en="Why a formatter helps" data-guide-ja="フォーマッターが役立つ理由" data-guide-zh="格式化工具为何有用">포맷터가 도움이 되는 이유</h2>
+            <p data-guide-i18n data-guide-ko="SQL 포맷터는 키워드 대문자화와 절 단위 줄바꿈을 일관되게 적용하고, 끝에 세미콜론이 없으면 자동으로 채워줍니다. 특정 데이터베이스 방언에 종속되지 않고 SELECT, INSERT, UPDATE 같은 공통 구조를 기준으로 정리하므로, 리뷰어가 쿼리를 훨씬 빠르게 훑어볼 수 있습니다." data-guide-en="A SQL formatter consistently applies keyword casing and clause-based line breaks, and adds a missing trailing semicolon automatically. Since it formats around common structures like SELECT, INSERT, and UPDATE rather than one database's specific dialect, a reviewer can scan the query much faster." data-guide-ja="SQLフォーマッターはキーワードの大文字化と句単位の改行を一貫して適用し、末尾にセミコロンがなければ自動的に追加します。特定のデータベース方言に依存せず、SELECT、INSERT、UPDATEのような共通構造を基準に整理するため、レビュアーがクエリをずっと速く確認できます。" data-guide-zh="SQL 格式化工具会统一应用关键字大写和按子句换行的规则，并在末尾缺少分号时自动补上。由于它是按 SELECT、INSERT、UPDATE 等通用结构整理，而非依赖某个数据库的专有方言，审查者可以更快地浏览查询内容。">SQL 포맷터는 키워드 대문자화와 절 단위 줄바꿈을 일관되게 적용하고, 끝에 세미콜론이 없으면 자동으로 채워줍니다. 특정 데이터베이스 방언에 종속되지 않고 SELECT, INSERT, UPDATE 같은 공통 구조를 기준으로 정리하므로, 리뷰어가 쿼리를 훨씬 빠르게 훑어볼 수 있습니다.</p>
+          </article>
+          <h2 class="guide-faq-title" data-guide-i18n data-guide-ko="자주 묻는 질문" data-guide-en="Frequently asked questions" data-guide-ja="よくある質問" data-guide-zh="常见问题">자주 묻는 질문</h2>
+          <div class="guide-grid guide-faq">
+            <article>
+              <h3 data-guide-i18n data-guide-ko="포맷터가 SQL을 실행해서 검증도 해주나요?" data-guide-en="Does the formatter execute the SQL to validate it?" data-guide-ja="フォーマッターはSQLを実行して検証もしてくれますか？" data-guide-zh="格式化工具会执行 SQL 来验证吗？">포맷터가 SQL을 실행해서 검증도 해주나요?</h3>
+              <p data-guide-i18n data-guide-ko="아니요. 브라우저 안에서 텍스트 구조만 정리할 뿐 쿼리를 실행하거나 데이터베이스에 연결하지 않습니다. 실제로 실행 가능한 쿼리인지는 별도로 확인해야 합니다." data-guide-en="No. It only rearranges the text structure in your browser and never executes the query or connects to a database. Whether the query actually runs successfully still needs to be checked separately." data-guide-ja="いいえ。ブラウザー内でテキスト構造を整理するだけで、クエリを実行したりデータベースに接続したりすることはありません。実際に実行可能なクエリかどうかは別途確認する必要があります。" data-guide-zh="不会。它只在浏览器中整理文本结构，不会执行查询或连接数据库。查询是否真的能成功运行，仍需另行确认。">아니요. 브라우저 안에서 텍스트 구조만 정리할 뿐 쿼리를 실행하거나 데이터베이스에 연결하지 않습니다. 실제로 실행 가능한 쿼리인지는 별도로 확인해야 합니다.</p>
+            </article>
+            <article>
+              <h3 data-guide-i18n data-guide-ko="어떤 데이터베이스에서도 그대로 쓸 수 있는 형식인가요?" data-guide-en="Is the formatted output usable in any database?" data-guide-ja="どのデータベースでもそのまま使える形式ですか？" data-guide-zh="格式化后的输出适用于任何数据库吗？">어떤 데이터베이스에서도 그대로 쓸 수 있는 형식인가요?</h3>
+              <p data-guide-i18n data-guide-ko="SELECT, INSERT, UPDATE 같은 표준 SQL 구조를 기준으로 정리하므로 대부분의 데이터베이스에서 무리 없이 통용됩니다. 다만 특정 DB 전용 문법(예: 백틱, 특수 연산자)까지 완벽히 대응하지는 않으므로, 방언이 강한 쿼리는 결과를 한 번 확인하는 것이 좋습니다." data-guide-en="Since it formats around standard SQL structures like SELECT, INSERT, and UPDATE, the output works fine across most databases. It doesn't perfectly handle database-specific syntax such as backticks or special operators, though, so it's worth reviewing the result for queries with a lot of dialect-specific syntax." data-guide-ja="SELECT、INSERT、UPDATEのような標準SQL構造を基準に整理するため、ほとんどのデータベースで問題なく通用します。ただしバッククォートや特殊演算子のような特定DB専用の構文までは完全に対応していないため、方言の強いクエリは結果を一度確認することをおすすめします。" data-guide-zh="由于它是按 SELECT、INSERT、UPDATE 等标准 SQL 结构来整理，输出在大多数数据库中都能正常使用。不过它无法完美处理反引号、特殊运算符等特定数据库专有语法，因此方言较强的查询建议再检查一遍结果。">SELECT, INSERT, UPDATE 같은 표준 SQL 구조를 기준으로 정리하므로 대부분의 데이터베이스에서 무리 없이 통용됩니다. 다만 특정 DB 전용 문법(예: 백틱, 특수 연산자)까지 완벽히 대응하지는 않으므로, 방언이 강한 쿼리는 결과를 한 번 확인하는 것이 좋습니다.</p>
+            </article>
+          </div>
+          <p class="guide-related-link"><a href="../../tools/converter/sql-formatter/" data-guide-i18n data-guide-ko="SQL 포맷터로 직접 확인해보기" data-guide-en="Try it yourself in the SQL formatter" data-guide-ja="SQLフォーマッターで実際に確認する" data-guide-zh="在 SQL 格式化工具中亲自试试">SQL 포맷터로 직접 확인해보기</a></p>
+        </div>
+<!-- ARTICLE_END -->
+      </section>
+      <aside class="ad-slot" aria-label="광고 영역"><span>Advertisement</span></aside>
+    </main>
+    <footer class="site-footer">
+      <nav class="footer-links" aria-label="사이트 정보">
+        <a href="../../about.html">소개</a>
+        <a href="../../guides/">가이드</a>
+        <a href="../../contact.html">문의</a>
+        <a href="../../privacy.html">개인정보처리방침</a>
+      </nav>
+      <span>All tools run in your browser.</span>
+    </footer>
+    <script type="application/ld+json">[{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"포맷터가 SQL을 실행해서 검증도 해주나요?","acceptedAnswer":{"@type":"Answer","text":"아니요. 브라우저 안에서 텍스트 구조만 정리할 뿐 쿼리를 실행하거나 데이터베이스에 연결하지 않습니다. 실제로 실행 가능한 쿼리인지는 별도로 확인해야 합니다."}},{"@type":"Question","name":"어떤 데이터베이스에서도 그대로 쓸 수 있는 형식인가요?","acceptedAnswer":{"@type":"Answer","text":"SELECT, INSERT, UPDATE 같은 표준 SQL 구조를 기준으로 정리하므로 대부분의 데이터베이스에서 무리 없이 통용됩니다. 다만 특정 DB 전용 문법(예: 백틱, 특수 연산자)까지 완벽히 대응하지는 않으므로, 방언이 강한 쿼리는 결과를 한 번 확인하는 것이 좋습니다."}}]}]</script>
+  </body>
+</html>

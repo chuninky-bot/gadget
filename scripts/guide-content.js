@@ -124,6 +124,10 @@ module.exports = {
         a: { ko: "브라우저 메모리 안에서 처리되므로 대부분의 API 응답과 로그 크기를 실시간으로 정리할 수 있으며, 입력 내용은 서버로 전송되지 않습니다.", en: "Since it runs in your browser's memory, it can format most API responses and log sizes in real time, and your input is never sent to a server.", ja: "ブラウザーのメモリ内で処理されるため、ほとんどのAPIレスポンスやログのサイズをリアルタイムで整理でき、入力内容がサーバーへ送信されることはありません。", zh: "由于在浏览器内存中处理，可以实时格式化大多数 API 响应和日志大小，且输入内容不会发送到服务器。" },
       },
     ],
+    relatedGuide: {
+      href: "../../../guides/what-is-json/",
+      label: { ko: "가이드 보기: JSON이란 무엇인가", en: "Read the guide: What is JSON?", ja: "ガイドを読む: JSONとは何か", zh: "阅读指南：什么是 JSON？" },
+    },
   },
 
   "/tools/converter/uuid-generator/": {
@@ -185,6 +189,10 @@ module.exports = {
         a: { ko: "아니요. UUID는 브라우저 안에서만 생성되며 사이트 운영자를 포함해 어디로도 전송되거나 저장되지 않습니다.", en: "No. UUIDs are generated entirely in your browser and are never sent or stored anywhere, including by the site operator.", ja: "いいえ。UUIDはブラウザー内でのみ生成され、サイト運営者を含めどこにも送信・保存されません。", zh: "不会。UUID 仅在浏览器中生成，不会发送或保存到任何地方，包括网站运营者。" },
       },
     ],
+    relatedGuide: {
+      href: "../../../guides/what-is-uuid/",
+      label: { ko: "가이드 보기: UUID란 무엇이고 왜 필요한가", en: "Read the guide: What is a UUID and why use one?", ja: "ガイドを読む: UUIDとは何か、なぜ必要か", zh: "阅读指南：什么是 UUID，为什么需要它？" },
+    },
   },
 
   "/tools/converter/xml-formatter/": {
@@ -307,6 +315,10 @@ module.exports = {
         a: { ko: "네. 모든 정리는 브라우저 안에서만 처리되며 입력한 쿼리는 서버로 전송되지 않습니다.", en: "Yes. All formatting happens in your browser, and the query you paste is never sent to a server.", ja: "はい。すべての整理はブラウザー内でのみ処理され、入力したクエリがサーバーへ送信されることはありません。", zh: "是的。所有整理都在浏览器中完成，输入的查询不会发送到服务器。" },
       },
     ],
+    relatedGuide: {
+      href: "../../../guides/sql-formatting-tips/",
+      label: { ko: "가이드 보기: SQL을 보기 좋게 정리해야 하는 이유", en: "Read the guide: Why formatting SQL queries matters", ja: "ガイドを読む: SQLを整形すべき理由", zh: "阅读指南：为什么要格式化 SQL 查询" },
+    },
   },
 
   "/tools/converter/excel-cleaner/": {
@@ -368,6 +380,10 @@ module.exports = {
         a: { ko: "네. 정리된 결과는 선택한 구분자에 맞춰 제공되므로 엑셀이나 구글 시트에 바로 붙여넣기 좋은 형태입니다.", en: "Yes. The cleaned result follows your chosen delimiter, so it's ready to paste directly into Excel or Google Sheets.", ja: "はい。整理された結果は選択した区切り文字に合わせて提供されるため、ExcelやGoogleスプレッドシートにそのまま貼り付けやすい形式です。", zh: "可以。整理后的结果会按所选分隔符输出，适合直接粘贴到 Excel 或 Google 表格。" },
       },
     ],
+    relatedGuide: {
+      href: "../../../guides/csv-tsv-excel-guide/",
+      label: { ko: "가이드 보기: CSV·TSV와 엑셀 호환 데이터 정리하기", en: "Read the guide: Cleaning up CSV/TSV data for Excel", ja: "ガイドを読む: CSV・TSVとExcel互換データの整理方法", zh: "阅读指南：整理 CSV/TSV 数据以兼容 Excel" },
+    },
   },
 
   "/tools/text/ascii-art/": {
@@ -490,6 +506,10 @@ module.exports = {
         a: { ko: "아니요. 모든 변환은 브라우저 안에서 즉시 처리되며 입력값은 저장되지 않습니다.", en: "No. All conversions happen instantly in your browser, and your input is never stored.", ja: "いいえ。すべての変換はブラウザー内で即座に処理され、入力値は保存されません。", zh: "不会。所有转换都在浏览器中即时完成，输入内容不会被保存。" },
       },
     ],
+    relatedGuide: {
+      href: "../../../guides/utf8-euckr-encoding/",
+      label: { ko: "가이드 보기: UTF-8과 EUC-KR, 한글이 깨지는 이유", en: "Read the guide: UTF-8 vs EUC-KR, why Korean text breaks", ja: "ガイドを読む: UTF-8とEUC-KR、文字化けが起きる理由", zh: "阅读指南：UTF-8 与 EUC-KR，乱码的原因" },
+    },
   },
 
   "/tools/converter/base64-encoding/": {

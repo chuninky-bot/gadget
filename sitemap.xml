@@ -157,6 +157,42 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://web-tool.shop/guides/</loc>
+    <lastmod>2026-07-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://web-tool.shop/guides/what-is-json/</loc>
+    <lastmod>2026-07-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://web-tool.shop/guides/utf8-euckr-encoding/</loc>
+    <lastmod>2026-07-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://web-tool.shop/guides/sql-formatting-tips/</loc>
+    <lastmod>2026-07-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://web-tool.shop/guides/csv-tsv-excel-guide/</loc>
+    <lastmod>2026-07-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://web-tool.shop/guides/what-is-uuid/</loc>
+    <lastmod>2026-07-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://web-tool.shop/about.html</loc>
     <lastmod>2026-07-15</lastmod>
     <changefreq>yearly</changefreq>

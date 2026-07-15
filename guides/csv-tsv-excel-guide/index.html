@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CSV·TSV와 엑셀 호환 데이터 정리하기 - Web-Tool.Shop</title>
+    <meta name="description" content="CSV와 TSV의 차이, 따옴표와 구분자 때문에 데이터가 깨지는 이유, 엑셀에 붙여넣기 전에 확인해야 할 점을 설명합니다.">
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <script defer src="../../assets/js/site-shell.js"></script>
+    <script defer src="../../assets/js/i18n.js"></script>
+    <script defer src="../../assets/js/recent-tools.js"></script>
+    <!-- ADSENSE_AUTO_ADS_START -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4090506341453745" crossorigin="anonymous"></script>
+    <!-- ADSENSE_AUTO_ADS_END -->
+  
+    <!-- SEO_META_START -->
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://web-tool.shop/guides/csv-tsv-excel-guide/">
+    <link rel="alternate" type="application/rss+xml" title="Web-Tool.Shop RSS" href="https://web-tool.shop/rss.xml">
+    <meta property="og:site_name" content="Web-Tool.Shop">
+    <meta property="og:title" content="CSV·TSV와 엑셀 호환 데이터 정리하기 - Web-Tool.Shop">
+    <meta property="og:description" content="CSV와 TSV의 차이, 따옴표와 구분자 때문에 데이터가 깨지는 이유, 엑셀에 붙여넣기 전에 확인해야 할 점을 설명합니다.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://web-tool.shop/guides/csv-tsv-excel-guide/">
+    <meta property="og:locale" content="ko_KR">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="CSV·TSV와 엑셀 호환 데이터 정리하기 - Web-Tool.Shop">
+    <meta name="twitter:description" content="CSV와 TSV의 차이, 따옴표와 구분자 때문에 데이터가 깨지는 이유, 엑셀에 붙여넣기 전에 확인해야 할 점을 설명합니다.">
+    <meta name="google-site-verification" content="MsQNBQo4_XDzQPkjILgSE4J0OFXplRSH04f45AGVT7Q">
+    <meta name="naver-site-verification" content="515af50036d733e32f8cb5b5f85a91db00ea3b07" />
+    <!-- SEO_META_END -->
+    <!-- STRUCTURED_DATA_START -->
+    <script type="application/ld+json">[{"@context":"https://schema.org","@type":"Organization","name":"Web-Tool.Shop","url":"https://web-tool.shop"},{"@context":"https://schema.org","@type":"Article","name":"CSV·TSV와 엑셀 호환 데이터 정리하기 - Web-Tool.Shop","url":"https://web-tool.shop/guides/csv-tsv-excel-guide/","description":"CSV와 TSV의 차이, 따옴표와 구분자 때문에 데이터가 깨지는 이유, 엑셀에 붙여넣기 전에 확인해야 할 점을 설명합니다.","inLanguage":"ko-KR"},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Web-Tool.Shop","item":"https://web-tool.shop/"},{"@type":"ListItem","position":2,"name":"가이드","item":"https://web-tool.shop/guides/"},{"@type":"ListItem","position":3,"name":"CSV·TSV와 엑셀 호환 데이터 정리하기","item":"https://web-tool.shop/guides/csv-tsv-excel-guide/"}]}]</script>
+    <!-- STRUCTURED_DATA_END -->
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="../../">Web-Tool.Shop</a>
+      <nav class="nav" aria-label="주요 메뉴">
+        <a href="../../tools/text/">텍스트</a>
+        <a href="../../tools/converter/">자료형 변환</a>
+        <a href="../../tools/diff/compare/">DIFF 도구</a>
+        <a href="../../tools/design/">디자인</a>
+        <a href="../../tools/css-art/">CSS-ART</a>
+        <a href="../">가이드</a>
+      </nav>
+    </header>
+    <main>
+      <nav class="breadcrumb" aria-label="경로"><a href="../../">홈</a><span>/</span><a href="../">가이드</a><span>/</span><span>CSV·TSV와 엑셀 호환 데이터 정리하기</span></nav>
+      <section class="section">
+        <div class="section-heading">
+          <h1>CSV·TSV와 엑셀 호환 데이터 정리하기</h1>
+          <p>쉼표 하나, 따옴표 하나로 표가 어긋나는 이유를 정리했습니다.</p>
+        </div>
+<!-- ARTICLE_START -->
+        <div class="tool-shell prose-panel">
+          <article>
+            <p data-guide-i18n data-guide-ko="CSV(쉼표로 구분된 값)와 TSV(탭으로 구분된 값)는 표 데이터를 순수 텍스트로 표현하는 가장 단순한 형식입니다. 각 줄이 하나의 행이고, 그 안의 값들을 쉼표나 탭으로 나누는 것이 전부지만, 구조가 단순한 만큼 값 하나만 잘못되어도 표 전체가 어긋나기 쉽습니다." data-guide-en="CSV (comma-separated values) and TSV (tab-separated values) are the simplest way to represent tabular data as plain text: each line is a row, and values within it are split by a comma or a tab. That simplicity also means a single misplaced value can throw off the entire table." data-guide-ja="CSV（カンマ区切り値）とTSV（タブ区切り値）は、表データをプレーンテキストで表現する最もシンプルな形式です。各行が一つの行であり、その中の値をカンマまたはタブで区切るだけですが、構造がシンプルな分、値が一つ間違っているだけで表全体がずれやすくなります。" data-guide-zh="CSV（逗号分隔值）和 TSV（制表符分隔值）是用纯文本表示表格数据最简单的方式：每一行代表一条记录，行内的值用逗号或制表符分隔。正因为结构简单，只要一个值出错，整张表就很容易错位。">CSV(쉼표로 구분된 값)와 TSV(탭으로 구분된 값)는 표 데이터를 순수 텍스트로 표현하는 가장 단순한 형식입니다. 각 줄이 하나의 행이고, 그 안의 값들을 쉼표나 탭으로 나누는 것이 전부지만, 구조가 단순한 만큼 값 하나만 잘못되어도 표 전체가 어긋나기 쉽습니다.</p>
+          </article>
+          <article>
+            <h2 data-guide-i18n data-guide-ko="CSV와 TSV, 언제 무엇을 쓸까" data-guide-en="CSV vs TSV: which to use when" data-guide-ja="CSVとTSV、どちらをいつ使うか" data-guide-zh="CSV 与 TSV：何时用哪个">CSV와 TSV, 언제 무엇을 쓸까</h2>
+            <p data-guide-i18n data-guide-ko="CSV는 엑셀의 기본 내보내기 형식이라 가장 널리 쓰이지만, 주소나 설명처럼 값 안에 쉼표가 자주 등장하는 데이터에서는 구분자와 값을 혼동하기 쉽습니다. 반대로 TSV는 일반 텍스트에 탭 문자가 거의 등장하지 않아 이런 충돌이 적고, 쉼표가 많은 데이터를 다룰 때 더 안전한 선택이 됩니다." data-guide-en="CSV is the most widely used format because it's Excel's default export, but for data where values often contain commas, like addresses or descriptions, it's easy to confuse the delimiter with the value itself. TSV, on the other hand, rarely runs into that conflict since tab characters almost never appear in ordinary text, making it a safer choice for comma-heavy data." data-guide-ja="CSVはExcelの標準の書き出し形式であるため最も広く使われていますが、住所や説明文のように値の中にカンマが頻繁に登場するデータでは、区切り文字と値を混同しやすくなります。一方TSVは、通常のテキストにタブ文字がほとんど登場しないためこうした衝突が少なく、カンマの多いデータを扱う際により安全な選択になります。" data-guide-zh="CSV 是 Excel 的默认导出格式，因此使用最广泛，但在地址、描述等值中经常出现逗号的数据里，很容易把分隔符和值本身混淆。相反，TSV 中的制表符几乎不会出现在普通文本里，冲突更少，处理逗号较多的数据时是更安全的选择。">CSV는 엑셀의 기본 내보내기 형식이라 가장 널리 쓰이지만, 주소나 설명처럼 값 안에 쉼표가 자주 등장하는 데이터에서는 구분자와 값을 혼동하기 쉽습니다. 반대로 TSV는 일반 텍스트에 탭 문자가 거의 등장하지 않아 이런 충돌이 적고, 쉼표가 많은 데이터를 다룰 때 더 안전한 선택이 됩니다.</p>
+          </article>
+          <article>
+            <h2 data-guide-i18n data-guide-ko="표가 깨지는 이유" data-guide-en="Why tables break" data-guide-ja="表が崩れる理由" data-guide-zh="表格错乱的原因">표가 깨지는 이유</h2>
+            <p data-guide-i18n data-guide-ko="구분자와 같은 문자가 값 안에 그대로 들어 있으면, 그 값이 어디서 끝나는지 프로그램이 알 수 없어 이후의 모든 열이 한 칸씩 밀립니다. 값 안의 따옴표가 짝을 이루지 못하거나, 행마다 열 개수가 다른 경우도 흔한 원인입니다." data-guide-en="If the delimiter character itself appears inside a value without escaping, a program can't tell where that value ends, and every column after it shifts by one. Unmatched quotes inside a value, or rows with a different number of columns than the rest, are also common causes." data-guide-ja="区切り文字と同じ文字が値の中にそのまま含まれていると、その値がどこで終わるのかプログラムが判断できず、以降のすべての列が一つずつずれてしまいます。値の中の引用符が対になっていない場合や、行ごとに列数が異なる場合もよくある原因です。" data-guide-zh="如果分隔符本身原样出现在值内部而未被转义，程序就无法判断这个值到哪里结束，导致之后的每一列都错位一格。值内部引号不成对，或者各行的列数不一致，也是常见的原因。">구분자와 같은 문자가 값 안에 그대로 들어 있으면, 그 값이 어디서 끝나는지 프로그램이 알 수 없어 이후의 모든 열이 한 칸씩 밀립니다. 값 안의 따옴표가 짝을 이루지 못하거나, 행마다 열 개수가 다른 경우도 흔한 원인입니다.</p>
+          </article>
+          <article>
+            <h2 data-guide-i18n data-guide-ko="따옴표 규칙 이해하기" data-guide-en="Understanding the quoting rule" data-guide-ja="引用符ルールの理解" data-guide-zh="理解引号规则">따옴표 규칙 이해하기</h2>
+            <p data-guide-i18n data-guide-ko="표준 CSV 규칙은 간단합니다. 값 안에 구분자, 따옴표, 줄바꿈이 들어 있으면 값 전체를 큰따옴표로 감싸고, 값 안에 있는 따옴표는 두 번 연속 써서(&quot;&quot;) 진짜 따옴표임을 표시합니다. 이 규칙을 지키지 않은 데이터가 CSV 오류의 대부분을 차지합니다." data-guide-en="The standard CSV quoting rule is simple: if a value contains the delimiter, a quote, or a line break, wrap the whole value in double quotes, and write any quote inside it twice in a row (&quot;&quot;) to mark it as a literal quote. Most CSV errors come from data that doesn't follow this rule." data-guide-ja="標準のCSVの引用符ルールはシンプルです。値の中に区切り文字、引用符、改行が含まれる場合は値全体を二重引用符で囲み、値の中にある引用符は2回連続で書いて（&quot;&quot;）本物の引用符であることを示します。このルールに従っていないデータがCSVエラーの大部分を占めます。" data-guide-zh="标准 CSV 的引号规则很简单：如果值中包含分隔符、引号或换行符，就要把整个值用双引号包裹起来，值内部的引号则连写两次（&quot;&quot;）以表示这是真正的引号。大多数 CSV 错误都源于数据没有遵循这条规则。">표준 CSV 규칙은 간단합니다. 값 안에 구분자, 따옴표, 줄바꿈이 들어 있으면 값 전체를 큰따옴표로 감싸고, 값 안에 있는 따옴표는 두 번 연속 써서("")  진짜 따옴표임을 표시합니다. 이 규칙을 지키지 않은 데이터가 CSV 오류의 대부분을 차지합니다.</p>
+          </article>
+          <h2 class="guide-faq-title" data-guide-i18n data-guide-ko="자주 묻는 질문" data-guide-en="Frequently asked questions" data-guide-ja="よくある質問" data-guide-zh="常见问题">자주 묻는 질문</h2>
+          <div class="guide-grid guide-faq">
+            <article>
+              <h3 data-guide-i18n data-guide-ko="CSV 대신 TSV를 언제 쓰는 게 좋나요?" data-guide-en="When should I use TSV instead of CSV?" data-guide-ja="CSVの代わりにTSVを使うべき場面は？" data-guide-zh="什么时候应该用 TSV 而不是 CSV？">CSV 대신 TSV를 언제 쓰는 게 좋나요?</h3>
+              <p data-guide-i18n data-guide-ko="주소, 가격, 설명 문구처럼 값 안에 쉼표가 자주 등장하는 데이터라면 TSV가 구분자 충돌을 피하기 더 쉽습니다. 반대로 값 안에 탭 문자가 들어갈 일이 거의 없다면 TSV 쪽이 더 안전한 선택입니다." data-guide-en="If your data often contains commas inside values, like addresses, prices, or descriptions, TSV makes it easier to avoid delimiter conflicts. Since tab characters rarely appear inside ordinary values, TSV tends to be the safer choice in those cases." data-guide-ja="住所、価格、説明文のように値の中にカンマが頻繁に登場するデータであれば、TSVの方が区切り文字の衝突を避けやすくなります。値の中にタブ文字が入ることはほとんどないため、TSVの方がより安全な選択です。" data-guide-zh="如果数据的值中经常出现逗号，比如地址、价格、描述文字，用 TSV 更容易避免分隔符冲突。由于制表符几乎不会出现在普通值中，这种情况下 TSV 是更安全的选择。">주소, 가격, 설명 문구처럼 값 안에 쉼표가 자주 등장하는 데이터라면 TSV가 구분자 충돌을 피하기 더 쉽습니다. 반대로 값 안에 탭 문자가 들어갈 일이 거의 없다면 TSV 쪽이 더 안전한 선택입니다.</p>
+            </article>
+            <article>
+              <h3 data-guide-i18n data-guide-ko="정리 도구가 원본 데이터의 의미까지 보장하나요?" data-guide-en="Does a cleanup tool guarantee the meaning of the original data?" data-guide-ja="整理ツールは元データの意味まで保証してくれますか？" data-guide-zh="整理工具能保证原始数据的含义吗？">정리 도구가 원본 데이터의 의미까지 보장하나요?</h3>
+              <p data-guide-i18n data-guide-ko="아니요. 닫히지 않은 따옴표나 어긋난 행 길이 같은 구조적 문제를 가능한 범위에서 보정할 뿐, 완전한 파서는 아닙니다. 정리된 결과를 표 미리보기로 확인한 뒤 사용하는 것이 안전합니다." data-guide-en="No. It repairs structural issues like unclosed quotes or mismatched row lengths where possible, but it isn't a fully-accurate parser. It's safest to review the cleaned result in the table preview before using it." data-guide-ja="いいえ。閉じられていない引用符や行の長さのずれといった構造的な問題を可能な範囲で補正するだけで、完全なパーサーではありません。整理された結果を表のプレビューで確認してから使用するのが安全です。" data-guide-zh="不能。它只会尽可能修复未闭合的引号或行长度不一致等结构性问题，并不是完全精确的解析器。使用前建议先在表格预览中确认整理后的结果。">아니요. 닫히지 않은 따옴표나 어긋난 행 길이 같은 구조적 문제를 가능한 범위에서 보정할 뿐, 완전한 파서는 아닙니다. 정리된 결과를 표 미리보기로 확인한 뒤 사용하는 것이 안전합니다.</p>
+            </article>
+          </div>
+          <p class="guide-related-link"><a href="../../tools/converter/excel-cleaner/" data-guide-i18n data-guide-ko="Excel CSV 정리 도구로 직접 확인해보기" data-guide-en="Try it yourself in the Excel CSV cleaner" data-guide-ja="Excel CSV整理ツールで実際に確認する" data-guide-zh="在 Excel CSV 清理工具中亲自试试">Excel CSV 정리 도구로 직접 확인해보기</a></p>
+        </div>
+<!-- ARTICLE_END -->
+      </section>
+      <aside class="ad-slot" aria-label="광고 영역"><span>Advertisement</span></aside>
+    </main>
+    <footer class="site-footer">
+      <nav class="footer-links" aria-label="사이트 정보">
+        <a href="../../about.html">소개</a>
+        <a href="../../guides/">가이드</a>
+        <a href="../../contact.html">문의</a>
+        <a href="../../privacy.html">개인정보처리방침</a>
+      </nav>
+      <span>All tools run in your browser.</span>
+    </footer>
+    <script type="application/ld+json">[{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"CSV 대신 TSV를 언제 쓰는 게 좋나요?","acceptedAnswer":{"@type":"Answer","text":"주소, 가격, 설명 문구처럼 값 안에 쉼표가 자주 등장하는 데이터라면 TSV가 구분자 충돌을 피하기 더 쉽습니다. 반대로 값 안에 탭 문자가 들어갈 일이 거의 없다면 TSV 쪽이 더 안전한 선택입니다."}},{"@type":"Question","name":"정리 도구가 원본 데이터의 의미까지 보장하나요?","acceptedAnswer":{"@type":"Answer","text":"아니요. 닫히지 않은 따옴표나 어긋난 행 길이 같은 구조적 문제를 가능한 범위에서 보정할 뿐, 완전한 파서는 아닙니다. 정리된 결과를 표 미리보기로 확인한 뒤 사용하는 것이 안전합니다."}}]}]</script>
+  </body>
+</html>

@@ -173,6 +173,21 @@ const textTranslations = {
   "All tools run in your browser.": { ko: "모든 도구는 브라우저에서 실행됩니다.", en: "All tools run in your browser.", ja: "すべてのツールはブラウザー内で動作します。", zh: "所有工具都在浏览器中运行。" },
   "개인정보처리방침": { en: "Privacy policy", ja: "プライバシーポリシー", zh: "隐私政策" },
   "소개": { en: "About", ja: "紹介", zh: "关于" },
+  "가이드": { en: "Guides", ja: "ガイド", zh: "指南" },
+  "도구를 쓰기 전에 알아두면 좋은 개념을 짧게 정리했습니다.": { en: "Short explanations of concepts worth knowing before you use a tool.", ja: "ツールを使う前に知っておくと良い概念を短くまとめました。", zh: "简要说明在使用工具之前值得了解的概念。" },
+  "JSON이란 무엇인가": { en: "What is JSON?", ja: "JSONとは何か", zh: "什么是 JSON？" },
+  "API 응답부터 설정 파일까지, 어디서나 마주치는 데이터 형식의 기본을 정리합니다.": { en: "From API responses to config files, here are the basics of a data format you'll run into everywhere.", ja: "APIレスポンスから設定ファイルまで、どこでも出会うデータ形式の基本をまとめます。", zh: "从 API 响应到配置文件，整理你随处会遇到的这种数据格式的基础知识。" },
+  "UTF-8과 EUC-KR, 한글이 깨지는 이유": { en: "UTF-8 vs EUC-KR: why Korean text breaks", ja: "UTF-8とEUC-KR、文字化けが起きる理由", zh: "UTF-8 与 EUC-KR：乱码的原因" },
+  "파일을 열었더니 한글이 이상하게 보인다면, 원인은 대부분 인코딩입니다.": { en: "If Korean text looks strange after opening a file, the cause is almost always encoding.", ja: "ファイルを開いてハングルがおかしく見える場合、原因はほとんどがエンコーディングです。", zh: "如果打开文件后中文/韩文显示异常，原因大多是编码问题。" },
+  "SQL을 보기 좋게 정리해야 하는 이유": { en: "Why formatting SQL queries matters", ja: "SQLを整形すべき理由", zh: "为什么要格式化 SQL 查询" },
+  "압축된 쿼리 한 줄, 리뷰할 때마다 눈이 아팠다면 이 글이 도움이 됩니다.": { en: "If a wall of minified query text has ever made code review painful, this article will help.", ja: "圧縮された1行のクエリで、レビューのたびに目が疲れていたなら、この記事が役立ちます。", zh: "如果压缩成一行的查询曾让你每次审查代码都很痛苦，这篇文章会有帮助。" },
+  "CSV·TSV와 엑셀 호환 데이터 정리하기": { en: "Cleaning up CSV/TSV data for Excel", ja: "CSV・TSVとExcel互換データの整理方法", zh: "整理 CSV/TSV 数据以兼容 Excel" },
+  "쉼표 하나, 따옴표 하나로 표가 어긋나는 이유를 정리했습니다.": { en: "Here's why a single comma or quote can throw an entire table out of alignment.", ja: "カンマ一つ、引用符一つで表がずれる理由をまとめました。", zh: "整理了为什么一个逗号或引号就能让整张表格错位。" },
+  "UUID란 무엇이고 왜 필요한가": { en: "What is a UUID and why use one?", ja: "UUIDとは何か、なぜ必要か", zh: "什么是 UUID，为什么需要它？" },
+  "1, 2, 3 대신 무작위 문자열을 ID로 쓰는 이유를 설명합니다.": { en: "Explains why systems use a random string instead of 1, 2, 3 for IDs.", ja: "1, 2, 3の代わりにランダムな文字列をIDとして使う理由を解説します。", zh: "解释为什么系统用随机字符串而不是 1、2、3 作为 ID。" },
+  "JSON의 기본 구조와 자주 발생하는 문법 오류를 정리합니다.": { en: "The basic structure of JSON and common syntax mistakes.", ja: "JSONの基本構造とよくある文法エラーを整理します。", zh: "介绍 JSON 的基本结构和常见语法错误。" },
+  "문자 인코딩이 무엇인지, 한글이 깨져 보이는 원인을 설명합니다.": { en: "What character encoding is, and why text can look garbled.", ja: "文字エンコーディングとは何か、文字化けの原因を解説します。", zh: "介绍字符编码是什么，以及文本乱码的原因。" },
+  "UUID가 무엇인지, 자동 증가 ID 대신 쓰는 이유를 설명합니다.": { en: "What a UUID is, and why it's used instead of auto-increment IDs.", ja: "UUIDとは何か、自動採番IDの代わりに使う理由を解説します。", zh: "介绍 UUID 是什么，以及为什么用它代替自增 ID。" },
   "문의": { en: "Contact", ja: "お問い合わせ", zh: "联系" },
   "사이트 정보": { en: "Site information", ja: "サイト情報", zh: "站点信息" },
   "Web-Tool.Shop 소개": { en: "About Web-Tool.Shop", ja: "Web-Tool.Shopについて", zh: "关于 Web-Tool.Shop" },
@@ -523,6 +538,30 @@ const pageTranslations = {
     title: { ko: "DIFF 도구 - Web-Tool.Shop", en: "DIFF tool - Web-Tool.Shop", ja: "DIFFツール - Web-Tool.Shop", zh: "DIFF 工具 - Web-Tool.Shop" },
     description: { ko: "텍스트, JSON, XML 두 값을 compare diff 방식으로 비교하고 추가, 삭제, 변경 라인을 확인하는 무료 DIFF 도구입니다.", en: "A free DIFF tool for comparing two text, JSON, or XML values with a compare diff view and checking added, removed, and changed lines.", ja: "2つのText、JSON、XMLをcompare diff形式で比較し、追加、削除、変更行を確認できる無料DIFFツールです。", zh: "免费的 DIFF 工具，可用 compare diff 视图比较两段文本、JSON 或 XML，并查看新增、删除和变更行。" },
   },
+  "/guides/": {
+    title: { ko: "가이드 - Web-Tool.Shop", en: "Guides - Web-Tool.Shop", ja: "ガイド - Web-Tool.Shop", zh: "指南 - Web-Tool.Shop" },
+    description: { ko: "JSON, 인코딩, SQL, CSV, UUID 같은 개발과 문서 작업의 기본 개념을 설명하는 무료 가이드 모음입니다.", en: "Free guides explaining core concepts behind JSON, encoding, SQL, CSV, and UUID for everyday development and document work.", ja: "JSON、エンコード、SQL、CSV、UUIDなど、開発と文書作業の基本概念を解説する無料ガイド集です。", zh: "免费指南集合，讲解 JSON、编码、SQL、CSV、UUID 等日常开发与文档工作中的基础概念。" },
+  },
+  "/guides/what-is-json/": {
+    title: { ko: "JSON이란 무엇인가 - Web-Tool.Shop", en: "What is JSON? - Web-Tool.Shop", ja: "JSONとは何か - Web-Tool.Shop", zh: "什么是 JSON？ - Web-Tool.Shop" },
+    description: { ko: "JSON의 기본 구조와 자주 발생하는 문법 오류, JSON 포맷터로 빠르게 확인하는 방법을 설명합니다.", en: "Learn the basic structure of JSON, common syntax mistakes, and how to check them quickly with a JSON formatter.", ja: "JSONの基本構造、よくある文法エラー、JSONフォーマッターで素早く確認する方法を解説します。", zh: "介绍 JSON 的基本结构、常见语法错误，以及如何用 JSON 格式化工具快速检查。" },
+  },
+  "/guides/utf8-euckr-encoding/": {
+    title: { ko: "UTF-8과 EUC-KR, 한글이 깨지는 이유 - Web-Tool.Shop", en: "UTF-8 vs EUC-KR: Why Korean text breaks - Web-Tool.Shop", ja: "UTF-8とEUC-KR、文字化けが起きる理由 - Web-Tool.Shop", zh: "UTF-8 与 EUC-KR：中文/韩文乱码的原因 - Web-Tool.Shop" },
+    description: { ko: "문자 인코딩이 무엇인지, UTF-8과 EUC-KR의 차이, 한글이 깨져 보일 때 인코딩 변환 도구로 원인을 찾는 방법을 설명합니다.", en: "Explains what character encoding is, the difference between UTF-8 and EUC-KR, and how to find the cause with an encoding converter when text looks garbled.", ja: "文字エンコーディングとは何か、UTF-8とEUC-KRの違い、文字化けが起きたときにエンコード変換ツールで原因を調べる方法を解説します。", zh: "介绍字符编码是什么、UTF-8 与 EUC-KR 的区别，以及文本乱码时如何用编码转换工具查找原因。" },
+  },
+  "/guides/sql-formatting-tips/": {
+    title: { ko: "SQL을 보기 좋게 정리해야 하는 이유 - Web-Tool.Shop", en: "Why formatting SQL queries matters - Web-Tool.Shop", ja: "SQLを整形すべき理由 - Web-Tool.Shop", zh: "为什么要格式化 SQL 查询 - Web-Tool.Shop" },
+    description: { ko: "압축된 SQL 쿼리가 읽기 어려운 이유와 키워드 대문자화, 줄바꿈 정리가 코드 리뷰에 도움이 되는 이유를 설명합니다.", en: "Explains why minified SQL queries are hard to read, and how keyword casing and line breaks help during code review.", ja: "圧縮されたSQLクエリが読みにくい理由と、キーワードの大文字化や改行整理がコードレビューに役立つ理由を解説します。", zh: "解释压缩的 SQL 查询为何难以阅读，以及关键字大写和换行整理为何有助于代码审查。" },
+  },
+  "/guides/csv-tsv-excel-guide/": {
+    title: { ko: "CSV·TSV와 엑셀 호환 데이터 정리하기 - Web-Tool.Shop", en: "Cleaning up CSV/TSV data for Excel - Web-Tool.Shop", ja: "CSV・TSVとExcel互換データの整理方法 - Web-Tool.Shop", zh: "整理 CSV/TSV 数据以兼容 Excel - Web-Tool.Shop" },
+    description: { ko: "CSV와 TSV의 차이, 따옴표와 구분자 때문에 데이터가 깨지는 이유, 엑셀에 붙여넣기 전에 확인해야 할 점을 설명합니다.", en: "Explains the difference between CSV and TSV, why quotes and delimiters break data, and what to check before pasting into Excel.", ja: "CSVとTSVの違い、引用符と区切り文字でデータが崩れる理由、Excelに貼り付ける前に確認すべき点を解説します。", zh: "介绍 CSV 与 TSV 的区别、引号和分隔符导致数据错乱的原因，以及粘贴到 Excel 前应检查的内容。" },
+  },
+  "/guides/what-is-uuid/": {
+    title: { ko: "UUID란 무엇이고 왜 필요한가 - Web-Tool.Shop", en: "What is a UUID and why use one? - Web-Tool.Shop", ja: "UUIDとは何か、なぜ必要か - Web-Tool.Shop", zh: "什么是 UUID，为什么需要它？ - Web-Tool.Shop" },
+    description: { ko: "UUID가 무엇인지, 자동 증가 ID 대신 UUID를 쓰는 이유, UUID v4가 무작위로 생성되는 원리를 설명합니다.", en: "Explains what a UUID is, why developers use UUIDs instead of auto-increment IDs, and how UUID v4 values are randomly generated.", ja: "UUIDとは何か、自動採番IDの代わりにUUIDを使う理由、UUID v4がランダムに生成される仕組みを解説します。", zh: "介绍什么是 UUID、为什么开发者用 UUID 代替自增 ID，以及 UUID v4 是如何随机生成的。" },
+  },
   "/privacy.html": {
     title: { ko: "개인정보처리방침 안내 - Web-Tool.Shop", en: "Privacy policy - Web-Tool.Shop", ja: "プライバシーポリシー - Web-Tool.Shop", zh: "隐私政策 - Web-Tool.Shop" },
     description: { ko: "Web-Tool.Shop의 브라우저 기반 도구, 광고, 쿠키, 문의 처리와 관련된 개인정보처리방침입니다.", en: "Privacy policy for Web-Tool.Shop browser-based tools, advertising, cookies, and contact handling.", ja: "Web-Tool.Shopのブラウザーベースツール、広告、Cookie、お問い合わせ対応に関するプライバシーポリシーです。", zh: "Web-Tool.Shop 关于浏览器工具、广告、Cookie 和联系处理的隐私政策。" },
@@ -585,6 +624,8 @@ function normalizePath() {
   let path = window.location.pathname.replace(/\/index\.html$/, "/");
   const toolsIndex = path.indexOf("/tools/");
   if (toolsIndex >= 0) return path.slice(toolsIndex);
+  const guidesIndex = path.indexOf("/guides/");
+  if (guidesIndex >= 0) return path.slice(guidesIndex);
   if (path.endsWith("/about.html")) return "/about.html";
   if (path.endsWith("/contact.html")) return "/contact.html";
   if (path.endsWith("/privacy.html")) return "/privacy.html";

@@ -288,6 +288,60 @@ const pages = [
     changefreq: "monthly",
   },
   {
+    file: "guides/index.html",
+    url: "/guides/",
+    title: "가이드 - Web-Tool.Shop",
+    description: "JSON, 인코딩, SQL, CSV, UUID 같은 개발과 문서 작업의 기본 개념을 설명하는 무료 가이드 모음입니다.",
+    type: "CollectionPage",
+    priority: "0.6",
+    changefreq: "monthly",
+  },
+  {
+    file: "guides/what-is-json/index.html",
+    url: "/guides/what-is-json/",
+    title: "JSON이란 무엇인가 - Web-Tool.Shop",
+    description: "JSON의 기본 구조와 자주 발생하는 문법 오류, JSON 포맷터로 빠르게 확인하는 방법을 설명합니다.",
+    type: "Article",
+    priority: "0.6",
+    changefreq: "yearly",
+  },
+  {
+    file: "guides/utf8-euckr-encoding/index.html",
+    url: "/guides/utf8-euckr-encoding/",
+    title: "UTF-8과 EUC-KR, 한글이 깨지는 이유 - Web-Tool.Shop",
+    description: "문자 인코딩이 무엇인지, UTF-8과 EUC-KR의 차이, 한글이 깨져 보일 때 인코딩 변환 도구로 원인을 찾는 방법을 설명합니다.",
+    type: "Article",
+    priority: "0.6",
+    changefreq: "yearly",
+  },
+  {
+    file: "guides/sql-formatting-tips/index.html",
+    url: "/guides/sql-formatting-tips/",
+    title: "SQL을 보기 좋게 정리해야 하는 이유 - Web-Tool.Shop",
+    description: "압축된 SQL 쿼리가 읽기 어려운 이유와 키워드 대문자화, 줄바꿈 정리가 코드 리뷰에 도움이 되는 이유를 설명합니다.",
+    type: "Article",
+    priority: "0.6",
+    changefreq: "yearly",
+  },
+  {
+    file: "guides/csv-tsv-excel-guide/index.html",
+    url: "/guides/csv-tsv-excel-guide/",
+    title: "CSV·TSV와 엑셀 호환 데이터 정리하기 - Web-Tool.Shop",
+    description: "CSV와 TSV의 차이, 따옴표와 구분자 때문에 데이터가 깨지는 이유, 엑셀에 붙여넣기 전에 확인해야 할 점을 설명합니다.",
+    type: "Article",
+    priority: "0.6",
+    changefreq: "yearly",
+  },
+  {
+    file: "guides/what-is-uuid/index.html",
+    url: "/guides/what-is-uuid/",
+    title: "UUID란 무엇이고 왜 필요한가 - Web-Tool.Shop",
+    description: "UUID가 무엇인지, 자동 증가 ID 대신 UUID를 쓰는 이유, UUID v4가 무작위로 생성되는 원리를 설명합니다.",
+    type: "Article",
+    priority: "0.6",
+    changefreq: "yearly",
+  },
+  {
     file: "about.html",
     url: "/about.html",
     title: "Web-Tool.Shop 소개",
@@ -349,6 +403,7 @@ function breadcrumbFor(page) {
   const parts = [{ name: siteName, item: absoluteUrl("/") }];
   if (page.url.startsWith("/tools/text/")) parts.push({ name: "텍스트 도구", item: absoluteUrl("/tools/text/") });
   if (page.url.startsWith("/tools/converter/")) parts.push({ name: "자료형 변환", item: absoluteUrl("/tools/converter/") });
+  if (page.url.startsWith("/guides/") && page.url !== "/guides/") parts.push({ name: "가이드", item: absoluteUrl("/guides/") });
   parts.push({ name: page.title.replace(` - ${siteName}`, ""), item: absoluteUrl(page.url) });
 
   return {

@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>JSON이란 무엇인가 - Web-Tool.Shop</title>
+    <meta name="description" content="JSON의 기본 구조와 자주 발생하는 문법 오류, JSON 포맷터로 빠르게 확인하는 방법을 설명합니다.">
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <script defer src="../../assets/js/site-shell.js"></script>
+    <script defer src="../../assets/js/i18n.js"></script>
+    <script defer src="../../assets/js/recent-tools.js"></script>
+    <!-- ADSENSE_AUTO_ADS_START -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4090506341453745" crossorigin="anonymous"></script>
+    <!-- ADSENSE_AUTO_ADS_END -->
+  
+    <!-- SEO_META_START -->
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://web-tool.shop/guides/what-is-json/">
+    <link rel="alternate" type="application/rss+xml" title="Web-Tool.Shop RSS" href="https://web-tool.shop/rss.xml">
+    <meta property="og:site_name" content="Web-Tool.Shop">
+    <meta property="og:title" content="JSON이란 무엇인가 - Web-Tool.Shop">
+    <meta property="og:description" content="JSON의 기본 구조와 자주 발생하는 문법 오류, JSON 포맷터로 빠르게 확인하는 방법을 설명합니다.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://web-tool.shop/guides/what-is-json/">
+    <meta property="og:locale" content="ko_KR">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="JSON이란 무엇인가 - Web-Tool.Shop">
+    <meta name="twitter:description" content="JSON의 기본 구조와 자주 발생하는 문법 오류, JSON 포맷터로 빠르게 확인하는 방법을 설명합니다.">
+    <meta name="google-site-verification" content="MsQNBQo4_XDzQPkjILgSE4J0OFXplRSH04f45AGVT7Q">
+    <meta name="naver-site-verification" content="515af50036d733e32f8cb5b5f85a91db00ea3b07" />
+    <!-- SEO_META_END -->
+    <!-- STRUCTURED_DATA_START -->
+    <script type="application/ld+json">[{"@context":"https://schema.org","@type":"Organization","name":"Web-Tool.Shop","url":"https://web-tool.shop"},{"@context":"https://schema.org","@type":"Article","name":"JSON이란 무엇인가 - Web-Tool.Shop","url":"https://web-tool.shop/guides/what-is-json/","description":"JSON의 기본 구조와 자주 발생하는 문법 오류, JSON 포맷터로 빠르게 확인하는 방법을 설명합니다.","inLanguage":"ko-KR"},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Web-Tool.Shop","item":"https://web-tool.shop/"},{"@type":"ListItem","position":2,"name":"가이드","item":"https://web-tool.shop/guides/"},{"@type":"ListItem","position":3,"name":"JSON이란 무엇인가","item":"https://web-tool.shop/guides/what-is-json/"}]}]</script>
+    <!-- STRUCTURED_DATA_END -->
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="../../">Web-Tool.Shop</a>
+      <nav class="nav" aria-label="주요 메뉴">
+        <a href="../../tools/text/">텍스트</a>
+        <a href="../../tools/converter/">자료형 변환</a>
+        <a href="../../tools/diff/compare/">DIFF 도구</a>
+        <a href="../../tools/design/">디자인</a>
+        <a href="../../tools/css-art/">CSS-ART</a>
+        <a href="../">가이드</a>
+      </nav>
+    </header>
+    <main>
+      <nav class="breadcrumb" aria-label="경로"><a href="../../">홈</a><span>/</span><a href="../">가이드</a><span>/</span><span>JSON이란 무엇인가</span></nav>
+      <section class="section">
+        <div class="section-heading">
+          <h1>JSON이란 무엇인가</h1>
+          <p>API 응답부터 설정 파일까지, 어디서나 마주치는 데이터 형식의 기본을 정리합니다.</p>
+        </div>
+<!-- ARTICLE_START -->
+        <div class="tool-shell prose-panel">
+          <article>
+            <p data-guide-i18n data-guide-ko="JSON(JavaScript Object Notation)은 데이터를 키와 값의 쌍으로 표현하는 가벼운 텍스트 형식입니다. 이름에 JavaScript가 들어 있지만 특정 언어에 묶여 있지 않으며, 웹 API 응답, 설정 파일, 브라우저 저장소 등 거의 모든 곳에서 데이터를 주고받는 표준으로 쓰입니다." data-guide-en="JSON (JavaScript Object Notation) is a lightweight text format that represents data as key-value pairs. Despite the name, it isn't tied to any one language — it's the standard way data is exchanged in web API responses, config files, and browser storage." data-guide-ja="JSON（JavaScript Object Notation）は、データをキーと値のペアで表現する軽量なテキスト形式です。名前にJavaScriptが含まれていますが特定の言語に縛られておらず、WebのAPIレスポンス、設定ファイル、ブラウザーストレージなど、ほぼあらゆる場面でデータをやり取りする標準として使われています。" data-guide-zh="JSON（JavaScript Object Notation）是一种以键值对表示数据的轻量级文本格式。虽然名字里有 JavaScript，但它并不绑定于某一种语言，而是 Web API 响应、配置文件、浏览器存储等几乎所有场景中交换数据的标准方式。">JSON(JavaScript Object Notation)은 데이터를 키와 값의 쌍으로 표현하는 가벼운 텍스트 형식입니다. 이름에 JavaScript가 들어 있지만 특정 언어에 묶여 있지 않으며, 웹 API 응답, 설정 파일, 브라우저 저장소 등 거의 모든 곳에서 데이터를 주고받는 표준으로 쓰입니다.</p>
+          </article>
+          <article>
+            <h2 data-guide-i18n data-guide-ko="기본 구조" data-guide-en="Basic structure" data-guide-ja="基本構造" data-guide-zh="基本结构">기본 구조</h2>
+            <p data-guide-i18n data-guide-ko="JSON은 중괄호 { }로 감싼 객체와 대괄호 [ ]로 감싼 배열이라는 두 가지 틀을 조합해 데이터를 표현합니다. 객체는 &quot;키&quot;: 값 쌍을 쉼표로 나열하며, 문자열과 키는 반드시 큰따옴표로 감싸야 합니다. 값에는 문자열, 숫자, true/false, null, 다른 객체나 배열이 올 수 있습니다." data-guide-en="JSON combines two building blocks to represent data: objects wrapped in curly braces { } and arrays wrapped in square brackets [ ]. Objects list &quot;key&quot;: value pairs separated by commas, and both keys and string values must be wrapped in double quotes. Values can be strings, numbers, true/false, null, or another object or array." data-guide-ja="JSONは、中括弧 { } で囲むオブジェクトと角括弧 [ ] で囲む配列という2つの枠組みを組み合わせてデータを表現します。オブジェクトは &quot;キー&quot;: 値 のペアをカンマで並べ、キーと文字列の値は必ず二重引用符で囲む必要があります。値には文字列、数値、true/false、null、他のオブジェクトや配列を指定できます。" data-guide-zh="JSON 通过两种基本结构组合来表示数据：用大括号 { } 包裹的对象和用中括号 [ ] 包裹的数组。对象由用逗号分隔的 &quot;键&quot;: 值 组成，键和字符串值都必须用双引号包裹。值可以是字符串、数字、true/false、null，或另一个对象或数组。">JSON은 중괄호 &#123; &#125;로 감싼 객체와 대괄호 [ ]로 감싼 배열이라는 두 가지 틀을 조합해 데이터를 표현합니다. 객체는 "키": 값 쌍을 쉼표로 나열하며, 문자열과 키는 반드시 큰따옴표로 감싸야 합니다. 값에는 문자열, 숫자, true/false, null, 다른 객체나 배열이 올 수 있습니다.</p>
+          </article>
+          <article>
+            <h2 data-guide-i18n data-guide-ko="자주 하는 실수" data-guide-en="Common mistakes" data-guide-ja="よくある間違い" data-guide-zh="常见错误">자주 하는 실수</h2>
+            <p data-guide-i18n data-guide-ko="작은따옴표로 문자열을 감싸거나, 배열·객체의 마지막 항목 뒤에 쉼표를 남기거나(후행 쉼표), 여는 중괄호나 대괄호에 대응하는 닫는 기호를 빠뜨리는 것이 가장 흔한 오류입니다. 자바스크립트 객체 리터럴에서는 키에 따옴표를 생략할 수 있지만, 표준 JSON에서는 반드시 큰따옴표가 필요합니다." data-guide-en="The most common mistakes are wrapping strings in single quotes, leaving a trailing comma after the last item in an array or object, and forgetting a closing brace or bracket to match an opening one. JavaScript object literals allow unquoted keys, but standard JSON always requires double quotes." data-guide-ja="文字列を一重引用符で囲んだり、配列やオブジェクトの最後の項目の後にカンマを残したり（末尾のカンマ）、開き中括弧や角括弧に対応する閉じ記号を忘れたりするのが最もよくある間違いです。JavaScriptのオブジェクトリテラルではキーの引用符を省略できますが、標準のJSONでは必ず二重引用符が必要です。" data-guide-zh="最常见的错误是用单引号包裹字符串、在数组或对象的最后一项后留下多余的逗号（尾随逗号），以及忘记与开括号对应的闭括号。JavaScript 对象字面量允许省略键的引号，但标准 JSON 始终要求使用双引号。">작은따옴표로 문자열을 감싸거나, 배열·객체의 마지막 항목 뒤에 쉼표를 남기거나(후행 쉼표), 여는 중괄호나 대괄호에 대응하는 닫는 기호를 빠뜨리는 것이 가장 흔한 오류입니다. 자바스크립트 객체 리터럴에서는 키에 따옴표를 생략할 수 있지만, 표준 JSON에서는 반드시 큰따옴표가 필요합니다.</p>
+          </article>
+          <article>
+            <h2 data-guide-i18n data-guide-ko="포맷터가 도움이 되는 이유" data-guide-en="Why a formatter helps" data-guide-ja="フォーマッターが役立つ理由" data-guide-zh="格式化工具为何有用">포맷터가 도움이 되는 이유</h2>
+            <p data-guide-i18n data-guide-ko="API 응답이나 로그에서 복사한 JSON은 대부분 한 줄로 압축되어 있어 구조를 눈으로 파악하기 어렵습니다. JSON 포맷터는 이를 들여쓰기와 함께 펼쳐 보여주고, 위에서 설명한 실수들을 가능한 범위에서 자동으로 보정해 오류 위치를 더 빠르게 찾을 수 있게 도와줍니다." data-guide-en="JSON copied from an API response or a log is usually minified into a single line, making the structure hard to see. A JSON formatter expands it with indentation and repairs the common mistakes above where possible, helping you locate the error faster." data-guide-ja="APIレスポンスやログからコピーしたJSONはほとんどの場合1行に圧縮されており、構造を目で把握するのが困難です。JSONフォーマッターはこれをインデント付きで展開し、上で説明した間違いを可能な範囲で自動的に補正して、エラーの位置をより早く見つけられるようにします。" data-guide-zh="从 API 响应或日志中复制的 JSON 通常被压缩成一行，很难用肉眼看清结构。JSON 格式化工具会为其添加缩进展开显示，并尽可能自动修复上述常见错误，帮助你更快找到出错的位置。">API 응답이나 로그에서 복사한 JSON은 대부분 한 줄로 압축되어 있어 구조를 눈으로 파악하기 어렵습니다. JSON 포맷터는 이를 들여쓰기와 함께 펼쳐 보여주고, 위에서 설명한 실수들을 가능한 범위에서 자동으로 보정해 오류 위치를 더 빠르게 찾을 수 있게 도와줍니다.</p>
+          </article>
+          <h2 class="guide-faq-title" data-guide-i18n data-guide-ko="자주 묻는 질문" data-guide-en="Frequently asked questions" data-guide-ja="よくある質問" data-guide-zh="常见问题">자주 묻는 질문</h2>
+          <div class="guide-grid guide-faq">
+            <article>
+              <h3 data-guide-i18n data-guide-ko="JSON과 자바스크립트 객체는 같은 건가요?" data-guide-en="Are JSON and a JavaScript object the same thing?" data-guide-ja="JSONとJavaScriptオブジェクトは同じものですか？" data-guide-zh="JSON 和 JavaScript 对象是一回事吗？">JSON과 자바스크립트 객체는 같은 건가요?</h3>
+              <p data-guide-i18n data-guide-ko="비슷해 보이지만 다릅니다. JSON은 언어에 독립적인 텍스트 형식으로 키를 반드시 큰따옴표로 감싸야 하고 함수나 주석을 담을 수 없는 반면, 자바스크립트 객체 리터럴은 따옴표 없는 키, 함수, 주석까지 허용하는 더 유연한 문법입니다." data-guide-en="They look similar but aren't the same. JSON is a language-independent text format that requires double-quoted keys and can't hold functions or comments, while a JavaScript object literal is more flexible, allowing unquoted keys, functions, and comments." data-guide-ja="似ていますが異なります。JSONは言語に依存しないテキスト形式で、キーは必ず二重引用符で囲む必要があり、関数やコメントを含めることはできません。一方、JavaScriptのオブジェクトリテラルは引用符なしのキー、関数、コメントまで許容する、より柔軟な構文です。" data-guide-zh="看起来相似，但并不相同。JSON 是一种与语言无关的文本格式，键必须用双引号包裹，且不能包含函数或注释；而 JavaScript 对象字面量语法更灵活，允许无引号的键、函数甚至注释。">비슷해 보이지만 다릅니다. JSON은 언어에 독립적인 텍스트 형식으로 키를 반드시 큰따옴표로 감싸야 하고 함수나 주석을 담을 수 없는 반면, 자바스크립트 객체 리터럴은 따옴표 없는 키, 함수, 주석까지 허용하는 더 유연한 문법입니다.</p>
+            </article>
+            <article>
+              <h3 data-guide-i18n data-guide-ko="JSON에 주석을 넣을 수 있나요?" data-guide-en="Can I add comments inside JSON?" data-guide-ja="JSONにコメントを入れられますか？" data-guide-zh="JSON 中可以写注释吗？">JSON에 주석을 넣을 수 있나요?</h3>
+              <p data-guide-i18n data-guide-ko="아니요. 표준 JSON 사양은 주석을 지원하지 않으며 대부분의 파서는 주석이 있으면 오류를 냅니다. 설명이 필요하다면 별도의 키를 추가하거나 문서에 따로 남기는 편이 안전합니다." data-guide-en="No. Standard JSON does not support comments, and most parsers will throw an error if one is present. If you need to explain something, add a separate key or note it in documentation instead." data-guide-ja="いいえ。標準のJSON仕様はコメントをサポートしておらず、ほとんどのパーサーはコメントがあるとエラーになります。説明が必要な場合は、別のキーを追加するかドキュメントに記載する方が安全です。" data-guide-zh="不可以。标准 JSON 规范不支持注释，大多数解析器遇到注释都会报错。如果需要说明，建议改用单独的键，或写在文档中。">아니요. 표준 JSON 사양은 주석을 지원하지 않으며 대부분의 파서는 주석이 있으면 오류를 냅니다. 설명이 필요하다면 별도의 키를 추가하거나 문서에 따로 남기는 편이 안전합니다.</p>
+            </article>
+          </div>
+          <p class="guide-related-link"><a href="../../tools/converter/json-formatter/" data-guide-i18n data-guide-ko="JSON 포맷터로 직접 확인해보기" data-guide-en="Try it yourself in the JSON formatter" data-guide-ja="JSONフォーマッターで実際に確認する" data-guide-zh="在 JSON 格式化工具中亲自试试">JSON 포맷터로 직접 확인해보기</a></p>
+        </div>
+<!-- ARTICLE_END -->
+      </section>
+      <aside class="ad-slot" aria-label="광고 영역"><span>Advertisement</span></aside>
+    </main>
+    <footer class="site-footer">
+      <nav class="footer-links" aria-label="사이트 정보">
+        <a href="../../about.html">소개</a>
+        <a href="../../guides/">가이드</a>
+        <a href="../../contact.html">문의</a>
+        <a href="../../privacy.html">개인정보처리방침</a>
+      </nav>
+      <span>All tools run in your browser.</span>
+    </footer>
+    <script type="application/ld+json">[{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"JSON과 자바스크립트 객체는 같은 건가요?","acceptedAnswer":{"@type":"Answer","text":"비슷해 보이지만 다릅니다. JSON은 언어에 독립적인 텍스트 형식으로 키를 반드시 큰따옴표로 감싸야 하고 함수나 주석을 담을 수 없는 반면, 자바스크립트 객체 리터럴은 따옴표 없는 키, 함수, 주석까지 허용하는 더 유연한 문법입니다."}},{"@type":"Question","name":"JSON에 주석을 넣을 수 있나요?","acceptedAnswer":{"@type":"Answer","text":"아니요. 표준 JSON 사양은 주석을 지원하지 않으며 대부분의 파서는 주석이 있으면 오류를 냅니다. 설명이 필요하다면 별도의 키를 추가하거나 문서에 따로 남기는 편이 안전합니다."}}]}]</script>
+  </body>
+</html>
